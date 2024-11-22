@@ -1,0 +1,43 @@
+/* src/styles/Navbar.module.css */
+.navbar {
+    background-color: #fff;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  @media (prefers-color-scheme: dark) {
+    .navbar {
+      --background-color: #0a0a0a;
+    }
+    .navItem a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+      }
+  }
+  
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin: 0 1.5rem;
+  }
+  
+  .navItem a {
+    color: #0a0a0a;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .navItem a:hover {
+    color: #f0a500; /* Change color on hover */
+  }

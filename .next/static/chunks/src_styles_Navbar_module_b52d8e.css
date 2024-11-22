@@ -1,0 +1,47 @@
+/* [project]/src/styles/Navbar.module.css [app-client] (css) */
+.Navbar-module__P48_Aa__navbar {
+  background-color: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .Navbar-module__P48_Aa__navbar {
+    --background-color: #0a0a0a;
+  }
+
+  .Navbar-module__P48_Aa__navItem a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color .3s;
+  }
+}
+
+.Navbar-module__P48_Aa__navLinks {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Navbar-module__P48_Aa__navItem {
+  margin: 0 1.5rem;
+}
+
+.Navbar-module__P48_Aa__navItem a {
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color .3s;
+}
+
+.Navbar-module__P48_Aa__navItem a:hover {
+  color: #f0a500;
+}
+
+/*# sourceMappingURL=src_styles_Navbar_module_b52d8e.css.map*/
