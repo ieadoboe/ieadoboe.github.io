@@ -23,7 +23,8 @@ body {
 }
 
 /* Optional: Apply Geist Mono for code blocks */
-code, pre {
+code,
+pre {
   font-family: var(--font-geist-mono), monospace;
 }
 

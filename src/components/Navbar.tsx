@@ -1,6 +1,6 @@
 // src/components/Navbar.tsx
-import Link from 'next/link';
-import styles from '@/styles/Navbar.module.css'; // We'll add some styles for the navbar
+import Link from "next/link";
+import styles from "@/styles/Navbar.module.css"; // We'll add some styles for the navbar
 
 const Navbar = () => {
   return (

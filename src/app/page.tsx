@@ -2,17 +2,19 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
+        {/* <Image
           className="dark:invert"
           src="/next.svg"
           alt="Next.js logo"
           width={180}
           height={38}
           priority
-        />
+        /> */}
+
+        
+
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}
@@ -22,6 +24,50 @@ export default function Home() {
             .
           </li>
           <li>Save and see your changes instantly.</li>
+          <div className="p-8 rounded-lg shadow-lg space-y-8 w-full max-w-2xl">
+          {/* What I Do Section */}
+          <div>
+            <pre className="uppercase font-bold text-gray-800 mb-4">
+              What I Do
+            </pre>
+            <p className="text-gray-700 leading-relaxed">
+              I specialize in analyzing data to uncover actionable insights,
+              identify trends, and make data-driven predictions that empower
+              businesses to make informed decisions. Whether optimizing
+              operations, improving customer experiences, or driving efficiency,
+              my expertise bridges the gap between raw data and strategic
+              solutions.
+            </p>
+          </div>
+
+          {/* How I Do It Section */}
+          <div>
+            <pre className="uppercase font-bold text-gray-800 mb-4">
+              How I Do It
+            </pre>
+            <p className="text-gray-700 leading-relaxed">
+              My approach is rooted in using advanced data analytics tools such
+              as Python, SQL, and machine learning algorithms to clean,
+              interpret, and visualize complex datasets. Additionally, I develop
+              intuitive dashboards using Power BI to help stakeholders easily
+              understand data insights and make quick, effective decisions.
+            </p>
+          </div>
+
+          {/* Why I Do It Section */}
+          <div>
+            <pre className="uppercase font-bold text-gray-800 mb-4">
+              Why I Do It
+            </pre>
+            <p className="text-gray-700 leading-relaxed">
+              I am passionate about solving problems and providing businesses
+              with a deeper understanding of their data. By translating raw data
+              into meaningful insights, I aim to create value and drive
+              innovation, supporting companies in making smarter decisions and
+              achieving measurable outcomes.
+            </p>
+          </div>
+        </div>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
@@ -38,7 +84,7 @@ export default function Home() {
               width={20}
               height={20}
             />
-            Deploy now
+            View my works
           </a>
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
@@ -46,10 +92,14 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs
+            Read my articles
           </a>
         </div>
+
+        
+
       </main>
+
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -64,7 +114,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Learn
+          Resume
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -79,7 +129,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Examples
+          LinkedIn
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -94,7 +144,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to nextjs.org →
+          Email me →
         </a>
       </footer>
     </div>
