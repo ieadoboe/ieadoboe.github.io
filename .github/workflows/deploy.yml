@@ -30,4 +30,3 @@ jobs:
         with:
           folder: out
           personal_token: ${{ secrets.GH_TOKEN }}
-
