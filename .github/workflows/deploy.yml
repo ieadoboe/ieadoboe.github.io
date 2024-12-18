@@ -3,41 +3,30 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # This triggers the workflow when changes are pushed to the 'main' branch
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout the code from the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Set up Node.js (Choose the appropriate version)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # You can adjust this to the version you need
+          node-version: '18.x'  # Set this to a compatible Node.js version (18.x, 19.x, or >=20.x)
 
-      # Install dependencies using npm
       - name: Install dependencies
         run: |
           npm install
 
-      # Build the Next.js app
-      - name: Build Next.js app
+      - name: Build and export the site
         run: |
           npm run build
-
-      # Export the Next.js app as static content
-      - name: Export Next.js app
-        run: |
           npm run export
 
-      # Deploy the 'out' folder to GitHub Pages using peaceiris actions-gh-pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # This specifies the folder with the static files to deploy
+          folder: out
