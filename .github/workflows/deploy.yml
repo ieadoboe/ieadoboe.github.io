@@ -15,16 +15,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'  # Set this to a compatible Node.js version (18.x, 19.x, or >=20.x)
+          node-version: '23.3.0'
 
       - name: Install dependencies
         run: |
           npm install
 
-      - name: Build and export the site
+      - name: Build the project
         run: |
           npm run build
-          npm run export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
