@@ -30,6 +30,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
+              <Link href={"/"}>home</Link>
+            </li>
+            <li>
               <Link href={"/projects"}>projects</Link>
             </li>
             <li>
@@ -72,25 +75,22 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 pt-2 space-x-4">
+        <ul className="menu menu-horizontal px-1 pt-2 space-x-4 text-base">
           <li>
-            <Link href={"/projects"} className="font-bold">
-              projects
-            </Link>
+            <Link href={"/"}>home</Link>
           </li>
           <li>
-            <Link href={"/blog"} className="font-bold">
-              blog
-            </Link>
+            <Link href={"/projects"}>projects</Link>
           </li>
           <li>
-            <Link href={"/learn"} className="font-bold">
-              learn
-            </Link>
+            <Link href={"/blog"}>blog</Link>
+          </li>
+          <li>
+            <Link href={"/learn"}>learn</Link>
           </li>
           <li>
             <details>
-              <summary className="font-bold">about</summary>
+              <summary>about</summary>
               <ul className="p-2">
                 <li>
                   <Link href={"/story"}>my story</Link>
