@@ -45,9 +45,10 @@ const ProjectsPage = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
               lacinia, purus nec ultrices volutpat, libero odio scelerisque
               turpis, nec tempus odio nunc non libero. Donec auctor, magna nec
-              varius ultricies, nunc sapien sollicitudin purus, nec ultricies</p>
-              </div>
-              </div>
+              varius ultricies, nunc sapien sollicitudin purus, nec ultricies
+            </p>
+          </div>
+        </div>
       </div>
       <Footer />
       <div className="flex justify-center">“If—” by Rudyard Kipling</div>
