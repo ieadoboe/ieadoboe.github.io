@@ -51,7 +51,9 @@ const ProjectsPage = () => {
         </div>
       </div>
       <Footer />
-      <div className="flex justify-center">“If—” by Rudyard Kipling</div>
+      <div className="flex justify-center">
+        &quot;If&quot;— by Rudyard Kipling
+      </div>
     </div>
   );
 };

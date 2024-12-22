@@ -23,7 +23,7 @@ export default function Home() {
       </div>
       <Footer />
       <div className="flex justify-center">
-        "Do not go gentle into that good night" - Dylan Thomas
+        &quot;Do not go gentle into that good night&quot; - Dylan Thomas
       </div>
     </div>
   );
