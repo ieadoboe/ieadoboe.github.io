@@ -1,20 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        
-        <div className="text-sm text-center">
+    <div className="font-[family-name:var(--font-geist-sans)] min-h-screen flex flex-col  pb-20 sm:px-10">
+      <Navbar />
+      <div className="min-h-[70vh] flex flex-col items-center justify-center gap-8 text-center px-4">
+        <div className="text-sm sm:text-base max-w-[30rem]">
           <p>
-          Transforming data into insights: Data Scientist, Analyst and Innovator
+            Hey there! 👋 I’m Isaac, a Data Scientist, Analyst, and Innovator,
+            passionate about transforming data into actionable insights 📊. I
+            thrive on sharing knowledge—whether it’s through writing about data
+            science or teaching others to unlock its potential 🔍✨.
           </p>
         </div>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <div className="flex gap-4 sm:gap-8 flex-col sm:flex-row">
           <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
             href="/projects"
           >
             View my projects
@@ -26,53 +30,8 @@ export default function Home() {
             Read my blog
           </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://www.linkedin.com/in/isaacedemadoboe/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="window icon"
-            width={16}
-            height={16}
-          />
-          LinkedIn
-        </a>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/learn"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn data science
-        </Link>
-
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="mailto:ikeadoboe1@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Get in touch →
-        </a>
-      </footer>
+      </div>
+      <Footer />
     </div>
   );
 }
