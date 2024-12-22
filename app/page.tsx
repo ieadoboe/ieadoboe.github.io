@@ -1,6 +1,7 @@
-import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SecondaryButton from "./components/SecondaryButton";
+import PrimaryButton from "./components/PrimaryButton";
 
 export default function Home() {
   return (
@@ -16,21 +17,14 @@ export default function Home() {
           </p>
         </div>
         <div className="flex gap-4 sm:gap-8 flex-col sm:flex-row">
-          <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="/projects"
-          >
-            View my projects
-          </Link>
-          <Link
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="/blog"
-          >
-            Read my blog
-          </Link>
+          <PrimaryButton href="/projects" text="View my projects" />
+          <SecondaryButton href="/blog" text="Read my blog" />
         </div>
       </div>
       <Footer />
+      <div className="flex justify-center">
+        "Do not go gentle into that good night" - Dylan Thomas
+      </div>
     </div>
   );
 }
