@@ -1,58 +1,41 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ProjectsList from "../components/ProjectsList";
 
 const ProjectsPage = () => {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] min-h-screen flex flex-col  pb-20 sm:px-10">
-      <Navbar />
-      <div className="min-h-[70vh]">
-        <p className="text-2xl font-bold text-center">Projects</p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="bg-background p-4 rounded-lg shadow-md">
-            <p className="font-bold">Project 1</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              lacinia, purus nec ultrices volutpat, libero odio scelerisque
-              turpis, nec tempus odio nunc non libero. Donec auctor, magna nec
-              varius ultricies, nunc sapien sollicitudin purus, nec ultricies
-              justo nunc a nisl.
-            </p>
-          </div>
-          <div className="bg-background p-4 rounded-lg shadow-md">
-            <p className="font-bold">Project 2</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              lacinia, purus nec ultrices volutpat, libero odio scelerisque
-              turpis, nec tempus odio nunc non libero. Donec auctor, magna nec
-              varius ultricies, nunc sapien sollicitudin purus, nec ultricies
-              justo nunc a nisl.
-            </p>
-          </div>
-          <div className="bg-background p-4 rounded-lg shadow-md">
-            <p className="font-bold">Project 3</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              lacinia, purus nec ultrices volutpat, libero odio scelerisque
-              turpis, nec tempus odio nunc non libero. Donec auctor, magna nec
-              varius ultricies, nunc sapien sollicitudin purus, nec ultricies
-              justo nunc a nisl.
-            </p>
-          </div>
-          <div className="bg-background p-4 rounded-lg shadow-md">
-            <p className="font-bold">Project 4</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-              lacinia, purus nec ultrices volutpat, libero odio scelerisque
-              turpis, nec tempus odio nunc non libero. Donec auctor, magna nec
-              varius ultricies, nunc sapien sollicitudin purus, nec ultricies
-            </p>
-          </div>
+    <div className="w-full flex min-h-screen">
+      <div className="relative flex w-full flex-col">
+        <div>
+          <Navbar />
         </div>
-      </div>
-      <Footer />
-      <div className="flex justify-center">
-        &quot;If&quot;— by Rudyard Kipling
+        <main className="flex-auto">
+          <div className="sm:px-8 mt-16 sm:mt-32">
+            <div className="mx-auto w-full max-w-7xl lg:px-8">
+              <div className="relative px-4 sm:px-8 lg:px-12">
+                <div className="mx-auto max-w-2xl lg:max-w-5xl">
+                  <header className="max-w-2xl">
+                    <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                      Projects that aim to understand and shape the impact on
+                      individuals and society.
+                    </h1>
+                    <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
+                      Digging into data like a DJ spins records — blending stats
+                      and machine learning to see how they groove with real
+                      lives and shape the future. It’s all about turning numbers
+                      into a beat that moves us forward through one question: What does the data say?
+                    </p>
+                  </header>
+                  <div className="mt-16 sm:mt-20">
+                    <ProjectsList />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
       </div>
     </div>
   );

@@ -1,56 +1,52 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
     <div>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center pb-10">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://www.linkedin.com/in/isaacedemadoboe/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="window icon"
-            width={16}
-            height={16}
-          />
-          LinkedIn
-        </a>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/learn"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn data science
-        </Link>
-
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="mailto:ikeadoboe1@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Get in touch →
-        </a>
-      </footer>
+      <div className="mt-32 flex-none">
+        <div className="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+          <div className="relative px-4 sm:px-8 lg:px-12">
+            <div className="mx-auto max-w-2xl lg:max-w-5xl">
+              <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                  <Link
+                    key="about"
+                    href="/about"
+                    className="transition hover:text-teal-500 dark:hover:text-teal-400"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    key="projects"
+                    href="/projects"
+                    className="transition hover:text-teal-500 dark:hover:text-teal-400"
+                  >
+                    Projects
+                  </Link>
+                  <Link
+                    key="blog"
+                    href="/blog"
+                    className="transition hover:text-teal-500 dark:hover:text-teal-400"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    key="products"
+                    href="/products"
+                    className="transition hover:text-teal-500 dark:hover:text-teal-400"
+                  >
+                    Products
+                  </Link>
+                </div>
+                <p className="text-sm text-zinc-400 dark:text-zinc-500">
+                  © 2025 Isaac Adoboe. All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

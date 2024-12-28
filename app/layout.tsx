@@ -1,19 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Portfolio | Isaac Adoboe",
+  title: "Isaac Adoboe - Data Scientist, Analyst and Innovator",
   description: "Data Scientist, Analyst and Innovator",
 };
 
@@ -25,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
       >
         {children}
       </body>
