@@ -20,13 +20,14 @@ export default function Home() {
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
                 <div className="max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                  Data scientist, hobbyist photographer, and full-time overthinker. 🤔
+                    Data scientist, hobbyist chef, and part-time overthinker. 🤔
                   </h1>
                   <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                    Hey there! I’m Isaac, a Data Scientist, and life-student,
-                    passionate about transforming data into actionable insights. I thrive on sharing knowledge—whether it’s through
-                    writing about data science or teaching others to unlock its
-                    potential.
+                    Hey there! I’m Isaac—a data scientist and perpetual learner
+                    with a passion for transforming complexity into clarity. I
+                    thrive on uncovering actionable insights from data,
+                    empowering businesses and individuals to make informed
+                    decisions.
                   </p>
                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
                     <PrimaryButton href="/projects" text="View my projects" />
@@ -36,7 +37,7 @@ export default function Home() {
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on X"
-                      href="#"
+                      href="https://x.com/beezy_AIE"
                     >
                       <svg
                         viewBox="0 0 24 24"
@@ -49,7 +50,7 @@ export default function Home() {
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on GitHub"
-                      href="#"
+                      href="https://github.com/ieadoboe"
                     >
                       <svg
                         viewBox="0 0 24 24"
@@ -62,7 +63,7 @@ export default function Home() {
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on LinkedIn"
-                      href="#"
+                      href="www.linkedin.com/in/isaacedemadoboe"
                     >
                       <svg
                         viewBox="0 0 24 24"

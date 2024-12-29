@@ -15,10 +15,9 @@ const ProjectsPage = () => {
             <div className="mx-auto w-full max-w-7xl lg:px-8">
               <div className="relative px-4 sm:px-8 lg:px-12">
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
-                  <header className="max-w-2xl">
+                  <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Projects that aim to understand and shape the impact on
-                      individuals and society.
+                    Understanding and shaping the future of individuals and society.
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
                       Digging into data like a DJ spins records — blending stats

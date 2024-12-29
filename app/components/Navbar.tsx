@@ -1,14 +1,17 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import logoLight from "../../public/logoN.svg";
-import logoDark from "../../public/logoDark.svg";
+// import Image from "next/image";
+// import logoLight from "../../public/logoLight.svg";
+// import logoDark from "../../public/logoDark.svg";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   // Handle outside clicks
   useEffect(() => {
@@ -46,73 +49,60 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  const isActive = (path: string) => pathname === path;
+
   return (
     <div className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b  lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 ">
-      <div className="max-w-screen-xl mx-auto w-full px-4 sm:px-8 lg:px-16">
+      <div className=" max-w-screen-xl mx-auto w-full px-4 sm:px-8 lg:px-16">
         <div className="px-2 py-4 sm:px-8">
           <div className="flex justify-between items-center">
             {/* Navbar Start */}
             <div className="flex items-center">
               {/* Logo */}
               <Link href="/" className="flex items-center">
-                <Image
+                {/* <Image
                   src={logoLight}
                   width={170}
                   height={43}
                   alt="Logo"
                   className="dark:hidden"
-                />
-                <Image
+                /> */}
+                {/* <Image
                   src={logoDark}
                   width={156}
                   height={27}
                   alt="Logo"
                   className="hidden dark:block"
-                />
+                /> */}
+                <p className="text-3xl tracking-tighter text-zinc-900 dark:text-zinc-100">
+                  Isaac
+                  <strong>
+                    <em className="font-extrabold">Adoboe</em>
+                  </strong>
+                </p>
               </Link>
             </div>
 
             {/* Navbar Center (Desktop Menu) */}
             <div className="hidden md:flex items-center rounded-full shadow-md bg-zinc-0 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
               <ul className="flex space-x-6 text-sm">
-                <li className="relative">
-                  <details className="group">
-                    <summary className="font-semibold cursor-pointer rounded-full hover:text-teal-500 focus:outline-none transition">
-                      About
-                    </summary>
-                    <ul className="hidden group-open:block mt-4 p-2 space-y-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-lg absolute left-0 w-40">
-                      <li>
-                        <Link
-                          href="/story"
-                          className="block px-4 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                        >
-                          My Story
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/spotify"
-                          className="block px-4 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                        >
-                          Spotify
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/products"
-                          className="block px-4 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                        >
-                          Products
-                        </Link>
-                      </li>
-                    </ul>
-                  </details>
+                <li>
+                  <Link
+                    href="/"
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                      isActive("/") ? "text-teal-500" : ""
+                    }`}
+                  >
+                    Home
+                  </Link>
                 </li>
 
                 <li>
                   <Link
                     href="/blog"
-                    className="font-semibold rounded-full hover:text-teal-500 transition"
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                      isActive("/blog") ? "text-teal-500" : ""
+                    }`}
                   >
                     Articles
                   </Link>
@@ -120,7 +110,9 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/projects"
-                    className="font-semibold rounded-full hover:text-teal-500 transition"
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                      isActive("/projects") ? "text-teal-500" : ""
+                    }`}
                   >
                     Projects
                   </Link>
@@ -128,10 +120,48 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/learn"
-                    className="font-semibold rounded-full hover:text-teal-500 transition"
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                      isActive("/learn") ? "text-teal-500" : ""
+                    }`}
                   >
                     Learn
                   </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                      isActive("/about") ? "text-teal-500" : ""
+                    }`}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className="relative">
+                  <Popover>
+                    <PopoverButton className="font-semibold hover:text-teal-500 transition">
+                      More
+                    </PopoverButton>
+                    <PopoverPanel
+                      transition
+                      className="absolute z-10 mt-4 w-38 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg bg-white dark:bg-zinc-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    >
+                      <div className="p-1">
+                        <Link
+                          href="#"
+                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        >
+                          Products
+                        </Link>
+                        <Link
+                          href="#"
+                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        >
+                          Spotify
+                        </Link>
+                      </div>
+                    </PopoverPanel>
+                  </Popover>
                 </li>
               </ul>
             </div>
@@ -140,7 +170,9 @@ const Navbar = () => {
             <div className="hidden md:flex">
               <Link
                 href="/contact"
-                className="font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition"
+                className={`font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition ${
+                  isActive("/contact") ? "text-teal-500" : ""
+                }`}
               >
                 Contact
               </Link>
@@ -174,7 +206,7 @@ const Navbar = () => {
 
       {/* Mobile Menu (Conditional Rendering) */}
       <div
-        className={`lg:hidden absolute inset-0 z-40 bg-teal-800 p-4 h-fit transition-transform transform hidden`}
+        className={`lg:hidden absolute inset-0 z-40 bg-teal-800 px-7 py-5 h-fit transition-transform transform hidden`}
         ref={menuRef}
         style={{ display: isMenuOpen ? "block" : "none" }}
       >
@@ -203,7 +235,9 @@ const Navbar = () => {
           <li>
             <Link
               href="/about"
-              className="block text-2xl font-bold text-zinc-100 hover:text-teal-500"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/about") ? "text-teal-500" : ""
+              }`}
             >
               About
             </Link>
@@ -211,7 +245,9 @@ const Navbar = () => {
           <li>
             <Link
               href="/blog"
-              className="block text-2xl font-bold text-zinc-100 hover:text-teal-500"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/blog") ? "text-teal-500" : ""
+              }`}
             >
               Articles
             </Link>
@@ -219,7 +255,9 @@ const Navbar = () => {
           <li>
             <Link
               href="/projects"
-              className="block text-2xl font-bold text-zinc-100 hover:text-teal-500"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/projects") ? "text-teal-500" : ""
+              }`}
             >
               Projects
             </Link>
@@ -227,7 +265,9 @@ const Navbar = () => {
           <li>
             <Link
               href="/learn"
-              className="block text-2xl font-bold text-zinc-100 hover:text-teal-500"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/learn") ? "text-teal-500" : ""
+              }`}
             >
               Learn
             </Link>
@@ -235,7 +275,9 @@ const Navbar = () => {
           <li>
             <Link
               href="/contact"
-              className="block text-2xl font-bold text-zinc-100 hover:text-teal-500"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/contact") ? "text-teal-500" : ""
+              }`}
             >
               Contact
             </Link>
