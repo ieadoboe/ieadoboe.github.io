@@ -1,42 +1,45 @@
 import React from "react";
+import Image from "next/image";
 
 const ProjectsList = () => {
   const projects = [
     {
-      name: "Planetaria",
+      name: "Machine Fault Detection",
       description:
         "Creating technology to empower civilians to explore space on their own terms.",
-      cover_image:
-        "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Azure-Cache-for-Redis-Summary_tbmnl_en-us?scl=1",
+      cover_image: "https://dam-assets.fluke.com/s3fs-public/F-805_12a_c.jpg",
       link: "http://planetaria.tech",
-      githubLink: "https://github.com/planetaria",
+      githubLink: "GitHub",
       date: "2024 - Present",
     },
     {
-      name: "Animaginary",
+      name: "Heart Disease Prediction",
       description:
         "High performance web animation library, hand-written in optimized WASM.",
-      cover_image: "/_next/static/media/animaginary.8d221e52.svg",
+      cover_image:
+        "https://images.ctfassets.net/ut7rzv8yehpf/1DhC3uX3EeKnjU02LWyTXH/9c82e6ae82662ed5903eafb40d888d90/8_Main_Types_of_Heart_Disease.jpg?w=1800&h=900&fl=progressive&q=50&fm=jpg",
       link: "#",
-      githubLink: "https://github.com/animaginary",
+      githubLink: "GitHub",
       date: "2023 - Present",
     },
     {
-      name: "HelioStream",
+      name: "Fuel Efficiency Prediction",
       description:
         "Real-time video streaming library, optimized for interstellar transmission.",
-      cover_image: "/_next/static/media/helio-stream.2ac8d11f.svg",
+      cover_image:
+        "https://kenganleybuyingcenterboardman.com/wp-content/uploads/fuel-saving-driving-tips-16466479091.jpg",
       link: "#",
-      githubLink: "https://github.com/heliostream",
+      githubLink: "GitHub",
       date: "2022 - Present",
     },
     {
-      name: "cosmOS",
+      name: "Los Angeles Airbnb Listings",
       description:
         "The operating system that powers our Planetaria space shuttles.",
-      cover_image: "/_next/static/media/cosmos.c70b0295.svg",
+      cover_image:
+        "https://media.architecturaldigest.com/photos/5fdba5629542eda0bedf1080/master/pass/60d85131-b43f-4edb-8051-28c0e6bd377a.jpg",
       link: "#",
-      githubLink: "https://github.com/cosmos",
+      githubLink: "GitHub",
       date: "2021 - Present",
     },
   ];
@@ -49,13 +52,21 @@ const ProjectsList = () => {
       {projects.map((project, index) => (
         <li key={index} className="group relative flex flex-col items-start">
           <div className="relative z-10 flex items-center justify-center h-[12rem] w-full overflow-hidden rounded-lg bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-            <img
+            {/* <img
               alt={project.name}
               loading="lazy"
               decoding="async"
               className="object-cover object-center w-full h-full"
               src={project.cover_image}
               style={{ color: "transparent" }}
+            /> */}
+            <Image
+              alt={project.name}
+              src={project.cover_image}
+              layout="fill" // For fully covering a container
+              objectFit="cover" // Maintains aspect ratio and ensures the image fills the container
+              objectPosition="center" // Centers the image within the container
+              priority={false} // Use this for lazy loading
             />
           </div>
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">

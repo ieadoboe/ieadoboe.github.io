@@ -139,23 +139,23 @@ const Navbar = () => {
                 </li>
                 <li className="relative">
                   <Popover>
-                    <PopoverButton className="font-semibold hover:text-teal-500 transition">
+                    <PopoverButton className="font-semibold hover:text-teal-500 transition focus:outline-none">
                       More
                     </PopoverButton>
                     <PopoverPanel
                       transition
-                      className="absolute z-10 mt-4 w-38 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg bg-white dark:bg-zinc-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      className="absolute z-10 mt-4 w-38 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg bg-white dark:bg-zinc-800 dark:border dark:border-zinc-700 ring-1 ring-black ring-opacity-5 focus:outline-none"
                     >
                       <div className="p-1">
                         <Link
                           href="#"
-                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition"
                         >
                           Products
                         </Link>
                         <Link
                           href="#"
-                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition"
                         >
                           Spotify
                         </Link>

@@ -20,14 +20,13 @@ const LearnPage = () => {
                       The simplified data science learning journey
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      I teach in ways i wished i was taught when i started
-                      learning data science. It's not that hard, really.
+                      {`I teach in ways i wished i was taught when i started
+                      learning data science. It's not that hard, really.`}
                     </p>
                   </header>
                   <div className="mt-16 sm:mt-20">
                     <LessonsList />
                   </div>
-                
                 </div>
               </div>
             </div>

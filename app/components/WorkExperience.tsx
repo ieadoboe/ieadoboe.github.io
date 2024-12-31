@@ -1,6 +1,37 @@
 import React from "react";
+import Image from "next/image";
 
 const WorkExperience = () => {
+  const experiences = [
+    {
+      company: "Newmont Corporation",
+      role: "Tech Portfolio Support",
+      date: "2022—2024",
+      logoSrc:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT27pE1X2C5wm5AtFGM1VzcXdLx_bdAL3Cqzw&s",
+    },
+    {
+      company: "Newmont Corporation",
+      role: "EUC Analyst",
+      date: "2021—2022",
+      logoSrc:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT27pE1X2C5wm5AtFGM1VzcXdLx_bdAL3Cqzw&s",
+    },
+    {
+      company: "Envision Digital ",
+      role: "Front-End Developer",
+      date: "2014—2019",
+      logoSrc: "/_next/static/media/airbnb.b4000690.svg",
+    },
+    {
+      company: "Volta River Authority",
+      role: "Electrical Engineer",
+      date: "2011—2014",
+      logoSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/VRA_Logo.png",
+    },
+  ];
+
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex items-center text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -25,47 +56,19 @@ const WorkExperience = () => {
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {[
-          {
-            company: "Newmont Corporation",
-            role: "Tech Portfolio Support",
-            date: "2022—2024",
-            logoSrc:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT27pE1X2C5wm5AtFGM1VzcXdLx_bdAL3Cqzw&s",
-          },
-          {
-            company: "Newmont Corporation",
-            role: "EUC Analyst",
-            date: "2021—2022",
-            logoSrc:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT27pE1X2C5wm5AtFGM1VzcXdLx_bdAL3Cqzw&s",
-          },
-          {
-            company: "Envision Digital ",
-            role: "Front-End Developer",
-            date: "2014—2019",
-            logoSrc: "/_next/static/media/airbnb.b4000690.svg",
-          },
-          {
-            company: "Volta River Authority",
-            role: "Electrical Engineer",
-            date: "2011—2014",
-            logoSrc:
-              "https://upload.wikimedia.org/wikipedia/commons/c/c1/VRA_Logo.png",
-          },
-        ].map((experience, index) => (
+        {experiences.map((experience, index) => (
           <li key={index} className="flex gap-4">
             <div
               style={{
-                backgroundColor: "white", // Set the background color to white
-                width: "32px", // Set the container width (same as image width)
-                height: "32px", // Set the container height (same as image height)
-                display: "inline-block", // Ensure it stays inline with other elements
-                overflow: "hidden", // Ensure the image does not overflow
+                backgroundColor: "white",
+                width: "32px",
+                height: "32px",
+                display: "inline-block",
+                overflow: "hidden",
               }}
               className="object-cover relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
             >
-              <img
+              {/* <img
                 alt={experience.company}
                 loading="lazy"
                 width="32"
@@ -74,9 +77,20 @@ const WorkExperience = () => {
                 className="h-7 w-7"
                 src={experience.logoSrc}
                 style={{
-                  objectFit: "cover", // Ensures the image covers the container while maintaining aspect ratio
-                  width: "100%", // Set the image width to 100% of the container
-                  height: "100%", // Set the image height to 100% of the container
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "100%",
+                }}
+              /> */}
+              <Image
+                alt={experience.company}
+                loading="lazy"
+                layout="intrinsic"
+                width={32}
+                height={32}
+                src={experience.logoSrc}
+                style={{
+                  objectFit: "cover",
                 }}
               />
             </div>
@@ -108,7 +122,9 @@ const WorkExperience = () => {
       </ol>
       <a
         className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
-        href="https://drive.google.com/file/d/10eDhioLAzP0r42rpYs7OBXRRBAUYq5IS/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+        href="https://drive.google.com/file/d/10eDhioLAzP0r42rpYs7OBXRRBAUYq5IS/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Download CV
         <svg
