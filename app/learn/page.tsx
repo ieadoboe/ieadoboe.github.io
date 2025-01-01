@@ -1,15 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import LessonsList from "../components/LessonsList";
 
 const LearnPage = () => {
   return (
     <div className="w-full flex min-h-screen">
       <div className="relative flex w-full flex-col">
-        <div>
-          <Navbar />
-        </div>
         <main className="flex-auto">
           <div className="sm:px-8 mt-16 sm:mt-32">
             <div className="mx-auto w-full max-w-7xl lg:px-8">
@@ -32,7 +27,6 @@ const LearnPage = () => {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
     </div>
   );

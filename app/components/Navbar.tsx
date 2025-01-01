@@ -52,7 +52,7 @@ const Navbar = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <div className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b  lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 ">
+    <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b  lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 ">
       <div className=" max-w-screen-xl mx-auto w-full px-4 sm:px-8 lg:px-16">
         <div className="px-2 py-4 sm:px-8">
           <div className="flex justify-between items-center">
