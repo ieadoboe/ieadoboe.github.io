@@ -2,10 +2,25 @@ import React from "react";
 import PostItem from "@/app/components/PostItem";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
+import QueryPagination from "../components/QueryPagination";
 
-export default async function BlogPage() {
+const POSTS_PER_PAGE = 5;
+
+interface BlogPageProps {
+  searchParams: {
+    page?: string;
+  };
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const currentPage = Number(searchParams.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
-  const displayPosts = sortedPosts;
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+  const displayPosts = sortedPosts.slice(
+    POSTS_PER_PAGE * (currentPage - 1),
+    POSTS_PER_PAGE * currentPage
+  );
 
   return (
     <div className="w-full flex min-h-screen">
@@ -17,8 +32,8 @@ export default async function BlogPage() {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Writing on data science, life, and the
-                      exciting world of innovation.
+                      Writing on data science, life, and the exciting world of
+                      innovation.
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
                       Dive deep into the data with me! All my ramblings on data
@@ -64,6 +79,7 @@ export default async function BlogPage() {
             </div>
           </div>
         </main>
+        <QueryPagination totalPages={totalPages} />
       </div>
     </div>
   );
