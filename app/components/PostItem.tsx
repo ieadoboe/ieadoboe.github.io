@@ -7,13 +7,26 @@ interface PostItemProps {
   title: string;
   date: string;
   description: string;
+  useGridLayout?: boolean; // New prop for layout control
 }
 
-const ArticleItem = ({ title, slug, date, description }: PostItemProps) => {
+const PostItem = ({
+  title,
+  slug,
+  date,
+  description,
+  useGridLayout = true, // Default to `true` to preserve current behavior
+}: PostItemProps) => {
   const formattedDate = formatDate(date);
 
   return (
-    <article className="md:grid md:grid-cols-4 md:items-baseline">
+    <article
+      className={`${
+        useGridLayout
+          ? "md:grid md:grid-cols-4 md:items-baseline"
+          : "flex flex-col"
+      }`}
+    >
       <div className="md:col-span-3 group relative flex flex-col items-start">
         <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
           <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"></div>
@@ -46,7 +59,9 @@ const ArticleItem = ({ title, slug, date, description }: PostItemProps) => {
         </div>
       </div>
       <time
-        className="mt-1 hidden md:flex relative z-10 order-first mb-3 items-center text-sm text-zinc-400 dark:text-zinc-500"
+        className={`${
+          useGridLayout ? "mt-1 hidden md:flex" : "mt-3 flex"
+        } relative z-10 order-first mb-3 items-center text-sm text-zinc-400 dark:text-zinc-500`}
         dateTime={date}
       >
         {formattedDate}
@@ -55,4 +70,4 @@ const ArticleItem = ({ title, slug, date, description }: PostItemProps) => {
   );
 };
 
-export default ArticleItem;
+export default PostItem;

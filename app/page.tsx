@@ -1,11 +1,15 @@
-import SecondaryButton from "./components/SecondaryButton";
 import PrimaryButton from "./components/PrimaryButton";
-// import ArticleCard from "./components/ArticleCard";
+import SecondaryButton from "./components/SecondaryButton";
+import LatestPostItem from "./components/LatestPostItem";
 import NewsletterForm from "./components/NewsletterForm";
 import WorkExperience from "./components/WorkExperience";
 import { Icons } from "./components/Icons";
+import { sortPosts } from "@/lib/utils";
+import { posts } from "#site/content";
+import { siteConfig } from "@/config/site";
 
 export default function Home() {
+  const latestPosts = sortPosts(posts).slice(0, 3);
   return (
     <div className="w-full flex min-h-screen">
       <div className="relative flex w-full flex-col">
@@ -33,21 +37,27 @@ export default function Home() {
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on X"
-                      href="https://x.com/beezy_AIE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={siteConfig.links.twitter}
                     >
                       <Icons.twitter />
                     </a>
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on GitHub"
-                      href="https://github.com/ieadoboe"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={siteConfig.links.github}
                     >
                       <Icons.github />
                     </a>
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on LinkedIn"
-                      href="www.linkedin.com/in/isaacedemadoboe"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={siteConfig.links.linkedin}
                     >
                       <Icons.linkedin />
                     </a>
@@ -61,26 +71,18 @@ export default function Home() {
               <div className="relative px-4 sm:px-8 lg:px-12">
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-                    <div className="flex flex-col gap-16">
-                      {/* <ArticleCard
-                        title="Crafting a design system for a multiplanetary future"
-                        date="2022-09-05"
-                        description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        link="/articles/crafting-a-design-system-for-a-multiplanetary-future"
-                      />
-                      <ArticleCard
-                        title="Crafting a design system for a multiplanetary future"
-                        date="2024-10-28"
-                        description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        link="/articles/crafting-a-design-system-for-a-multiplanetary-future"
-                      />
-                      <ArticleCard
-                        title="Crafting a design system for a multiplanetary future"
-                        date="2024-10-28"
-                        description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        link="/articles/crafting-a-design-system-for-a-multiplanetary-future"
-                      /> */}
-                    </div>
+                    <ul className="flex flex-col gap-16">
+                      {latestPosts.map((post) => (
+                        <li key={post.slug}>
+                          <LatestPostItem
+                            slug={post.slug}
+                            title={post.title}
+                            date={post.date}
+                            description={post.description ?? ""}
+                          />
+                        </li>
+                      ))}
+                    </ul>
                     <div className="space-y-10 lg:pl-16 xl:pl-24">
                       <NewsletterForm />
                       <WorkExperience />
