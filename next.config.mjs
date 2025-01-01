@@ -24,7 +24,12 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Disable cache for development mode
+      config.cache = false;
+    }
+
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
   },
