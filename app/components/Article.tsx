@@ -1,18 +1,15 @@
 import Link from "next/link";
+import { formatDate } from "../../lib/utils";
 
-type ArticleProps = {
-  title: string;
+interface ArticleProps {
   slug: string;
+  title: string;
   date: string;
-  excerpt: string;
-};
+  description: string;
+}
 
-const Article = ({ title, slug, date, excerpt }: ArticleProps) => {
-  const formattedDate = new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+const Article = ({ title, slug, date, description }: ArticleProps) => {
+  const formattedDate = formatDate(date);
 
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
@@ -37,7 +34,7 @@ const Article = ({ title, slug, date, excerpt }: ArticleProps) => {
           {formattedDate}
         </time>
         <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          {excerpt}
+          {description}
         </p>
         <div
           aria-hidden="true"

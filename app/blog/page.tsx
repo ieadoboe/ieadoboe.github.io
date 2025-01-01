@@ -1,7 +1,12 @@
 import React from "react";
 import Article from "../components/Article";
+import { posts } from "#site/content";
+import { sortPosts } from "@/lib/utils";
 
-const BlogPage = () => {
+export default async function BlogPage() {
+  const sortedPosts = sortPosts(posts.filter((post) => post.published));
+  const displayPosts = posts;
+
   return (
     <div className="w-full flex min-h-screen">
       <div className="relative flex w-full flex-col">
@@ -29,20 +34,39 @@ const BlogPage = () => {
                           title="Crafting a design system for a multiplanetary future"
                           slug="crafting-a-design-system-for-a-multiplanetary-future"
                           date="2022-09-05"
-                          excerpt="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
+                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
                         />
                         <Article
                           title="Crafting a design system for a multiplanetary future"
                           slug="crafting-a-design-system-for-a-multiplanetary-future"
                           date="2022-09-05"
-                          excerpt="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
+                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
                         />
                         <Article
                           title="Crafting a design system for a multiplanetary future"
                           slug="crafting-a-design-system-for-a-multiplanetary-future"
                           date="2022-09-05"
-                          excerpt="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
+                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
                         />
+                        {displayPosts?.length > 0 ? (
+                          <ul className="flex max-w-3xl flex-col space-y-16">
+                            {displayPosts.map((post) => {
+                              const { slug, title, date, description } = post;
+                              return (
+                                <li key={slug}>
+                                  <Article
+                                    slug={slug}
+                                    date={date}
+                                    title={title}
+                                    description={description}
+                                  />
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : (
+                          <p>No posts found</p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -54,6 +78,4 @@ const BlogPage = () => {
       </div>
     </div>
   );
-};
-
-export default BlogPage;
+}

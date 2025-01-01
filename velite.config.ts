@@ -1,5 +1,5 @@
 // Define a collection of posts with a schema
-import { defaultConfig, defineCollection, s } from "velite";
+import { defineConfig, defineCollection, s } from "velite";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -21,7 +21,7 @@ const posts = defineCollection({
     .transform(computedFields),
 });
 
-export default defaultConfig({
+export default defineConfig({
   root: "content",
   output: {
     data: ".velite",

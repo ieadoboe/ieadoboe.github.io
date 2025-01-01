@@ -1,6 +1,6 @@
 import SecondaryButton from "./components/SecondaryButton";
 import PrimaryButton from "./components/PrimaryButton";
-import ArticleCard from "./components/ArticleCard";
+// import ArticleCard from "./components/ArticleCard";
 import NewsletterForm from "./components/NewsletterForm";
 import WorkExperience from "./components/WorkExperience";
 import { Icons } from "./components/Icons";
@@ -62,7 +62,7 @@ export default function Home() {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">
-                      <ArticleCard
+                      {/* <ArticleCard
                         title="Crafting a design system for a multiplanetary future"
                         date="2022-09-05"
                         description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
@@ -79,7 +79,7 @@ export default function Home() {
                         date="2024-10-28"
                         description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
                         link="/articles/crafting-a-design-system-for-a-multiplanetary-future"
-                      />
+                      /> */}
                     </div>
                     <div className="space-y-10 lg:pl-16 xl:pl-24">
                       <NewsletterForm />
