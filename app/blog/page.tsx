@@ -1,11 +1,11 @@
 import React from "react";
-import Article from "../components/Article";
+import Article from "../components/ArticleItem";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 
 export default async function BlogPage() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
-  const displayPosts = posts;
+  const displayPosts = sortedPosts;
 
   return (
     <div className="w-full flex min-h-screen">
@@ -30,24 +30,6 @@ export default async function BlogPage() {
                   <div className="mt-16 sm:mt-20">
                     <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
                       <div className="flex max-w-3xl flex-col space-y-16">
-                        <Article
-                          title="Crafting a design system for a multiplanetary future"
-                          slug="crafting-a-design-system-for-a-multiplanetary-future"
-                          date="2022-09-05"
-                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        />
-                        <Article
-                          title="Crafting a design system for a multiplanetary future"
-                          slug="crafting-a-design-system-for-a-multiplanetary-future"
-                          date="2022-09-05"
-                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        />
-                        <Article
-                          title="Crafting a design system for a multiplanetary future"
-                          slug="crafting-a-design-system-for-a-multiplanetary-future"
-                          date="2022-09-05"
-                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        />
                         {displayPosts?.length > 0 ? (
                           <ul className="flex max-w-3xl flex-col space-y-16">
                             {displayPosts.map((post) => {
@@ -58,7 +40,7 @@ export default async function BlogPage() {
                                     slug={slug}
                                     date={date}
                                     title={title}
-                                    description={description}
+                                    description={description || ""}
                                   />
                                 </li>
                               );
@@ -67,6 +49,24 @@ export default async function BlogPage() {
                         ) : (
                           <p>No posts found</p>
                         )}
+                        <Article
+                          title="Crafting a design system for a multiplanetary future"
+                          slug="crafting-a-design-system-for-a-multiplanetary-future"
+                          date="2022-09-05"
+                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
+                        />
+                        <Article
+                          title="Crafting a design system for a multiplanetary future"
+                          slug="crafting-a-design-system-for-a-multiplanetary-future"
+                          date="2022-09-05"
+                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
+                        />
+                        <Article
+                          title="Crafting a design system for a multiplanetary future"
+                          slug="crafting-a-design-system-for-a-multiplanetary-future"
+                          date="2022-09-05"
+                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
+                        />
                       </div>
                     </div>
                   </div>
