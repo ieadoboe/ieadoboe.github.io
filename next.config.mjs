@@ -1,12 +1,12 @@
 import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
-export default {
+const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // Allows all domains (use only for testing or development)
+        hostname: "**", // Be cautious: this allows images from all domains
       },
     ],
   },
@@ -15,6 +15,8 @@ export default {
     return config;
   },
 };
+
+export default nextConfig;
 
 class VeliteWebpackPlugin {
   static started = false;
