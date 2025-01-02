@@ -63,7 +63,9 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   ArticlePageProps["params"][]
 > {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+  return posts.map((post) =>
+    Promise.resolve({ slug: post.slugAsParams.split("/") })
+  );
 }
 
 // Main article page component
