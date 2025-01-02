@@ -1,13 +1,21 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Isaac Adoboe - Data Scientist, Analyst and Innovator",
-  description: "Data Scientist, Analyst and Innovator",
+  title: siteConfig.name,
+  description: siteConfig.description,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "dark" },
+  ],
+};
 export default function RootLayout({
   children,
 }: Readonly<{

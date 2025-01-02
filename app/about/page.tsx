@@ -3,6 +3,13 @@ import Image from "next/image";
 import profileImage from "../../public/profile_img.jpg";
 import { Icons } from "../components/Icons";
 import { siteConfig } from "@/config/site";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Isaac Adoboe",
+  description:
+    "Learn more about Isaac Adoboe, a Christian, a curious soul, and an unapologetic life explorer based in Canada.",
+};
 
 const AboutPage = () => {
   return (

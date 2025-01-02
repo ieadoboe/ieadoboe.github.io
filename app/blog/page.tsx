@@ -3,6 +3,13 @@ import PostItem from "@/app/components/PostItem";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 import QueryPagination from "../components/QueryPagination";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My articles on data science and life",
+  description:
+    "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
+};
 
 const POSTS_PER_PAGE = 5;
 
@@ -13,7 +20,8 @@ interface BlogPageProps {
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = Number(searchParams.page) || 1;
+  // Await searchParams to use its properties
+  const currentPage = Number(await searchParams?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
@@ -64,13 +72,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         ) : (
                           <p>No posts found</p>
                         )}
-
-                        {/* <Article
-                          title="Crafting a design system for a multiplanetary future"
-                          slug="crafting-a-design-system-for-a-multiplanetary-future"
-                          date="2022-09-05"
-                          description="Most companies try to stay ahead of the curve when it comes to visual design, but for Planetaria we needed to create a brand that would still inspire us 100 years from now when humanity has spread across our entire solar system."
-                        /> */}
                       </div>
                     </div>
                   </div>
