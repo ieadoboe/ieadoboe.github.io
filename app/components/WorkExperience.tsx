@@ -69,24 +69,9 @@ const WorkExperience = () => {
               }}
               className="object-cover relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
             >
-              {/* <img
-                alt={experience.company}
-                loading="lazy"
-                width="32"
-                height="32"
-                decoding="async"
-                className="h-7 w-7"
-                src={experience.logoSrc}
-                style={{
-                  objectFit: "cover",
-                  width: "100%",
-                  height: "100%",
-                }}
-              /> */}
               <Image
                 alt={experience.company}
                 loading="lazy"
-                // layout="intrinsic"
                 width={32}
                 height={32}
                 src={experience.logoSrc}

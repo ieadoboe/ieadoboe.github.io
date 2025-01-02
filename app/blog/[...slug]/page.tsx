@@ -5,25 +5,26 @@ import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import "@/styles/mdx.css";
 
-interface ArticlePageProps {
-  // Keep params as a promise of an object with an optional slug array
-  params: Promise<{ slug?: string[] }>;
-}
-
 // Function to fetch the post based on the params
-async function getPostFromParams(params: { slug?: string[] }) {
-  const slug = params?.slug?.join("/") ?? "";
+async function getPostFromParams(slug: string): Promise<{
+  title: string;
+  description?: string;
+  body: string;
+  published: boolean;
+} | null> {
   const post = posts.find((post) => post.slugAsParams === slug);
-
-  return post;
+  return post ?? null;
 }
 
 // Function to generate metadata for the article page
 export async function generateMetadata({
   params,
-}: ArticlePageProps): Promise<Metadata> {
-  const resolvedParams = await params; // Wait for the promise to resolve
-  const post = await getPostFromParams(resolvedParams); // Get the post from params
+}: {
+  params: Promise<{ slug?: string[] }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params; // Await the params promise
+  const slug = resolvedParams.slug?.join("/") ?? "";
+  const post = await getPostFromParams(slug);
 
   if (!post) {
     return {}; // Return empty metadata if no post is found
@@ -38,17 +39,22 @@ export async function generateMetadata({
 
 // Function to generate static params based on posts
 export async function generateStaticParams(): Promise<
-  ArticlePageProps["params"][]
+  { slug: string[] }[]
 > {
-  return posts.map((post) =>
-    Promise.resolve({ slug: post.slugAsParams.split("/") })
-  );
+  return posts.map((post) => ({
+    slug: post.slugAsParams.split("/"),
+  }));
 }
 
 // Main article page component
-export default async function ArticlePage({ params }: ArticlePageProps) {
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ slug?: string[] }>;
+}) {
   const resolvedParams = await params; // Await the params promise
-  const post = await getPostFromParams(resolvedParams); // Fetch the post based on params
+  const slug = resolvedParams.slug?.join("/") ?? "";
+  const post = await getPostFromParams(slug);
 
   if (!post || !post.published) {
     // If no post found or the post is unpublished, trigger a 404 page
@@ -68,11 +74,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                         {post.title}
                       </h1>
-                      {post.description ? (
+                      {post.description && (
                         <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
                           {post.description}
                         </p>
-                      ) : null}
+                      )}
                     </header>
                     <div className="mt-16 sm:mt-20 prose prose-zinc dark:prose-invert">
                       <MDXContent code={post.body} />
