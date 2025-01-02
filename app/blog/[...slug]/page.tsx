@@ -5,27 +5,53 @@ import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import "@/styles/mdx.css";
 
+// interface ArticlePageProps {
+//   params: {
+//     slug?: string[];
+//   };
+// }
+
+// interface ArticlePageProps {
+//   params: Promise<{
+//     slug?: string[];
+//   }>;
+// }
+
 interface ArticlePageProps {
   params: {
     slug?: string[];
   };
 }
 
+// async function getPostFromParams(params: ArticlePageProps["params"]) {
+//   const slug = await params?.slug?.join("/");
+//   const post = posts.find((post) => post.slugAsParams === slug);
+
+//   return post;
+// }
+
+// async function getPostFromParams(params: ArticlePageProps["params"]) {
+//   const resolvedParams = await params; // Await the params
+//   const slug = resolvedParams?.slug?.join("/");
+//   const post = posts.find((post) => post.slugAsParams === slug);
+
+//   return post;
+// }
+
 async function getPostFromParams(params: ArticlePageProps["params"]) {
-  const slug = await params?.slug?.join("/");
+  const slug = params?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
   return post;
 }
-
 export async function generateMetadata({
   params,
 }: ArticlePageProps): Promise<Metadata> {
   const post = await getPostFromParams(params);
-
   if (!post) {
     return {};
   }
+
   const ogSearchParams = new URLSearchParams();
   ogSearchParams.set("title", post.title);
 
@@ -56,6 +82,44 @@ export async function generateMetadata({
   };
 }
 
+// export async function generateMetadata({
+//   params,
+// }: ArticlePageProps): Promise<Metadata> {
+//   const post = await getPostFromParams(params);
+
+//   if (!post) {
+//     return {};
+//   }
+//   const ogSearchParams = new URLSearchParams();
+//   ogSearchParams.set("title", post.title);
+
+//   return {
+//     title: post.title,
+//     description: post.description,
+//     authors: { name: siteConfig.author },
+//     openGraph: {
+//       title: post.title,
+//       description: post.description,
+//       type: "article",
+//       url: post.slug,
+//       images: [
+//         {
+//           url: `/api/og?${ogSearchParams.toString()}`,
+//           width: 1200,
+//           height: 630,
+//           alt: post.title,
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title: post.title,
+//       description: post.description,
+//       images: [`/api/og?${ogSearchParams.toString()}`],
+//     },
+//   };
+// }
+
 export async function generateStaticParams(): Promise<
   ArticlePageProps["params"][]
 > {
@@ -63,7 +127,8 @@ export async function generateStaticParams(): Promise<
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const post = await getPostFromParams(params);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams);
 
   if (!post || !post.published) {
     notFound();
