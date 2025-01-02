@@ -5,41 +5,12 @@ import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import "@/styles/mdx.css";
 
-// interface ArticlePageProps {
-//   params: {
-//     slug?: string[];
-//   };
-// }
-
-// interface ArticlePageProps {
-//   params: Promise<{
-//     slug?: string[];
-//   }>;
-// }
-
 interface ArticlePageProps {
-  params: {
-    slug?: string[];
-  };
+  params: Promise<{ slug?: string[] }>;
 }
 
-// async function getPostFromParams(params: ArticlePageProps["params"]) {
-//   const slug = await params?.slug?.join("/");
-//   const post = posts.find((post) => post.slugAsParams === slug);
-
-//   return post;
-// }
-
-// async function getPostFromParams(params: ArticlePageProps["params"]) {
-//   const resolvedParams = await params; // Await the params
-//   const slug = resolvedParams?.slug?.join("/");
-//   const post = posts.find((post) => post.slugAsParams === slug);
-
-//   return post;
-// }
-
 async function getPostFromParams(params: ArticlePageProps["params"]) {
-  const slug = params?.slug?.join("/");
+  const slug = (await params)?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
   return post;
