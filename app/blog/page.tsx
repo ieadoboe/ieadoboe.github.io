@@ -14,17 +14,21 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
-  searchParams: {
-    page?: string;
-  };
+  searchParams: Promise<{ page?: string }>;
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  // Await searchParams to use its properties
-  const currentPage = Number(await searchParams?.page) || 1;
+  // Await the searchParams Promise to access its properties
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
+
+  // Filter and sort the posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
+
+  // Calculate total pages
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
+  // Slice the posts for the current page
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),
     POSTS_PER_PAGE * currentPage
@@ -53,7 +57,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   <div className="mt-16 sm:mt-20">
                     <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
                       <div className="flex max-w-3xl flex-col space-y-16">
-                        {displayPosts?.length > 0 ? (
+                        {displayPosts.length > 0 ? (
                           <ul className="flex max-w-3xl flex-col space-y-16">
                             {displayPosts.map((post) => {
                               const { slug, title, date, description } = post;
