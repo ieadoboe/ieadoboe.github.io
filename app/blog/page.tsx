@@ -5,6 +5,9 @@ import { sortPosts } from "@/lib/utils";
 import QueryPagination from "../components/QueryPagination";
 import { Metadata } from "next";
 
+// Explicitly make the page dynamic
+export const dynamic = "force-dynamic";  // Ensures this page renders dynamically
+
 export const metadata: Metadata = {
   title: "My articles on data science and life",
   description:
@@ -14,13 +17,13 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: { page?: string };
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  // Awaiting the page query param for pagination
-  const { page } = await searchParams;
-  const currentPage = Number(page) || 1;
+  // Access the page query param directly from searchParams
+  const page = searchParams.page || "1";  // Default to 1 if no page query parameter
+  const currentPage = Number(page);
 
   // Filter and sort the posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));

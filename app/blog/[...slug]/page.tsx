@@ -69,9 +69,9 @@ export default async function ArticlePage({
             <div className="sm:px-8 mt-16 sm:mt-32">
               <div className="mx-auto w-full max-w-7xl lg:px-8">
                 <div className="relative px-4 sm:px-8 lg:px-12">
-                  <div className="mx-auto max-w-3xl lg:max-w-5xl">
+                  <div className="mx-auto max-w-3xl lg:max-w-3xl">
                     <header className="max-w-2xl pt-4">
-                      <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                      <h1 className="text-3xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                         {post.title}
                       </h1>
                       {post.description && (
