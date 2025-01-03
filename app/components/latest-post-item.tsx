@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
-import { Icons } from "@/app/components/icons";
+import { Icons } from "@/app/components/site-icons";
 
 interface HomePostItemProps {
   slug: string;

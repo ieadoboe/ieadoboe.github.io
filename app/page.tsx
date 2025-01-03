@@ -3,7 +3,7 @@ import SecondaryButton from "@/app/components/secondary-button";
 import LatestPostItem from "@/app/components/latest-post-item";
 import NewsletterForm from "@/app/components/newsletter-form";
 import WorkExperience from "@/app/components/work-experience";
-import { Icons } from "@/app/components/icons";
+import { Icons } from "@/app/components/site-icons";
 import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";

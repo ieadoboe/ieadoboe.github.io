@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@/app/globals.css";
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
+import Navbar from "@/app/components/site-header";
+import Footer from "@/app/components/site-footer";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
       <body
         className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
+        // suppressHydrationWarning={true}
       >
         <div className="relative flex w-full flex-col">
           <Navbar />

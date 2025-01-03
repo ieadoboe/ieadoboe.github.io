@@ -3,7 +3,7 @@ import Image from "next/image";
 import profileImage from "@/public/profile_img.jpg";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
-import { Icons } from "@/app/components/icons";
+import { Icons } from "@/app/components/site-icons";
 
 export const metadata: Metadata = {
   title: "About Isaac Adoboe",
