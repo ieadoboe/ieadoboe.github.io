@@ -69,18 +69,18 @@ export default async function ArticlePage({
             <div className="sm:px-8 mt-16 sm:mt-32">
               <div className="mx-auto w-full max-w-7xl lg:px-8">
                 <div className="relative px-4 sm:px-8 lg:px-12">
-                  <div className="mx-auto max-w-2xl lg:max-w-5xl">
+                  <div className="mx-auto max-w-3xl lg:max-w-5xl">
                     <header className="max-w-2xl pt-4">
                       <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                         {post.title}
                       </h1>
                       {post.description && (
-                        <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
+                        <p className="mt-6 text-zinc-600 dark:text-zinc-300 text-sm sm:text-base text-prettier">
                           {post.description}
                         </p>
                       )}
                     </header>
-                    <div className="mt-16 sm:mt-20 prose prose-zinc dark:prose-invert">
+                    <div className="max-w-3xl mt-16 sm:mt-20 prose prose-zinc dark:prose-invert">
                       <MDXContent code={post.body} />
                     </div>
                   </div>
