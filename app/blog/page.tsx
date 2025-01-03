@@ -1,9 +1,11 @@
 import React from "react";
 import PostItem from "@/app/components/post-item";
+import QueryPagination from "@/app/components/query-pagination";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
-import QueryPagination from "@/app/components/query-pagination";
 import { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "My articles on data science and life",
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
     "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
 };
 
-const POSTS_PER_PAGE = 5;
+const POSTS_PER_PAGE = 6;
 
 interface BlogPageProps {
   searchParams: Promise<{ page?: string }>;
