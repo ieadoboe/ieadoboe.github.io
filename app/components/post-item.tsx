@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
-import { Icons } from "./Icons";
+import { Icons } from "./icons";
 
 interface PostItemProps {
   slug: string;

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import profileImage from "../../public/profile_img.jpg";
-import { Icons } from "../components/Icons";
+import { Icons } from "../components/icons";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 

@@ -1,9 +1,9 @@
-import PrimaryButton from "./components/PrimaryButton";
-import SecondaryButton from "./components/SecondaryButton";
-import LatestPostItem from "./components/LatestPostItem";
-import NewsletterForm from "./components/NewsletterForm";
-import WorkExperience from "./components/WorkExperience";
-import { Icons } from "./components/Icons";
+import PrimaryButton from "./components/primary-button";
+import SecondaryButton from "./components/secondary-button";
+import LatestPostItem from "./components/latest-post-item";
+import NewsletterForm from "./components/newsletter-form";
+import WorkExperience from "./components/work-experience";
+import { Icons } from "./components/icons";
 import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";

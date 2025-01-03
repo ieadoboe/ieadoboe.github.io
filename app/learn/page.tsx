@@ -1,5 +1,5 @@
 import React from "react";
-import LessonsList from "../components/LessonsList";
+import LessonsList from "../components/lessons-list";
 
 const LearnPage = () => {
   return (

@@ -1,8 +1,8 @@
 import React from "react";
-import PostItem from "@/app/components/PostItem";
+import PostItem from "@/app/components/post-item";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
-import QueryPagination from "../components/QueryPagination";
+import QueryPagination from "../components/query-pagination";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

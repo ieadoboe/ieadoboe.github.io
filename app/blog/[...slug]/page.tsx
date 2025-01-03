@@ -1,6 +1,6 @@
 import { posts } from "#site/content";
 import { notFound } from "next/navigation";
-import { MDXContent } from "@/app/components/MDXComponent";
+import { MDXContent } from "@/app/components/mdx-component";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import "@/styles/mdx.css";
