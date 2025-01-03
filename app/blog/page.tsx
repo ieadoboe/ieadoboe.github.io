@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 import PostItem from "@/app/components/post-item";
-import QueryPagination from "@/app/components/query-pagination";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 
@@ -12,35 +11,15 @@ export const metadata: Metadata = {
     "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
 };
 
-const POSTS_PER_PAGE = 6;
-
-// Generate Static Params (Server Side)
-export async function generateStaticParams() {
-  const sortedPosts = sortPosts(posts.filter((post) => post.published));
-  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
-  return Array.from({ length: totalPages }, (_, i) => ({
-    page: `${i + 1}`,
-  }));
-}
-
 interface BlogPageProps {
   params: { page: string };
 }
 
-const BlogPage = ({ params }: BlogPageProps) => {
-  const currentPage = Number(params.page) || 1;
-  
+const BlogPage = ({ }: BlogPageProps) => {
   // Filter and sort posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
-  // Calculate total pages
-  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
-
-  // Slice the posts for the current page
-  const displayPosts = sortedPosts.slice(
-    POSTS_PER_PAGE * (currentPage - 1),
-    POSTS_PER_PAGE * currentPage
-  );
+  const displayPosts = sortedPosts;
 
   return (
     <div className="w-full flex min-h-screen">
@@ -88,7 +67,6 @@ const BlogPage = ({ params }: BlogPageProps) => {
             </div>
           </div>
         </main>
-        <QueryPagination totalPages={totalPages} currentPage={currentPage} />
       </div>
     </div>
   );
