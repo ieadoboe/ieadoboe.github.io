@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
       <body
         className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
-        // suppressHydrationWarning={true}
+        suppressHydrationWarning={true}
       >
         <div className="relative flex w-full flex-col">
           <Navbar />
