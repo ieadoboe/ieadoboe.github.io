@@ -5,29 +5,25 @@ import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import "@/styles/mdx.css";
 
-// Function to fetch the post based on the params
 async function getPostFromParams(slug: string): Promise<{
   title: string;
   description?: string;
   body: string;
   published: boolean;
 } | null> {
-  const post = posts.find((post) => post.slugAsParams === slug);
-  return post ?? null;
+  return posts.find((post) => post.slugAsParams === slug) ?? null;
 }
 
-// Function to generate metadata for the article page
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug?: string[] }>;
+  params: { slug?: string[] };
 }): Promise<Metadata> {
-  const resolvedParams = await params; // Await the params promise
-  const slug = resolvedParams.slug?.join("/") ?? "";
+  const slug = params.slug?.join("/") ?? "";
   const post = await getPostFromParams(slug);
 
   if (!post) {
-    return {}; // Return empty metadata if no post is found
+    return { title: "Post Not Found", description: "" };
   }
 
   return {
@@ -37,27 +33,19 @@ export async function generateMetadata({
   };
 }
 
-// Function to generate static params based on posts
-export async function generateStaticParams(): Promise<
-  { slug: string[] }[]
-> {
-  return posts.map((post) => ({
-    slug: post.slugAsParams.split("/"),
-  }));
+export async function generateStaticParams() {
+  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-// Main article page component
 export default async function ArticlePage({
   params,
 }: {
-  params: Promise<{ slug?: string[] }>;
+  params: { slug?: string[] };
 }) {
-  const resolvedParams = await params; // Await the params promise
-  const slug = resolvedParams.slug?.join("/") ?? "";
+  const slug = params.slug?.join("/") ?? "";
   const post = await getPostFromParams(slug);
 
   if (!post || !post.published) {
-    // If no post found or the post is unpublished, trigger a 404 page
     notFound();
   }
 

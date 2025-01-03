@@ -5,33 +5,24 @@ import { sortPosts } from "@/lib/utils";
 import QueryPagination from "../components/QueryPagination";
 import { Metadata } from "next";
 
-// Explicitly make the page dynamic
-export const dynamic = "force-dynamic";  // Ensures this page renders dynamically
-
 export const metadata: Metadata = {
-  title: "My articles on data science and life",
-  description:
-    "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
+  title: "Blog",
+  description: "Articles on data science and more.",
 };
 
 const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
-  searchParams: { page?: string };
+  searchParams?: {
+    page?: string;
+  };
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  // Access the page query param directly from searchParams
-  const page = searchParams.page || "1";  // Default to 1 if no page query parameter
-  const currentPage = Number(page);
-
-  // Filter and sort the posts
+  const currentPage = parseInt(searchParams?.page || "1", 10) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
-
-  // Calculate total pages
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
-  // Slice the posts for the current page
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),
     POSTS_PER_PAGE * currentPage
