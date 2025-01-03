@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import profileImage from "../../public/profile_img.jpg";
-import { Icons } from "../components/icons";
+import profileImage from "@/public/profile_img.jpg";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
+import { Icons } from "@/app/components/icons";
 
 export const metadata: Metadata = {
   title: "About Isaac Adoboe",
