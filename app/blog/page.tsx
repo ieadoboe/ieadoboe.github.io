@@ -1,4 +1,5 @@
 import React from "react";
+import { PageProps } from "next";
 import PostItem from "@/app/components/post-item";
 import QueryPagination from "@/app/components/query-pagination";
 import { posts } from "#site/content";
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
 
 const POSTS_PER_PAGE = 6;
 
-export async function generateStaticParams(): Promise<{ page: string }[]> {
+export async function generateStaticParams() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
   return Array.from({ length: totalPages }, (_, i) => ({ page: `${i + 1}` }));
 }
 
-interface BlogPageProps {
-  params: { page: string }; // Assuming it's synchronous
+interface BlogPageProps extends PageProps {
+  params: { page: string }; // Override as necessary
 }
 
 export default function BlogPage({ params }: BlogPageProps) {
