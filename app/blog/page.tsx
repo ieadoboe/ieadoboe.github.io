@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 
 const POSTS_PER_PAGE = 6;
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ page: string }[]> {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
   return Array.from({ length: totalPages }, (_, i) => ({ page: `${i + 1}` }));
 }
 
 interface BlogPageProps {
-  params: { page: string };
+  params: { page: string }; // Assuming it's synchronous
 }
 
 export default function BlogPage({ params }: BlogPageProps) {
