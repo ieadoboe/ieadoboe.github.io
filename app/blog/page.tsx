@@ -2,27 +2,33 @@ import React from "react";
 import PostItem from "@/app/components/post-item";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
-import QueryPagination from "../components/query-pagination";
+import QueryPagination from "@/app/components/query-pagination";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Articles on data science and more.",
+  title: "My articles on data science and life",
+  description:
+    "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
 };
 
 const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
-  searchParams?: {
-    page?: string;
-  };
+  searchParams: Promise<{ page?: string }>;
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = parseInt(searchParams?.page || "1", 10) || 1;
+  // Await the searchParams Promise to access its properties
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
+
+  // Filter and sort the posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
+
+  // Calculate total pages
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
+  // Slice the posts for the current page
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),
     POSTS_PER_PAGE * currentPage
