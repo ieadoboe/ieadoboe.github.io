@@ -5,6 +5,7 @@ import { useState } from "react";
 
 interface QueryPaginationProps {
   totalPages: number;
+  currentPage: number;
   className?: string;
 }
 
