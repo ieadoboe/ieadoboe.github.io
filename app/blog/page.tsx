@@ -11,11 +11,7 @@ export const metadata: Metadata = {
     "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
 };
 
-interface BlogPageProps {
-  params: { page: string };
-}
-
-const BlogPage = ({ }: BlogPageProps) => {
+const BlogPage = () => {
   // Filter and sort posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
