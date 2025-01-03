@@ -5,8 +5,6 @@ import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "My articles on data science and life",
   description:
@@ -15,14 +13,18 @@ export const metadata: Metadata = {
 
 const POSTS_PER_PAGE = 6;
 
-interface BlogPageProps {
-  searchParams: Promise<{ page?: string }>;
+export async function generateStaticParams() {
+  const sortedPosts = sortPosts(posts.filter((post) => post.published));
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+  return Array.from({ length: totalPages }, (_, i) => ({ page: `${i + 1}` }));
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  // Await the searchParams Promise to access its properties
-  const { page } = await searchParams;
-  const currentPage = Number(page) || 1;
+interface BlogPageProps {
+  params: { page: string };
+}
+
+export default function BlogPage({ params }: BlogPageProps) {
+  const currentPage = Number(params.page) || 1;
 
   // Filter and sort the posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
