@@ -1,11 +1,11 @@
 import React from "react";
-import { PageProps } from "next";
+import { Metadata } from "next";
 import PostItem from "@/app/components/post-item";
 import QueryPagination from "@/app/components/query-pagination";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
-import { Metadata } from "next";
 
+// Metadata for the page
 export const metadata: Metadata = {
   title: "My articles on data science and life",
   description:
@@ -14,20 +14,23 @@ export const metadata: Metadata = {
 
 const POSTS_PER_PAGE = 6;
 
+// Generate Static Params (Server Side)
 export async function generateStaticParams() {
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
-  return Array.from({ length: totalPages }, (_, i) => ({ page: `${i + 1}` }));
+  return Array.from({ length: totalPages }, (_, i) => ({
+    page: `${i + 1}`,
+  }));
 }
 
-interface BlogPageProps extends PageProps {
-  params: { page: string }; // Override as necessary
+interface BlogPageProps {
+  params: { page: string };
 }
 
-export default function BlogPage({ params }: BlogPageProps) {
+const BlogPage = ({ params }: BlogPageProps) => {
   const currentPage = Number(params.page) || 1;
-
-  // Filter and sort the posts
+  
+  // Filter and sort posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
 
   // Calculate total pages
@@ -49,14 +52,10 @@ export default function BlogPage({ params }: BlogPageProps) {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Writing on data science, life, and the exciting world of
-                      innovation.
+                      Writing on data science, life, and the exciting world of innovation.
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      Dive deep into the data with me! All my ramblings on data
-                      science, statistical wizardry, and how to make sense of a
-                      world that runs on data—laid out in a timeline of
-                      occasional brilliance and unfiltered curiosity.
+                      Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.
                     </p>
                   </header>
                   <div className="mt-16 sm:mt-20">
@@ -89,8 +88,10 @@ export default function BlogPage({ params }: BlogPageProps) {
             </div>
           </div>
         </main>
-        <QueryPagination totalPages={totalPages} />
+        <QueryPagination totalPages={totalPages} currentPage={currentPage} />
       </div>
     </div>
   );
-}
+};
+
+export default BlogPage;
