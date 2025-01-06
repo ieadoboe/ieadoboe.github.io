@@ -26,7 +26,7 @@ export async function generateStaticParams(): Promise<
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const post = await getPostFromParams(Promise.resolve(params));
+  const post = await getPostFromParams(params);
 
   if (!post || !post.published) {
     notFound();
