@@ -1,17 +1,15 @@
 import { posts } from "#site/content";
 import { MDXContent } from "@/app/components/mdx-component";
-// import { siteConfig } from "@/config/site";
-// import { Metadata } from "next";
 import "@/styles/mdx.css";
 import { notFound } from "next/navigation";
 
 interface ArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
-async function getPostFromParams(params: ArticlePageProps["params"]) {
+async function getPostFromParams(params: Awaited<ArticlePageProps["params"]>) {
   const slug = params?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
@@ -19,22 +17,20 @@ async function getPostFromParams(params: ArticlePageProps["params"]) {
 }
 
 export async function generateStaticParams(): Promise<
-  ArticlePageProps["params"][]
+  Awaited<ArticlePageProps["params"]>[]
 > {
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
-  // Await params if necessary, depending on how Next.js is passing them.
-  const resolvedParams = await params; // Ensure it's resolved.
-
+export default async function ArticlePage({ params }: {
+  params: ArticlePageProps["params"];
+}) {
+  const resolvedParams = await params;
   const post = await getPostFromParams(resolvedParams);
 
   if (!post || !post.published) {
     notFound();
   }
-
-
 
   return (
     <article className="w-full flex min-h-screen">
