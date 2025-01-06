@@ -11,8 +11,7 @@ interface ArticlePageProps {
   };
 }
 
-async function getPostFromParams(paramsPromise: Promise<ArticlePageProps["params"]>) {
-  const params = await paramsPromise; // Await params before accessing properties
+export async function getPostFromParams(params: ArticlePageProps["params"]) {
   const slug = params?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
@@ -26,11 +25,21 @@ export async function generateStaticParams(): Promise<
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const post = await getPostFromParams(Promise.resolve(params));
+  // Await params if necessary, depending on how Next.js is passing them.
+  // const resolvedParams = await params; // Ensure it's resolved.
+
+  // const post = await getPostFromParams(resolvedParams);
+
+  // if (!post || !post.published) {
+  //   notFound();
+  // }
+
+  const post = await getPostFromParams(await params);
 
   if (!post || !post.published) {
     notFound();
   }
+
   return (
     <article className="w-full flex min-h-screen">
       <div className="relative flex w-full flex-col">
