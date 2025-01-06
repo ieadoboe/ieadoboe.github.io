@@ -26,19 +26,15 @@ export async function generateStaticParams(): Promise<
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   // Await params if necessary, depending on how Next.js is passing them.
-  // const resolvedParams = await params; // Ensure it's resolved.
+  const resolvedParams = await params; // Ensure it's resolved.
 
-  // const post = await getPostFromParams(resolvedParams);
-
-  // if (!post || !post.published) {
-  //   notFound();
-  // }
-
-  const post = await getPostFromParams(await params);
+  const post = await getPostFromParams(resolvedParams);
 
   if (!post || !post.published) {
     notFound();
   }
+
+
 
   return (
     <article className="w-full flex min-h-screen">
