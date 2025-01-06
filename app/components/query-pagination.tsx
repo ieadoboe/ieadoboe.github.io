@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useState } from "react";
 
 interface QueryPaginationProps {
   totalPages: number;
@@ -15,7 +14,6 @@ export default function QueryPagination({
 }: QueryPaginationProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [loading, setLoading] = useState(false);
 
   // Safely get the current page, defaulting to 1 if it's invalid
   const currentPage = Math.max(Number(searchParams.get("page")) || 1, 1);
@@ -29,21 +27,17 @@ export default function QueryPagination({
     return `${pathname}?${params.toString()}`;
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, page: number) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    page: number
+  ) => {
     event.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      window.location.href = createPageURL(page);
-      setLoading(false); // Reset loading after navigation (in case needed)
-    }, 500); // Simulate a small delay
+    window.location.href = createPageURL(page);
   };
 
   return (
     <div className={`flex justify-center pt-20 ${className}`}>
       <div className="flex items-center space-x-2 font-semibold px-2 py-3">
-        {/* Show loader if loading */}
-        {loading && <div className="loader" aria-label="Loading..."></div>}
-
         {/* Previous Page Button */}
         <a
           href={createPageURL(prevPage)}

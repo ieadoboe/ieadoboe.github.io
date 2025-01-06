@@ -75,9 +75,9 @@ const Navbar = () => {
                   className="hidden dark:block"
                 /> */}
                 <p className="text-3xl tracking-tighter text-zinc-900 dark:text-zinc-100">
-                  Isaac
+                  ike
                   <strong>
-                    <em className="font-extrabold">Adoboe</em>
+                    <em className="font-extrabold">_&reg;</em>
                   </strong>
                 </p>
               </Link>
