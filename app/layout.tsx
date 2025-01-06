@@ -23,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
+      <meta name="apple-mobile-web-app-title" content="edemAI" />
       <body
         className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
         suppressHydrationWarning={true}

@@ -2,11 +2,13 @@
 
 import React, { useState, useEffect, useRef } from "react";
 // import Image from "next/image";
+import logo from "../../public/logo.png";
 // import logoLight from "../../public/logoLight.svg";
 // import logoDark from "../../public/logoDark.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,24 +62,18 @@ const Navbar = () => {
             <div className="flex items-center">
               {/* Logo */}
               <Link href="/" className="flex items-center">
-                {/* <Image
-                  src={logoLight}
-                  width={170}
-                  height={43}
-                  alt="Logo"
-                  className="dark:hidden"
-                /> */}
-                {/* <Image
-                  src={logoDark}
-                  width={156}
-                  height={27}
-                  alt="Logo"
-                  className="hidden dark:block"
-                /> */}
-                <p className="text-3xl tracking-tighter text-zinc-900 dark:text-zinc-100">
-                  ike
+                <Image
+                  src={logo}
+                  width={35}
+                  alt="logo of a stick man holding a beer"
+                  priority
+                  className="m-2"
+                />
+                
+                <p className="text-2xl tracking-tighter text-zinc-900 dark:text-zinc-100">
+                  edem
                   <strong>
-                    <em className="font-extrabold">_&reg;</em>
+                    <em className="font-extrabold">AI&reg;</em>
                   </strong>
                 </p>
               </Link>
