@@ -1,14 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-// import Image from "next/image";
-import logo from "../../public/logo.png";
-// import logoLight from "../../public/logoLight.svg";
-// import logoDark from "../../public/logoDark.svg";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../../public/logo.png";
 import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
-import Image from "next/image";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +52,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b  lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 ">
-      <div className=" max-w-screen-xl mx-auto w-full px-4 sm:px-8 lg:px-16">
+      <div className=" max-w-screen-2xl mx-auto w-full px-4 sm:px-8 lg:px-16">
         <div className="px-2 py-4 sm:px-8">
           <div className="flex justify-between items-center">
             {/* Navbar Start */}
@@ -69,8 +66,8 @@ const Navbar = () => {
                   priority
                   className="m-2"
                 />
-                
-                <p className="text-2xl tracking-tighter text-zinc-900 dark:text-zinc-100">
+
+                <p className="text-xl tracking-tighter text-zinc-900 dark:text-zinc-100">
                   edem
                   <strong>
                     <em className="font-extrabold">AI&reg;</em>
@@ -85,7 +82,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     href="/"
-                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                    className={`font-semibold rounded-full  hover:text-teal-500 transition ${
                       isActive("/") ? "text-teal-500" : ""
                     }`}
                   >
@@ -145,13 +142,13 @@ const Navbar = () => {
                       <div className="p-1">
                         <Link
                           href="#"
-                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition"
+                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
                         >
                           Products
                         </Link>
                         <Link
                           href="#"
-                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition"
+                          className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
                         >
                           Spotify
                         </Link>
