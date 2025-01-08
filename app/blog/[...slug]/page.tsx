@@ -42,7 +42,7 @@ export default async function ArticlePage({
           <div className="sm:px-8 mt-10 sm:mt-10">
             <div className="mx-auto w-full max-w-7xl lg:px-8">
               <div className="relative px-4 sm:px-8 lg:px-12">
-                <div>
+                <div className="sticky top-24 z-10">
                   <BackButton />
                 </div>
                 <div className="mx-auto max-w-3xl lg:max-w-3xl">
