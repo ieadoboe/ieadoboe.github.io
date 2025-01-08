@@ -164,9 +164,7 @@ const Navbar = () => {
             <div className="hidden md:flex">
               <Link
                 href="/contact"
-                className={`font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition ${
-                  isActive("/contact") ? "text-teal-500" : ""
-                }`}
+                className={`font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition`}
               >
                 Contact
               </Link>
@@ -243,7 +241,7 @@ const Navbar = () => {
           <li>
             <Link
               href="/contact"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+              className={`block text-2xl font-bold  text-zinc-100 hover:text-teal-500 ${
                 isActive("/contact") ? "text-teal-500" : ""
               }`}
             >
