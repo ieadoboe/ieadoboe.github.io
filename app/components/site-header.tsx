@@ -142,13 +142,13 @@ const Navbar = () => {
                     >
                       <div className="p-1">
                         <Link
-                          href="#"
+                          href="/products"
                           className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
                         >
                           Products
                         </Link>
                         <Link
-                          href="#"
+                          href="/spotify"
                           className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
                         >
                           Spotify
