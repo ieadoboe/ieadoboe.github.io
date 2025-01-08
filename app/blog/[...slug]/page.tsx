@@ -1,4 +1,5 @@
 import { posts } from "#site/content";
+import BackButton from "@/app/components/back-button";
 import { MDXContent } from "@/app/components/mdx-component";
 import "@/styles/mdx.css";
 import { notFound } from "next/navigation";
@@ -22,7 +23,9 @@ export async function generateStaticParams(): Promise<
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-export default async function ArticlePage({ params }: {
+export default async function ArticlePage({
+  params,
+}: {
   params: ArticlePageProps["params"];
 }) {
   const resolvedParams = await params;
@@ -36,9 +39,12 @@ export default async function ArticlePage({ params }: {
     <article className="w-full flex min-h-screen">
       <div className="relative flex w-full flex-col">
         <div className="flex-auto">
-          <div className="sm:px-8 mt-16 sm:mt-32">
+          <div className="sm:px-8 mt-10 sm:mt-10">
             <div className="mx-auto w-full max-w-7xl lg:px-8">
               <div className="relative px-4 sm:px-8 lg:px-12">
+                <div>
+                  <BackButton />
+                </div>
                 <div className="mx-auto max-w-3xl lg:max-w-3xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-3xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
