@@ -6,7 +6,7 @@ const ProjectsPage = () => {
     <div className="w-full flex min-h-screen">
       <div className="relative flex w-full flex-col">
         <main className="flex-auto">
-          <div className="sm:px-8 mt-16 sm:mt-32">
+          <div className="sm:px-8 mt-10 sm:mt-20">
             <div className="mx-auto w-full max-w-7xl lg:px-8">
               <div className="relative px-4 sm:px-8 lg:px-12">
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">

@@ -11,10 +11,10 @@ import { siteConfig } from "@/config/site";
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 3);
   return (
-    <div className="w-full flex min-h-screen">
+    <div className="w-full flex min-h-dvh">
       <div className="relative flex w-full flex-col">
         <main className="flex-auto sm:px-8 mt-9">
-          <div className="flex-none min-h-40"></div>
+          <div className="flex-none min-h-28"></div>
           <div className="mx-auto w-full max-w-7xl lg:px-8">
             <div className="relative px-4 sm:px-8 lg:px-12">
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
@@ -31,7 +31,7 @@ export default function Home() {
                   </p>
                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
                     <PrimaryButton href="/projects" text="View my projects" />
-                    <SecondaryButton href="/blog" text="Read my blog" />
+                    <SecondaryButton href="/posts" text="Read all posts" />
                   </div>
                   <div className="mt-6 flex gap-6">
                     <a

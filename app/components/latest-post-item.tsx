@@ -53,7 +53,7 @@ const HomePostItem = ({
           aria-hidden="true"
           className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
         >
-          Read article
+          Read more
           <Icons.arrowright />
         </div>
       </article>

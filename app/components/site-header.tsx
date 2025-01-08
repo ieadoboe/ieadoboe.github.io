@@ -51,7 +51,7 @@ const Navbar = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 border-b  lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 ">
+    <div className="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/70 dark:bg-zinc-900/70 flex-none transition-colors duration-500 lg:z-50 border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] border-zinc-200 dark:border-zinc-800">
       <div className=" max-w-screen-2xl mx-auto w-full px-4 sm:px-8 lg:px-16">
         <div className="px-2 py-4 sm:px-8">
           <div className="flex justify-between items-center">
@@ -61,16 +61,16 @@ const Navbar = () => {
               <Link href="/" className="flex items-center">
                 <Image
                   src={logo}
-                  width={35}
+                  width={40}
                   alt="logo of a stick man holding a beer"
                   priority
-                  className="m-2"
+                  className=" rounded-full"
                 />
 
-                <p className="text-xl tracking-tighter text-zinc-900 dark:text-zinc-100">
-                  edem
+                <p className="text-xl tracking-tighter text-zinc-900 dark:text-zinc-100 pl-2">
+                  Isaac
                   <strong>
-                    <em className="font-extrabold">AI&reg;</em>
+                    <em className="font-extrabold">A.&reg;</em>
                   </strong>
                 </p>
               </Link>
@@ -237,9 +237,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/blog"
+              href="/posts"
               className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/blog") ? "text-teal-500" : ""
+                isActive("/posts") ? "text-teal-500" : ""
               }`}
             >
               Articles
