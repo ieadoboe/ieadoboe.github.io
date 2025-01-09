@@ -6,9 +6,9 @@ import { sortPosts } from "@/lib/utils";
 
 // Metadata for the page
 export const metadata: Metadata = {
-  title: "My articles on data science and life",
+  title: "Articles on data science and life",
   description:
-    "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
+    "Dive deep into the data with me!",
 };
 
 export default function BlogPage() {

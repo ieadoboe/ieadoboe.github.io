@@ -200,19 +200,20 @@ const Navbar = () => {
         <ul className="flex flex-col space-y-6 text-white">
           <li>
             <Link
-              href="/about"
+              href="/"
               className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/about") ? "text-teal-500" : ""
+                isActive("/") ? "text-teal-500" : ""
               }`}
             >
-              About
+              Home
             </Link>
           </li>
+
           <li>
             <Link
-              href="/posts"
+              href="/blog"
               className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/posts") ? "text-teal-500" : ""
+                isActive("/blog") ? "text-teal-500" : ""
               }`}
             >
               Articles
@@ -230,6 +231,16 @@ const Navbar = () => {
           </li>
           <li>
             <Link
+              href="/spotify"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/spotify") ? "text-teal-500" : ""
+              }`}
+            >
+              Spotify
+            </Link>
+          </li>
+          {/* <li>
+            <Link
               href="/learn"
               className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
                 isActive("/learn") ? "text-teal-500" : ""
@@ -237,13 +248,21 @@ const Navbar = () => {
             >
               Learn
             </Link>
+          </li> */}
+          <li>
+            <Link
+              href="/about"
+              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
+                isActive("/about") ? "text-teal-500" : ""
+              }`}
+            >
+              About
+            </Link>
           </li>
           <li>
             <Link
-              href="/contact"
-              className={`block text-2xl font-bold  text-zinc-100 hover:text-teal-500 ${
-                isActive("/contact") ? "text-teal-500" : ""
-              }`}
+              href="mailto:ikeadoboe1@gmail.com"
+              className={`block text-2xl font-bold  text-zinc-100 hover:text-teal-500`}
             >
               Contact
             </Link>

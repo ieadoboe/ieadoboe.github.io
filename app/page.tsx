@@ -31,7 +31,7 @@ export default function Home() {
                   </p>
                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
                     <PrimaryButton href="/projects" text="View my projects" />
-                    <SecondaryButton href="/posts" text="Read all posts" />
+                    <SecondaryButton href="/blog" text="Read all articles" />
                   </div>
                   <div className="mt-6 flex gap-6">
                     <a
