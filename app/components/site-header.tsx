@@ -111,7 +111,7 @@ const Navbar = () => {
                     Projects
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="/learn"
                     className={`font-semibold rounded-full hover:text-teal-500 transition ${
@@ -120,7 +120,7 @@ const Navbar = () => {
                   >
                     Learn
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link
                     href="/about"
@@ -141,12 +141,12 @@ const Navbar = () => {
                       className="absolute z-10 mt-4 w-38 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg bg-white dark:bg-zinc-800 dark:border dark:border-zinc-700 ring-1 ring-black ring-opacity-5 focus:outline-none"
                     >
                       <div className="p-1">
-                        <Link
+                        {/* <Link
                           href="/products"
                           className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
                         >
                           Products
-                        </Link>
+                        </Link> */}
                         <Link
                           href="/spotify"
                           className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
@@ -162,12 +162,12 @@ const Navbar = () => {
 
             {/* Navbar End */}
             <div className="hidden md:flex">
-              <Link
-                href="/contact"
+              <a
+                href="mailto:ikeadoboe1@gmail.com"
                 className={`font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition`}
               >
-                Contact
-              </Link>
+                Get in touch
+              </a>
             </div>
             {/* Mobile Menu Button */}
             <div className="md:hidden">

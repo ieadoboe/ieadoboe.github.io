@@ -31,13 +31,13 @@ const Footer = () => {
                   Articles
                 </Link>
 
-                <Link
+                {/* <Link
                   key="products"
                   href="/products"
                   className="transition hover:text-teal-500 dark:hover:text-teal-400"
                 >
                   Products
-                </Link>
+                </Link> */}
                 <Link
                   key="projects"
                   href="/projects"
