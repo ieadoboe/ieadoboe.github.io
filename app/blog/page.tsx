@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import PostItem from "@/app/components/post-item";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
-import QueryPagination from "../components/query-pagination";
+// import QueryPagination from "../components/query-pagination";
 
 // Metadata for the page
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.",
 };
 
-const POSTS_PER_PAGE = 3;
+const POSTS_PER_PAGE = 30;
 
 interface BlogPageProps {
   searchParams: Promise<{
@@ -23,7 +23,7 @@ interface BlogPageProps {
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const currentPage = Number((await searchParams)?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
-  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+  // const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),
@@ -79,9 +79,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               </div>
             </div>
           </div>
-          <div>
+          {/* <div>
             <QueryPagination totalPages={totalPages} />
-          </div>
+          </div> */}
         </main>
       </div>
     </div>
