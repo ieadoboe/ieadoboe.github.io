@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 3;
 
 interface BlogPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const currentPage = Number(searchParams?.page) || 1;
+  const currentPage = Number((await searchParams)?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
@@ -40,10 +40,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Writing on data science, life, and the exciting world of innovation.
+                      Writing on data science, life, and the exciting world of
+                      innovation.
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      Dive deep into the data with me! All my ramblings on data science, statistical wizardry, and how to make sense of a world that runs on data—laid out in a timeline of occasional brilliance and unfiltered curiosity.
+                      Dive deep into the data with me! All my ramblings on data
+                      science, statistical wizardry, and how to make sense of a
+                      world that runs on data—laid out in a timeline of
+                      occasional brilliance and unfiltered curiosity.
                     </p>
                   </header>
                   <div className="mt-16 sm:mt-20">
@@ -82,5 +86,4 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       </div>
     </div>
   );
-};
-
+}

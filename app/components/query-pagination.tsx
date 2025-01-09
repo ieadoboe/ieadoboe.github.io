@@ -13,8 +13,8 @@ export default function QueryPagination({
   totalPages,
   className = "",
 }: QueryPaginationProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const pathname = usePathname(); // No need to wrap with use()
+  const searchParams = useSearchParams(); // No need to wrap with use()
   const currentPage = Math.max(Number(searchParams.get("page")) || 1, 1);
 
   const createPageURL = (pageNumber: number) => {
