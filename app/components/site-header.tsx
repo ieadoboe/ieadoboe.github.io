@@ -185,7 +185,7 @@ const Navbar = () => {
 
       {/* Mobile Menu (Conditional Rendering) */}
       <div
-        className={`lg:hidden absolute inset-0 z-40 bg-teal-800 px-7 py-5 h-fit transition-transform transform hidden`}
+        className={`lg:hidden absolute inset-0 z-40 bg-teal-800 px-7 py-5 min-h-dvh transition-transform transform hidden`}
         ref={menuRef}
         style={{ display: isMenuOpen ? "block" : "none" }}
       >
