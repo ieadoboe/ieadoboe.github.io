@@ -1,0 +1,96 @@
+---
+title: Development of a Machine Learning Technique to Detect Faults in Induction Motors
+description: In this blog post, I'll dive into a summary of one of my earliest machine learning projects to detect faults in induction motors. This project, spearheaded to minimize industrial economic losses, presents an AI-based fault diagnosis framework.
+date: 2021-09-25
+published: true
+---
+
+# Background / Back story...
+
+The project aims to develop an improved machine learning framework for diagnosing faults in induction motors. By using convolutional neural networks (CNNs) and advanced signal processing techniques like Continuous Wavelet Transform (CWT), the research highlights a non-invasive, accurate, and efficient fault classification process. Despite challenges, the results showed potential for further refinement and real-world application.
+
+# Introduction
+
+Faults in induction motors can result in significant industrial downtimes, causing financial losses and operational inefficiencies. Traditional fault diagnosis methods often fall short in terms of scalability, accuracy, and efficiency. To address these challenges, this project explores the application of machine learning, particularly Convolutional Neural Networks (CNNs), to analyze sensor data and scalograms for fault classification. The non-invasive nature of this approach ensures that motors can remain operational during diagnosis, providing a practical and efficient solution for industries. The following are the objectives of the project:
+
+1. Develop a robust machine learning model to detect and classify faults in induction motors.
+2. Utilize Continuous Wavelet Transform (CWT) for time-frequency analysis of motor signals, enabling better feature extraction.
+3. Address data limitations by employing augmentation techniques to enhance the dataset’s diversity and size.
+4. Validate the model under real-world conditions, identifying strengths and areas for improvement to ensure its practical applicability.
+
+This project represents a forward-thinking approach to fault diagnosis, aiming to revolutionize how industries monitor and maintain induction motors.
+
+# Key Techniques and Literature Insights
+
+The literature review revealed multiple methods for motor fault detection:
+
+- Signal Processing: Continuous Wavelet Transform and empirical mode decomposition were highlighted for extracting key signal features.
+- Machine Learning Models: Artificial Neural Networks (ANN), fuzzy logic, and clustering methods were explored.
+- Data Challenges: Many methods struggled with limited datasets and noise, emphasizing the need for robust augmentation and preprocessing.
+
+# Methodology
+
+## Data Collection
+
+Signals from current and vibration sensors were collected for five motor conditions: healthy, single phasing, overloading, bearing faults, and washer faults. Over 1,500 data points were compiled using MATLAB and Excel for preprocessing.
+
+<CenteredImage src="./Experimentalsetup.jpg" alt="An example image" width={400} />
+
+## Signal Processing
+
+MATLAB’s algorithms transformed raw signals into scalograms, which were then augmented by applying rotations (90°, 180°, and 270°) to expand the dataset.
+
+<CenteredImage src="./scalogram.png" alt="Scalogram" width={700} />
+
+## Model Training
+
+The CNN was built using TensorFlow and Keras, with 90% of the data for training and 10% for testing. Model training was executed on Google Colab to leverage free GPU resources.
+
+![Architecture of Convolutional Neural Networks](./convnet.jpg)
+
+I do not want to turn this into a Convolutional Neural Network class. If you are interested in diving deeper, here's a great blogpost from [Towards Data Science](https://towardsdatascience.com/) -> [Convolutional Neural Networks, Explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939)
+
+## Neural Network Architecture
+
+- Convolutional Layers: 64 filters, kernel size of 2, ReLU activation, and stride of 2.
+- Pooling Layers: Max pooling (2x2) optimized feature extraction.
+- Fully Connected Layer: Flattened output, softmax activation for classification into five labels.
+
+# Results and Analysis
+
+## Training Accuracy
+
+After 20 epochs, the model achieved a peak training accuracy of 61.83%. The high recognition accuracy for healthy and single-phasing faults validated the potential of the approach.
+
+## Testing Accuracy
+
+Testing produced consistent results, with accuracy settling around 60%. This close match between training and testing accuracy indicates good generalization.
+
+## Model Loss
+
+The model’s loss value of 1.7 was within acceptable limits for an experimental setup with limited data.
+
+## Challenges
+
+1. Limited input data due to short motor runtime during experiments.
+2. Low sensitivity of the accelerometer sensor.
+
+# Conclusions and Recommendations
+
+This project demonstrated the feasibility of AI-driven fault detection for induction motors. The non-invasive framework using CNNs and scalograms showed promising results, but there’s room for improvement:
+
+- Use highly sensitive sensors for better signal quality.
+- Collect larger datasets for robust model training.
+- Expand the framework to other motor types and fault categories.
+
+In industrial applications, this technique can be further refined to prevent motor failures, reduce downtime, and save costs. By integrating machine learning with condition monitoring, the future of motor diagnostics looks brighter than ever.
+
+# References
+
+A comprehensive list of references from peer-reviewed journals, IEEE papers, and real-world case studies laid the foundation for this study. These include methods like motor current signature analysis, wavelet transforms, and hybrid fault diagnosis frameworks.
+
+This project is a stepping stone toward revolutionizing motor diagnostics with machine learning. If you’re passionate about applying AI to real-world problems, this is a space to watch. Let’s drive innovation forward! 🚀
+
+### Acknowledgments
+
+A massive shoutout to everyone who contributed to this project, from mentors to technical experts. This endeavor wouldn’t have been possible without their guidance and insights.

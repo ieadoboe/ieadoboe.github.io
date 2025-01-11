@@ -1,17 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProjectsList = () => {
   const projects = [
-    {
-      name: "Machine Fault Detection",
-      description:
-        "Creating technology to empower civilians to explore space on their own terms.",
-      cover_image: "https://dam-assets.fluke.com/s3fs-public/F-805_12a_c.jpg",
-      link: "http://planetaria.tech",
-      githubLink: "GitHub",
-      date: "2024 - Present",
-    },
     {
       name: "Heart Disease Prediction",
       description:
@@ -42,6 +34,15 @@ const ProjectsList = () => {
       githubLink: "GitHub",
       date: "2021 - Present",
     },
+    {
+      name: "Real-Time Fault Detection in Induction Motors Using CNNs and CWT Analysis",
+      description:
+        "An improved machine learning framework for diagnosing faults in induction motors.",
+      cover_image: "https://dam-assets.fluke.com/s3fs-public/F-805_12a_c.jpg",
+      link: "/blog/fault-detection-in-induction-motors/motor-faults",
+      githubLink: "Article",
+      date: "Jan 2021 - Sep 2021",
+    },
   ];
 
   return (
@@ -52,29 +53,21 @@ const ProjectsList = () => {
       {projects.map((project, index) => (
         <li key={index} className="group relative flex flex-col items-start">
           <div className="relative z-10 flex items-center justify-center h-[12rem] w-full overflow-hidden rounded-lg bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-            {/* <img
-              alt={project.name}
-              loading="lazy"
-              decoding="async"
-              className="object-cover object-center w-full h-full"
-              src={project.cover_image}
-              style={{ color: "transparent" }}
-            /> */}
             <Image
               alt={project.name}
               src={project.cover_image}
               layout="fill" // For fully covering a container
               objectFit="cover" // Maintains aspect ratio and ensures the image fills the container
-              objectPosition="center" // Centers the image within the container
-              priority={false} // Use this for lazy loading
+              objectPosition="center"
+              priority={false}
             />
           </div>
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
             <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"></div>
-            <a href={project.link}>
+            <Link href={project.link}>
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
               <span className="relative z-10">{project.name}</span>
-            </a>
+            </Link>
           </h2>
           <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
             {project.description}
