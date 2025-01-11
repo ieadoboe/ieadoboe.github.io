@@ -9,7 +9,7 @@ import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";
 
 export default function Home() {
-  const latestPosts = sortPosts(posts).slice(0, 3);
+  const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(0, 3);
   return (
     <div className="w-full flex min-h-dvh">
       <div className="relative flex w-full flex-col">

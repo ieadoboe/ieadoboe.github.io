@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Dive deep into the data with me!",
 };
-
+ 
 export default function BlogPage() {
   // Sort and filter posts
   const sortedPosts = sortPosts(posts.filter((post) => post.published));

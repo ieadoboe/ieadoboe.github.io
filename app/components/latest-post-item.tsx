@@ -4,7 +4,7 @@ import { Icons } from "@/app/components/site-icons";
 
 interface HomePostItemProps {
   slug: string;
-  title: string;
+  title: string; 
   date: string;
   description: string;
 }
