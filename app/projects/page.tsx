@@ -12,15 +12,14 @@ const ProjectsPage = () => {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Understanding and shaping the future of individuals and
-                      society.
+                      Shaping the future of individuals and society.
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      Digging into data like a DJ spins records — blending stats
-                      and machine learning to see how they groove with real
-                      lives and shape the future. It’s all about turning numbers
-                      into a beat that moves us forward through one question:
-                      What does the data say?
+                      Digging into data like a DJ spins records — blending
+                      statistics and machine learning to see how they groove
+                      with real lives and shape the future. It’s all about
+                      turning numbers into a beat that moves us forward through
+                      one question: What does the data say?
                     </p>
                   </header>
                   <div className="mt-16 sm:mt-20">

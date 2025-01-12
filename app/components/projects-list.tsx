@@ -10,9 +10,9 @@ const ProjectsList = () => {
         "High performance web animation library, hand-written in optimized WASM.",
       cover_image:
         "https://images.ctfassets.net/ut7rzv8yehpf/1DhC3uX3EeKnjU02LWyTXH/9c82e6ae82662ed5903eafb40d888d90/8_Main_Types_of_Heart_Disease.jpg?w=1800&h=900&fl=progressive&q=50&fm=jpg",
-      link: "#",
-      githubLink: "GitHub",
-      date: "2023 - Present",
+      link: "/blog/heart-disease-prediction/cvd",
+      githubLink: "Article",
+      date: "November 2024",
     },
     {
       name: "Fuel Efficiency Prediction",
