@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Isaac Adoboe - Data Scientist, Analyst and Innovator",
+  name: "Isaac Adoboe - Data Scientist and Innovator",
   url: "https://ieadoboe.github.io",
   description: "Data scientist, hobbyist chef, and part-time overthinker. 🤔",
   author: "Isaac Edem Adoboe",
