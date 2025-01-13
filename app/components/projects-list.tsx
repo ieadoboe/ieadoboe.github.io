@@ -1,28 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import mpgCover from "@/public/projects-mpg-cover.jpg";
+import heartCover from "@/public/projects-heart-cover.jpg";
 
 const ProjectsList = () => {
   const projects = [
     {
-      name: "Heart Disease Prediction",
-      description:
-        "High performance web animation library, hand-written in optimized WASM.",
-      cover_image:
-        "https://images.ctfassets.net/ut7rzv8yehpf/1DhC3uX3EeKnjU02LWyTXH/9c82e6ae82662ed5903eafb40d888d90/8_Main_Types_of_Heart_Disease.jpg?w=1800&h=900&fl=progressive&q=50&fm=jpg",
-      link: "/blog/heart-disease-prediction/cvd",
-      githubLink: "Article",
-      date: "November 2024",
-    },
-    {
-      name: "Fuel Efficiency Prediction",
+      name: "Regression Analysis of the Automobile MPG Dataset",
       description:
         "Real-time video streaming library, optimized for interstellar transmission.",
-      cover_image:
-        "https://kenganleybuyingcenterboardman.com/wp-content/uploads/fuel-saving-driving-tips-16466479091.jpg",
-      link: "#",
-      githubLink: "GitHub",
-      date: "2022 - Present",
+      cover_image: mpgCover,
+      link: "https://drive.google.com/file/d/1DRKsGXO-CyU_5_4wbs45hj6CVX3rQIdz/view?usp=sharing",
+      githubLink: "Report",
+      date: "December 2024",
+      newPage: true,
     },
     {
       name: "Los Angeles Airbnb Listings",
@@ -33,7 +25,19 @@ const ProjectsList = () => {
       link: "#",
       githubLink: "GitHub",
       date: "2021 - Present",
+      newPage: true,
     },
+    {
+      name: "Heart Disease Prediction",
+      description:
+        "High performance web animation library, hand-written in optimized WASM.",
+      cover_image: heartCover,
+      link: "/blog/heart-disease-prediction/cvd",
+      githubLink: "Article",
+      date: "November 2024",
+      newPage: false,
+    },
+
     {
       name: "Real-Time Fault Detection in Induction Motors Using CNNs and CWT Analysis",
       description:
@@ -42,6 +46,7 @@ const ProjectsList = () => {
       link: "/blog/fault-detection-in-induction-motors/motor-faults",
       githubLink: "Article",
       date: "Jan 2021 - Sep 2021",
+      newPage: false,
     },
   ];
 
@@ -64,7 +69,11 @@ const ProjectsList = () => {
           </div>
           <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
             <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"></div>
-            <Link href={project.link}>
+            <Link
+              href={project.link}
+              target={project.newPage ? "_blank" : "_self"}
+              rel={project.newPage ? "noopener noreferrer" : undefined}
+            >
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
               <span className="relative z-10">{project.name}</span>
             </Link>

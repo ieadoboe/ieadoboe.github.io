@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <div className="w-full flex min-h-screen">
+    <div className="w-full flex min-h-dvh">
       <div className="relative flex w-full flex-col">
         <main className="flex-auto">
           <div className="sm:px-8 mt-10 sm:mt-20">
