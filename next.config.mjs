@@ -41,14 +41,16 @@
 // const withMDX = createMDX({
 //   options: {
 //     remarkPlugins: [remarkGfm],
-//     rehypePlugins: [],
+// rehypePlugins: [['rehype-katex', { strict: true, throwOnError: true }]],
+
 //   },
 // })
 
 // export default withMDX(nextConfig)
 
-
 import { build } from "velite";
+import rehypeKatex from "rehype-katex";
+import createMDX from '@next/mdx'
 
 class VeliteWebpackPlugin {
   static started = false;
@@ -85,4 +87,14 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// export default nextConfig;
+
+
+
+const withMDX = createMDX({
+  options: {
+    rehypePlugins: [[rehypeKatex, { strict: true, throwOnError: true }]],
+  },
+});
+
+export default withMDX(nextConfig);
