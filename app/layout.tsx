@@ -3,7 +3,6 @@ import "@/app/globals.css";
 import Navbar from "@/app/components/site-header";
 import Footer from "@/app/components/site-footer";
 import { siteConfig } from "@/config/site";
-// import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 export const metadata: Metadata = {
   title: siteConfig.name,
