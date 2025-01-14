@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import Navbar from "@/app/components/site-header";
 import Footer from "@/app/components/site-footer";
 import { siteConfig } from "@/config/site";
+// import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -23,15 +24,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
-      <head>
-        <meta name="apple-mobile-web-app-title" content="edemAI" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.16.20/dist/katex.min.css"
-          integrity="sha384-sMefv1J1YJCHsg0mTa9YG+n/9KnJb9lGrJUUY5arg6bAL1qps/oZjmUwaHlX5Ugg"
-          crossOrigin="anonymous"
-        />
-      </head>
       <body
         className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
         suppressHydrationWarning={true}
