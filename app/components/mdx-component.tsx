@@ -1,5 +1,5 @@
-import Image from "next/image";
 import * as runtime from "react/jsx-runtime";
+import Image from "next/image";
 import { Callout } from "@/app/components/mdx-callout";
 import { CenteredImage } from "@/app/components/mdx-centered-image";
 
@@ -11,7 +11,7 @@ const useMDXComponent = (code: string) => {
 const components = {
   Image,
   Callout,
-  CenteredImage
+  CenteredImage,
 };
 
 interface MDXProps {

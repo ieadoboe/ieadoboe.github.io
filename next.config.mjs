@@ -1,4 +1,6 @@
 import { build } from "velite";
+import remarkGfm from 'remark-gfm'
+import createMDX from '@next/mdx'
 
 class VeliteWebpackPlugin {
   static started = false;
@@ -16,6 +18,7 @@ class VeliteWebpackPlugin {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
       {
@@ -35,4 +38,11 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [['rehype-katex', { strict: true, throwOnError: true }]],
+  },
+})
+
+export default withMDX(nextConfig)
