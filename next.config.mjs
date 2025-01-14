@@ -49,8 +49,6 @@
 // export default withMDX(nextConfig)
 
 import { build } from "velite";
-import createMDX from "@next/mdx";
-import "katex/dist/katex.min.css";
 
 class VeliteWebpackPlugin {
   static started = false;
@@ -87,12 +85,4 @@ const nextConfig = {
   },
 };
 
-// export default nextConfig;
-
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-  },
-});
-
-export default withMDX(nextConfig);
+export default nextConfig;
