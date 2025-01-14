@@ -4,6 +4,7 @@ import profileImage from "@/public/profile_img.jpg";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import { Icons } from "@/app/components/site-icons";
+import { pagesContent } from "@/data/siteContent";
 
 export const metadata: Metadata = {
   title: "About Isaac Adoboe",
@@ -34,45 +35,19 @@ const AboutPage = () => {
                     </div>
                     <div className="lg:order-first lg:row-span-2">
                       <h1 className="text-4xl text-pretty font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                        I am Isaac Edem Adoboe.
+                        {pagesContent.about.header}
                       </h1>
                       <p className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 text-pretty">
-                        I’m a Christian, a curious soul and an unapologetic life
-                        explorer based in Canada. My life is a tapestry of
-                        diverse passions, quirky adventures, and a relentless
-                        thirst for discovery. My faith is the foundation of
-                        everything I do, grounding me and inspiring the way I
-                        live, dream, and connect with others.
+                        {pagesContent.about.p1}
                       </p>
                       <p className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 text-pretty">
-                        At my core, I’m the guy who can lose track of time
-                        debating whether jollof rice needs to go with some stew
-                        on top (spoiler: it does) or attempting to perfect the
-                        spiciest groundnut soup recipe known to humankind. When
-                        I’m not experimenting in the kitchen, you’ll probably
-                        find me glued to the screen, cheering for my favorite
-                        teams in soccer (The Reds - Liverpool FC), basketball
-                        (Clutch City - Houston Rockets), or Formula 1 (The
-                        Prancing Horse - Scuderia Ferrari)—because who doesn’t
-                        love a good adrenaline rush?
+                        {pagesContent.about.p2}
                       </p>
                       <p className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 text-pretty">
-                        I’ve got a thing for capturing the beauty of life, one
-                        frame at a time, through photography. Whether it’s a
-                        candid street shot or a breathtaking landscape, I’m
-                        always chasing that perfect moment. And when I’m not
-                        behind the lens, I’m curating travel dreams on Airbnb,
-                        pinning creative inspiration on Pinterest, or cooking up
-                        something unconventional (both literally and
-                        figuratively) on my YouTube playlist.
+                        {pagesContent.about.p3}
                       </p>
                       <p className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 text-pretty">
-                        As much as I love the thrill of adventure, I also have a
-                        soft spot for meaningful conversations. Whether it’s
-                        about the latest tech trends, the philosophy of
-                        happiness, or just sharing stories over a cup of coffee,
-                        I believe the best moments in life are the ones we
-                        create with others.
+                        {pagesContent.about.p4}
                       </p>
                     </div>
                     <div className="lg:pl-20">

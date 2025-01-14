@@ -7,9 +7,13 @@ import { Icons } from "@/app/components/site-icons";
 import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";
+import { pagesContent } from "@/data/siteContent";
 
 export default function Home() {
-  const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(0, 3);
+  const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(
+    0,
+    3
+  );
   return (
     <div className="w-full flex min-h-dvh">
       <div className="relative flex w-full flex-col">
@@ -20,14 +24,10 @@ export default function Home() {
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
                 <div className="max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                    Data scientist, hobbyist chef, and part-time overthinker. 🤔
+                    {pagesContent.home.header}
                   </h1>
                   <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                    Hey there! I’m Isaac—a data scientist and perpetual learner
-                    with a passion for transforming complexity into clarity. I
-                    thrive on uncovering actionable insights from data,
-                    empowering businesses and individuals to make informed
-                    decisions.
+                    {pagesContent.home.description}
                   </p>
                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
                     <PrimaryButton href="/projects" text="View my projects" />

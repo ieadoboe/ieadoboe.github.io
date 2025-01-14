@@ -1,5 +1,6 @@
 import React from "react";
 import SpotifyEmbed from "../components/site-spotify";
+import { pagesContent } from "@/data/siteContent";
 
 const SpotifyPage = () => {
   return (
@@ -12,13 +13,10 @@ const SpotifyPage = () => {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Set the mood right 😉
+                      {pagesContent.spotify.header}
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      You need the right playlist to set the mood—whether you’re
-                      working, relaxing, or chasing big dreams. Here are the
-                      tracks that keep me inspired, focused, and vibing through
-                      it all.
+                      {pagesContent.spotify.description}
                     </p>
                   </header>
                   <div className="mt-8 sm:mt-12">

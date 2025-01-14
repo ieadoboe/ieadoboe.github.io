@@ -1,5 +1,6 @@
 import React from "react";
 import AirbnbEmbed from "../components/site-airbnb";
+import { pagesContent } from "@/data/siteContent";
 
 const AirbnbPage = () => {
   return (
@@ -12,17 +13,10 @@ const AirbnbPage = () => {
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <header className="max-w-2xl pt-4">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      Book Your Stay 🏠
+                      {pagesContent.airbnb.header}
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      A cheerful and heartfelt welcome to your stay at our
-                      charming any of our apartments, nestled in the peaceful
-                      confines of a safe gated estate. We&apos;re overjoyed to
-                      have you indulge in the warm embrace of African culture
-                      intertwined with rustic charm that adorns every corner of
-                      our cozy abode. It&apos;s a delightful fusion where
-                      comfort meets tradition, promising you an enchanting and
-                      memorable experience.
+                      {pagesContent.airbnb.description}
                     </p>
                   </header>
                   <div className="mt-8 sm:mt-12">

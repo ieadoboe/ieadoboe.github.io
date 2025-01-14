@@ -3,13 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import mpgCover from "@/public/projects-mpg-cover.jpg";
 import heartCover from "@/public/projects-heart-cover.jpg";
+import airbnbCover from "@/public/projects-airbnb-cover.webp";
+import motorCover from "@/public/projects-motor-cover.webp";
 
 const ProjectsList = () => {
   const projects = [
     {
       name: "Regression Analysis of the Automobile MPG Dataset",
       description:
-        "Real-time video streaming library, optimized for interstellar transmission.",
+        "Deep statistical dive into the Automobile MPG Dataset to uncover fuel efficiency secrets.",
       cover_image: mpgCover,
       link: "https://drive.google.com/file/d/1DRKsGXO-CyU_5_4wbs45hj6CVX3rQIdz/view?usp=sharing",
       githubLink: "Report",
@@ -17,32 +19,30 @@ const ProjectsList = () => {
       newPage: true,
     },
     {
-      name: "Los Angeles Airbnb Listings",
+      name: "Los Angeles Airbnb Listings Exploratory Analysis",
       description:
-        "The operating system that powers our Planetaria space shuttles.",
-      cover_image:
-        "https://media.architecturaldigest.com/photos/5fdba5629542eda0bedf1080/master/pass/60d85131-b43f-4edb-8051-28c0e6bd377a.jpg",
-      link: "#",
+        "Explore the trends, pricing, and hidden gems of Los Angeles’ Airbnb scene—discover what makes a listing shine!",
+      cover_image: airbnbCover,
+      link: "https://github.com/ieadoboe/los-angeles-airbnb.git",
       githubLink: "GitHub",
-      date: "2021 - Present",
+      date: "December 2024",
       newPage: true,
     },
     {
-      name: "Heart Disease Prediction",
+      name: "Non-invasive Heart Disease Prediction",
       description:
-        "High performance web animation library, hand-written in optimized WASM.",
+        "Predict heart disease using machine learning for early detection and better health outcomes.",
       cover_image: heartCover,
       link: "/blog/heart-disease-prediction/cvd",
       githubLink: "Article",
       date: "November 2024",
       newPage: false,
     },
-
     {
       name: "Real-Time Fault Detection in Induction Motors Using CNNs and CWT Analysis",
       description:
-        "An improved machine learning framework for diagnosing faults in induction motors.",
-      cover_image: "https://dam-assets.fluke.com/s3fs-public/F-805_12a_c.jpg",
+        "A stepping stone in motor maintenance with real-time fault detection using CNNs and CWT analysis.",
+      cover_image: motorCover,
       link: "/blog/fault-detection-in-induction-motors/motor-faults",
       githubLink: "Article",
       date: "Jan 2021 - Sep 2021",
