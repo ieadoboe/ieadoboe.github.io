@@ -1,5 +1,5 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { AppProps } from "next/app";
-import { GoogleAnalytics } from "nextjs-google-analytics";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         integrity="sha384-sMefv1J1YJCHsg0mTa9YG+n/9KnJb9lGrJUUY5arg6bAL1qps/oZjmUwaHlX5Ugg"
         crossOrigin="anonymous"
       />
-      <GoogleAnalytics gaMeasurementId="G-VPE41GKSB9" />
+      <GoogleAnalytics gaId="G-VPE41GKSB9" />
       <Component {...pageProps} />
     </>
   );
