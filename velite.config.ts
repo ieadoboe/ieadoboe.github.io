@@ -4,6 +4,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -36,6 +37,7 @@ export default defineConfig({
   },
   collections: { posts },
   mdx: {
+    remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [rehypePrettyCode, { theme: "github-dark" }],
@@ -49,8 +51,7 @@ export default defineConfig({
           },
         },
       ],
-      rehypeKatex,
+      [rehypeKatex, { strict: true, throwOnError: false }],
     ],
-    remarkPlugins: [remarkMath],
   },
 });
