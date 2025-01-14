@@ -12,7 +12,7 @@ export function Callout({
 }: CalloutProps) {
   return (
     <div
-      className={`my-6 items-start rounded-2xl border p-4 w-full dark:max-w-none ${
+      className={`my-6 items-start rounded-2xl border px-5 w-full dark:max-w-none ${
         type === "warning"
           ? "border-yellow-500 bg-yellow-50 dark:border-yellow-600 dark:bg-yellow-800"
           : type === "danger"

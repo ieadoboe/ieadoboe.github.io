@@ -35,45 +35,92 @@ I started this endeavour at the start of the winter break and had only 3 weeks t
 
 # The Project Stack
 
-- NextJS
-- TypeScript
-- Tailwind CSS
-- Velite
+- [NextJS](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Velite](https://velite.js.org/)
 
 ## Why Next.js
 
-I went with Next.js as the backbone of my website. Next.js is a tool that helps developers build websites that are really fast, efficient and easy to find on Google. It makes sure that the pages people see are ready to go right away. Next.js is built on top of **React.js**. It takes React’s capabilities for building user interfaces and adds additional features like server-side rendering, static site generation, and routing, which make it easier to build modern, high-performance web applications. It has many more benefits like image optimizations and code-splitting which you can look into further if you are interested [NextJS](https://nextjs.org/).
+I went with Next.js as the backbone of my website. Next.js is a tool that helps developers build websites that are really fast, efficient and easy to find on Google. It makes sure that the pages people see are ready to go right away. Next.js is built on top of **React.js**. It takes React’s capabilities for building user interfaces and adds additional features like server-side rendering, static site generation, and routing, which make it easier to build modern, high-performance web applications. It has many more benefits like image optimizations and code-splitting which you can look into further if you are interested.
 
 ## Typing TypeScript
 
-TypeScript is like an upgrade to JavaScript, which is a language that developers use to build websites and apps. JavaScript lets you write whatever you want, but TypeScript adds a checklist to make sure your instructions are correct and clear. With TypeScript, developers can catch mistakes earlier in the process, making their code more reliable and easier to understand. It helps prevent errors, especially as projects grow larger and more complex. TypeScript is an open-source, object-oriented programming language developed and maintained by Microsoft Corporation. [TypeScript website](https://www.typescriptlang.org/)
+TypeScript is like an upgrade to JavaScript, which is a language that developers use to build websites and apps. JavaScript lets you write whatever you want, but TypeScript adds a checklist to make sure your instructions are correct and clear. With TypeScript, developers can catch mistakes earlier in the process, making their code more reliable and easier to understand. It helps prevent errors, especially as projects grow larger and more complex. TypeScript is an open-source, object-oriented programming language developed and maintained by Microsoft Corporation.
 
 ## Styling with TailwindCSS
 
-Tailwind CSS is a utility-first CSS framework that makes it easy to build modern, responsive designs directly within your HTML (or JSX, in this case). Since the project’s pages are built as JSX components, Tailwind CSS became my go-to styling tool, acting as my trusty sidekick for crafting sleek and consistent designs effortlessly. It’s clean, efficient, and a huge time-saver. [TailwindCSS](https://tailwindcss.com/). When digging through the documentation of the tailwind CSS, I came across one of their portfolio website showcases, which I fell in love with — guess what? I ended up copying as much as I could. This quote is my defence (my hands are up).
+This website also uses Tailwind CSS for styling, along with the `@tailwindcss/typography` plugin for beautiful typography. Tailwind CSS is a utility-first CSS framework that makes it easy to build modern, responsive designs directly within your HTML (or JSX, in this case). Since the project’s pages are built as JSX components, Tailwind CSS became my go-to styling tool, acting as my trusty sidekick for crafting sleek and consistent designs effortlessly. It’s clean, efficient, and a huge time-saver. When digging through the documentation of the tailwind CSS, I came across one of their portfolio website showcases, which I fell in love with — guess what? I ended up copying as much as I could. This quote is my defence (my hands are up).
 
 > If I have seen further, it is by standing on the shoulders of giants. - Sir Isaac Newton
 
 ## Using Velite
 
-To manage my content, I experimented with **Velite**, a lightweight framework designed for content-driven sites. Velite simplifies building type-safe data layers by converting Markdown, MDX, YAML, and JSON files into application-ready data. It allowed me to easily define collections (like articles and blogs) and handle them efficiently. That said, setting up the .velite folder required some troubleshooting. _Pro tip_: Read the docs carefully and double-check your paths in tsconfig.json—it’ll save you some headaches!
+To manage my content, I experimented with Velite, a lightweight framework designed for content-driven sites. Velite simplifies building type-safe data layers by converting Markdown, MDX, YAML, and JSON files into application-ready data. It allowed me to easily define collections (like articles and blogs) and handle them efficiently. That said, setting up the .velite folder required some troubleshooting. _Pro tip_: Read the docs carefully and double-check your paths in tsconfig.json—it’ll save you some headaches!
 
-# Building The Pages of the Website
+# Features of the Reimagined Umbrella Project
 
-- **Homepage**: The homepage presents a clean, intuitive layout that welcomes visitors and provides easy access to key sections, creating a smooth user experience.
-  - Newsletter Form: Brevo
-- **About Page**: This section is structured to clearly highlight the professional background, key projects, and achievements, making it easy for visitors to learn about the creator’s journey.
-- **Projects Page**: The projects are presented with dynamic cards, allowing for an interactive and organized display of each project.
-- **Articles Page**: The articles section is seamlessly integrated with dynamic content, offering a smooth reading experience and easy content updates.
-- **Spotify Page**:
+The project utilized other cutting-edge technologies and tools. Here are some of the key technologies and integrations in this project:
 
-These sections help make the website both functional and engaging, offering a comprehensive look at the work and journey behind it.
+### MDX Integration
+
+With the help of `@mdx-js/loader`, `@mdx-js/react`, and `next-mdx-remote`, the website supports MDX, allowing me to write JSX in Markdown documents. This makes it easy to create rich content pages with interactive components like the one you are reading right now.
+
+### ESLint
+
+To maintain code quality and consistency, the project uses [ESLint](https://eslint.org/) with the `eslint-config-next` configuration. This helps catch potential issues early and enforces best practices.
+
+### Math and LaTeX Support
+
+With the integration of `katex`, `react-katex`, `rehype-katex`, and `remark-math`, the project supports rendering mathematical expressions and LaTeX. This is particularly useful for educational content and will come in handy when I start working on my tutorials page.
+
+### Remark and Rehype Plugins
+
+The website uses various [`remark`](https://github.com/remarkjs/remark) and [`rehype`](https://github.com/rehypejs/rehype) plugins, such as `remark-gfm`, `rehype-autolink-headings`, `rehype-pretty-code`, and `rehype-slug`, to enhance Markdown processing and HTML output. These plugins add features like GitHub Flavored Markdown, automatic heading links, syntax highlighting, and slug generation. To put it simply, these plugins allow me to put in code blocks into Markdown and make it look good.
+
+### DaisyUI
+
+[DaisyUI](https://daisyui.com/) is used to provide a set of pre-designed components that are built on top of Tailwind CSS. This helps speed up the development process by providing ready-to-use UI elements.
+
+### Brevo
+
+The project integrates [Brevo](https://www.brevo.com/) (formerly Sendinblue) for managing the newsletter signup system. This allows seamless collection and management of subscriber emails, ensuring efficient communication with the audience through automated workflows and email campaigns.
+
+### Google Analytics
+
+Would I really be a data scientist without adding some analytics? I have to see the numbers. Using the @next/third-parties/google package, the project incorporates Google Analytics to track website traffic, user interactions, and other key metrics. This integration provides insights into user behavior, helping to improve the overall website experience and performance.
+
+# Pages of the Website
+
+- **Homepage**
+
+  The homepage features a clean, intuitive layout designed to welcome visitors and provide easy navigation to key sections. It ensures a smooth user experience with highlights of the most important content.
+
+- **About Page**
+
+  This section offers a well-structured overview of the creator’s professional background, key projects, and notable achievements. It’s designed to give visitors an engaging insight into the journey and expertise behind the website. I integrate a newsletter signup form and pull the latest three articles/blogposts.
+
+- **Projects Page**
+
+  Projects are showcased using dynamic, interactive cards that present each project in an organized and visually appealing manner, making it easy for visitors to explore and engage with my work.
+
+- **Articles Page**
+
+  The articles section is seamlessly integrated with MDX for dynamic content delivery, offering a smooth and enjoyable reading experience. This page is optimized for easy content updates, ensuring visitors always have access to fresh insights and ideas.
+
+- **Spotify Page**
+
+  A dedicated page showcasing the my current favorite playlists, tracks, or music recommendations, offering a personal touch to the website.
+
+- **Airbnb Page**
+
+  A curated page my Airbnb listings. Each listing includes vibrant photos, detailed descriptions, and a direct link for booking, making it convenient for potential guests to explore and book accommodations with me.
 
 # Deployment
 
 I deployed the project on GitHub Pages, primarily for the simpler .github.io domain name. Deploying a Next.js project to GitHub Pages involves automating the build and deployment process through GitHub Actions [GitHub Actions](https://github.com/actions). The process typically starts with setting up the build job, where dependencies are installed, and the Next.js app is built. The output is then prepared for deployment, and in the deployment step, the built files are pushed to GitHub Pages. Key configurations include specifying the correct Node.js version, caching dependencies for faster builds, and using actions like actions/deploy-pages for seamless deployment to GitHub Pages.
 
-It is important to look into automation because it makes for consistency and saves time. Automating the build and deployment steps eliminates manual errors and increases reliability. GitHub provides common Actions (automations .yml) as a starting point. Most of the time, it should be enough for simple projects.
+It is important to look into automation because it makes for consistency and saves time. Automating the build and deployment steps eliminates manual errors and increases reliability. GitHub provides common Actions (that’s automations, `.yml`) as a starting point. Most of the time, it should be enough for simple projects.
 
 # Challenges Faced
 

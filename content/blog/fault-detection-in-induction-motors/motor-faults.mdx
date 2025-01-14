@@ -1,17 +1,20 @@
 ---
 title: Machine Learning Technique to Detect Faults in Induction Motors
-description: I'll dive into a summary of one of my earliest machine learning projects to detect faults in induction motors. This project, spearheaded to minimize industrial economic losses, presents an AI-based fault diagnosis framework.
+description: I dive into a summary of one of my earliest machine learning projects to detect faults in induction motors. This project, spearheaded to minimize industrial economic losses, presents an AI-based fault diagnosis framework.
 date: 2021-09-25
 published: true
 ---
 
-# Background / Back story...
+**Collaborators**
 
-{/* <Latex>$\frac{a}{b} = c$</Latex> */}
+- [Enock Okornoe →](https://www.linkedin.com/in/enock-okornoe-26122a20b/)
+- [Emmanuel Okyere Ofori →](https://www.linkedin.com/in/emmanuel-okyere-ofori-a042ab1b5/)
 
-{/* $$\frac{a}{b} = c$$ */}
+---
 
-The project aims to develop an improved machine learning framework for diagnosing faults in induction motors. By using convolutional neural networks (CNNs) and advanced signal processing techniques like Continuous Wavelet Transform (CWT), the research highlights a non-invasive, accurate, and efficient fault classification process. Despite challenges, the results showed potential for further refinement and real-world application.
+# Overview
+
+The project aimed to develop an improved machine learning framework for diagnosing faults in induction motors. By using convolutional neural networks (CNNs) and advanced signal processing techniques like Continuous Wavelet Transform (CWT), the research highlights a non-invasive, accurate, and efficient fault classification process. Despite challenges, the results showed potential for further refinement and real-world application.
 
 # Introduction
 
@@ -21,6 +24,8 @@ Faults in induction motors can result in significant industrial downtimes, causi
 2. Utilize Continuous Wavelet Transform (CWT) for time-frequency analysis of motor signals, enabling better feature extraction.
 3. Address data limitations by employing augmentation techniques to enhance the dataset’s diversity and size.
 4. Validate the model under real-world conditions, identifying strengths and areas for improvement to ensure its practical applicability.
+
+Our primary goal was to train a Neural Network capable of detecting faults before they occur, allowing the motor to shut down and identify the specific fault for immediate action. This proactive approach can save significant costs, as motor repairs are expensive once faults are detected.
 
 This project represents a forward-thinking approach to fault diagnosis, aiming to revolutionize how industries monitor and maintain induction motors.
 
@@ -32,11 +37,13 @@ The literature review revealed multiple methods for motor fault detection:
 - Machine Learning Models: Artificial Neural Networks (ANN), fuzzy logic, and clustering methods were explored.
 - Data Challenges: Many methods struggled with limited datasets and noise, emphasizing the need for robust augmentation and preprocessing.
 
+---
+
 # Methodology
 
 ## Data Collection
 
-Signals from current and vibration sensors were collected for five motor conditions: healthy, single phasing, overloading, bearing faults, and washer faults. Over 1,500 data points were compiled using MATLAB and Excel for preprocessing.
+In this project, we purchased a perfectly working induction motor and run a bunch of experiments on it to collect data. Signals from current and vibration sensors were collected for five motor conditions: healthy, single phasing, overloading, bearing faults, and washer faults. Over 1,500 data points were compiled using MATLAB and Excel for preprocessing. Spoiler alert: The motor did not survive.
 
 <CenteredImage
   src="./Experimentalsetup.jpg"
@@ -46,23 +53,27 @@ Signals from current and vibration sensors were collected for five motor conditi
 
 ## Signal Processing
 
-MATLAB’s algorithms transformed raw signals into scalograms, which were then augmented by applying rotations (90°, 180°, and 270°) to expand the dataset.
+MATLAB’s algorithms transformed raw signals into scalograms, which were then augmented by applying rotations (90°, 180°, and 270°) to expand the dataset. Applying rotations to the scalograms helps in data augmentation, a technique used to artificially expand the training dataset by introducing slight variations in the data. In this case, rotating the scalograms ensures that the model becomes more robust and generalizable by learning features that are invariant to orientation. This can improve the model’s ability to recognize faults in induction motors regardless of the orientation of the signal, leading to better performance and accuracy in real-world applications. This augmented our original 1,500 data points to 6,000, providing enough variety for most machine learning algorithms to effectively learn patterns in the data.
 
 <CenteredImage src="./scalogram.png" alt="Scalogram" width={700} />
 
 ## Model Training
 
-The CNN was built using TensorFlow and Keras, with 90% of the data for training and 10% for testing. Model training was executed on Google Colab to leverage free GPU resources.
+CNNs are a specialized type of deep neural network designed primarily for processing grid-like data, such as images or time-series data. They consist of layers that automatically detect important features in the data, such as edges, shapes, or patterns. CNNs use a process called convolution, where a small filter (or kernel) slides over the input data, performing a mathematical operation to extract important features. These features are then passed through multiple layers, including pooling layers to reduce dimensions and fully connected layers for final classification or regression. CNNs are particularly effective for tasks like image classification, speech recognition, and, in this case, fault detection in induction motors.
+
+I do not want to turn this into a Convolutional Neural Network class. If you are interested in diving deeper, here's a great blogpost from [Towards Data Science](https://towardsdatascience.com/) -> [Convolutional Neural Networks, Explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939)
 
 ![Architecture of Convolutional Neural Networks](./convnet.jpg)
 
-I do not want to turn this into a Convolutional Neural Network class. If you are interested in diving deeper, here's a great blogpost from [Towards Data Science](https://towardsdatascience.com/) -> [Convolutional Neural Networks, Explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939)
+The CNN was built using TensorFlow and Keras, with 90% of the data for training and 10% for testing. Model training was executed on Google Colab to leverage free GPU resources.
 
 ## Neural Network Architecture
 
 - Convolutional Layers: 64 filters, kernel size of 2, ReLU activation, and stride of 2.
 - Pooling Layers: Max pooling (2x2) optimized feature extraction.
 - Fully Connected Layer: Flattened output, softmax activation for classification into five labels.
+
+---
 
 # Results and Analysis
 
@@ -80,8 +91,9 @@ The model’s loss value of 1.7 was within acceptable limits for an experimental
 
 ## Challenges
 
-1. Limited input data due to short motor runtime during experiments.
-2. Low sensitivity of the accelerometer sensor.
+1. **Limited input data:** The data collected was constrained due to the short runtime of the motor during experiments, limiting the variety and volume of training data.
+2. **Low sensor sensitivity:** The accelerometer sensor’s low sensitivity impacted the quality of the data, potentially reducing the model’s ability to detect subtle faults.
+3. **GPU limitations:** We believe that with access to more powerful GPUs, we could significantly improve the model’s training process, enabling faster training times and more refined learning of complex patterns.
 
 # Conclusions and Recommendations
 
@@ -92,13 +104,3 @@ This project demonstrated the feasibility of AI-driven fault detection for induc
 - Expand the framework to other motor types and fault categories.
 
 In industrial applications, this technique can be further refined to prevent motor failures, reduce downtime, and save costs. By integrating machine learning with condition monitoring, the future of motor diagnostics looks brighter than ever.
-
-# References
-
-A comprehensive list of references from peer-reviewed journals, IEEE papers, and real-world case studies laid the foundation for this study. These include methods like motor current signature analysis, wavelet transforms, and hybrid fault diagnosis frameworks.
-
-This project is a stepping stone toward revolutionizing motor diagnostics with machine learning. If you’re passionate about applying AI to real-world problems, this is a space to watch. Let’s drive innovation forward! 🚀
-
-### Acknowledgments
-
-A massive shoutout to everyone who contributed to this project, from mentors to technical experts. This endeavor wouldn’t have been possible without their guidance and insights.
