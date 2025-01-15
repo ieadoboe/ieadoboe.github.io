@@ -25,7 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
       <head>
-        <meta name="apple-mobile-web-app-title" content="edemAI" />
+        <meta name="apple-mobile-web-app-title" content="IsaacA." />
+        <meta name="theme-color" content="#14B8A6" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/katex@0.16.20/dist/katex.min.css"
