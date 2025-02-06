@@ -76,6 +76,7 @@ jobs:
       - name: Build with Next.js
         env:
             BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+            BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
