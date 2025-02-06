@@ -19,19 +19,25 @@ const NewsletterForm: React.FC = () => {
     }
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        body: JSON.stringify({ email }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://reimagined-umbrella-api.vercel.app/api/subscribe",
+        {
+          method: "POST",
+          body: JSON.stringify({ email }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (res.ok) {
         setStatus("Thanks for subscribing!");
         setEmail(""); // Clear the email input field after successful subscription
       } else {
-        setStatus("Something went wrong. Please try again.");
+        const errorData = await res.json();
+        setStatus(
+          errorData?.message || "Something went wrong. Please try again."
+        );
       }
       setStatusVisible(true);
     } catch (error) {
