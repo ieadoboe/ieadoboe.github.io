@@ -1,5 +1,6 @@
 import * as runtime from "react/jsx-runtime";
 import Image from "next/image";
+import Link from "next/link";
 import { Callout } from "@/app/components/mdx-callout";
 import { CenteredImage } from "@/app/components/mdx-centered-image";
 
@@ -10,6 +11,7 @@ const useMDXComponent = (code: string) => {
 
 const components = {
   Image,
+  Link,
   Callout,
   CenteredImage,
 };
