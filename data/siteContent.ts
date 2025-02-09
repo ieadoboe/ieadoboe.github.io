@@ -2,7 +2,7 @@ export const pagesContent = {
   home: {
     header: "Data scientist, hobbyist chef, and part-time overthinker. 🤔",
     description:
-      "Hey there! I’m Isaac—a data scientist and perpetual learner with a passion for transforming complexity into clarity. I thrive on uncovering actionable insights from data, empowering businesses and individuals to make informed decisions.",
+      "Hey, I’m Isaac—a data scientist and lifelong learner with a passion for research and transforming complexity into clarity. I thrive on digging deep into data, uncovering insights, and using those findings to help businesses and individuals make smarter, more informed decisions.",
   },
   projects: {
     header: "Shaping the future through data.",
@@ -18,7 +18,7 @@ export const pagesContent = {
     header: "I am Isaac Edem Adoboe.  ",
     p1: "I’m a Christian, a curious soul and an unapologetic life explorer based in Canada. My life is a tapestry of diverse passions, quirky adventures, and a relentless thirst for discovery. My faith is the foundation of everything I do, grounding me and inspiring the way I live, dream, and connect with others.",
     p2: "At my core, I’m the guy who can lose track of time debating whether jollof rice needs to go with some stew on top (spoiler: it does) or attempting to perfect the spiciest groundnut soup recipe known to humankind. When I’m not experimenting in the kitchen, you’ll probably find me glued to the screen, cheering for my favorite teams in soccer (The Reds - Liverpool FC), basketball (Clutch City - Houston Rockets), or Formula 1 (The Prancing Horse - Scuderia Ferrari)—because who doesn’t love a good adrenaline rush?",
-    p3: "I’ve got a thing for capturing the beauty of life, one frame at a time, through photography. Whether it’s a candid street shot or a breathtaking landscape, I’m always chasing that perfect moment. And when I’m not behind the lens, I’m curating travel dreams on Airbnb, pinning creative inspiration on Pinterest, or cooking up something unconventional (both literally and figuratively) on my YouTube playlist.",
+    p3: "I’m all about capturing emotions and abstract moments—whether it’s the perfect symmetry I spot or the raw feeling in a quick glance. For me, photography isn’t about perfection; it’s about saving a piece of time and holding onto those memories.",
     p4: "As much as I love the thrill of adventure, I also have a soft spot for meaningful conversations. Whether it’s about the latest tech trends, the philosophy of happiness, or just sharing stories over a cup of coffee, I believe the best moments in life are the ones we create with others.",
   },
   spotify: {
