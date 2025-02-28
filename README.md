@@ -34,11 +34,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Blog Posts
 
-Blog posts are written in MDX and stored in the `content/blog` directory. Example posts include:
-
-- [The Lifecycle of a React Component, Explained by Cats](content/blog/react-lifecycle-cats.mdx)
-- [Debugging React with Wizardry and Magic](content/blog/react-debug-magic.mdx)
-- [Building My Personal Website with Next.js, Tailwind CSS, and a Sprinkle of Velite](content/blog/building-my-personal-website/my-website-journey.mdx)
+Blog posts are written in MDX and stored in the `content/blog` directory. Building My Personal Website with Next.js, Tailwind CSS, and a Sprinkle of Velite](content/blog/building-my-personal-website/my-website-journey.mdx)
 
 ## Features
 
