@@ -1,0 +1,330 @@
+---
+title: How I Efficiently Set Up My MacBook for Machine Learning and Productivity (2025 Edition)
+description: Setting up a new MacBook always feels like a fresh start—a blank canvas ready to build, experiment, and get things DONE. Over time, I’ve refined my setup process, so whether you're just getting started in data science, or you're simply optimizing your workflow, here’s exactly how I set up my Mac for machine learning, deep learning, and general productivity.
+date: 2025-03-02
+published: true
+---
+
+# Background
+
+After years of using my MacBook for all kinds of tasks and projects ranging from graphic design, web development, to machine learning, I was running out of space and my MacBook was starting to slow down. I decided it was time to clean up my MacBook and get it back to peak performance. I did an extensive backup of my MacBook and installed a fresh copy of macOS. I thought it would be a good idea to document my setup process for my future self and share it with you.
+
+Over the years, I’ve explored countless tools and software to refine my workflow. From experimenting with different IDEs and text editors to testing productivity apps that promise peak efficiency, I’ve tried it all. I’ve spent hours customizing my MacBook setup, tweaking every detail to create an environment that feels just right. Whether it’s optimizing performance, keeping things clean and clutter-free, or finding that perfect balance between power and simplicity — I’m always on the hunt for ways to make my MacBook work smarter, faster, and better. This guide will cover everything I install and tweak, with an emphasis on Homebrew (the GOAT of package managers), keeping things clean, efficient, and minimal.
+
+# System Tweaks First!
+
+### Automatically Hide Dock and Remove the (annoying) Dock Delay
+
+The first thing I do turn on "Automatically hide and show the Dock" setting in System Settings. MacOS has a delay when you move your mouse to the edge of the screen to trigger the Dock. This is a feature, not a bug. But it's annoying and slows you down when you're trying to be productive.
+
+Here's how to change the delay in your **Terminal**:
+
+```bash
+defaults write com.apple.dock autohide-delay -float 0; killall Dock
+```
+
+To restore the default delay, run:
+
+```bash
+defaults delete com.apple.dock autohide-delay
+defaults delete com.apple.dock autohide-time-modifier
+killall Dock
+```
+
+# Homebrew
+
+[Homebrew](https://brew.sh) is the GOAT of package managers. It's a tool that allows you to install software on your Mac. It's a must-have for any Mac user.
+
+Here's how to install Homebrew:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+To update Homebrew, run:
+
+```bash
+brew update
+```
+
+To upgrade all installed packages, run:
+
+```bash
+brew upgrade
+```
+
+# Productivity Toolkit
+
+## iTerm2 - Terminal
+
+[iTerm2](https://iterm2.com) is a powerful terminal emulator for macOS that can significantly enhance the workflow of machine learning and deep learning engineers.
+
+With features like split panes for multitasking, searchable outputs to track long training logs, session management for stable remote connections, and broadcast input to control multiple servers at once, iTerm2 helps streamline complex ML workflows. Add in quick file transfers, automation with scripting, and hotkey access, and you’ve got a terminal that keeps you focused and efficient, whether you’re running local experiments or managing remote GPU machines.
+
+```bash
+brew install --cask iterm2
+```
+
+## Cursor - VS Code alternative
+
+[Cursor](https://cursor.sh) is an AI-powered code editor designed to supercharge developer productivity, making it an excellent tool for machine learning and deep learning engineers.
+
+Built on top of VSCode, Cursor integrates advanced AI assistance directly into your coding workflow, helping you write, refactor, and debug complex code with ease. Whether you’re prototyping deep learning models, managing data pipelines, or optimizing algorithms, Cursor’s inline suggestions, code explanations, and smart completions help speed up development and reduce context switching. It’s a modern editor built to keep you focused, efficient, and shipping faster.
+
+```bash
+brew install --cask cursor
+```
+
+## Raycast - Spotlight replacement
+
+[Raycast](https://raycast.com) is a blazing-fast productivity tool for macOS that enhances the way developers and machine learning engineers interact with their system. More than just a Spotlight replacement, Raycast offers quick access to apps, scripts, and system commands, making it easy to launch terminals, manage clipboard history, and even run custom AI-powered workflows. With deep integrations for tools like GitHub, Jira, and VSCode, it streamlines development and automates repetitive tasks, helping you stay focused and efficient. If you’re looking to optimize your workflow and reduce friction, Raycast is a game-changer.
+
+```bash
+brew install --cask raycast
+```
+
+To make `Cmd ⌘ + Space` open Raycast, follow these steps:
+
+### 1. Disable Spotlight Shortcut
+
+- Open **System Settings** (`Cmd ⌘ + Space`, then type “System Settings”).
+- Go to **Keyboard** > **Keyboard Shortcuts**.
+- Select **Spotlight** from the sidebar.
+- Turn off **Show Spotlight Search** (`Cmd ⌘ + Space`).
+
+### 2. Assign Cmd ⌘ + Space to Raycast
+
+- Open **Raycast** (`Cmd ⌘ + Space`, then type “Raycast” if Spotlight is still active).
+- Open **Raycast Preferences** (`Cmd ⌘ + ,` inside Raycast).
+- Navigate to the **General** tab.
+- Click on the **Hotkey** field and set it to `Cmd ⌘ + Space`.
+
+### 3. Test It!
+
+Press `Cmd ⌘ + Space`, and Raycast should now open instead of Spotlight.
+
+## Other Essentials Applications
+
+```bash
+brew install r # R
+brew install --cask rstudio # RStudio
+brew install --cask google-chrome # Browser
+brew install --cask notion # Productivity
+brew install --cask slack # Chat
+brew install --cask visual-studio-code # VS Code
+brew install --cask adobe-acrobat-reader # PDF Reader
+brew install --cask monitorcontrol # Control your external monitor
+brew install --cask google-drive # Google Drive
+brew install --cask microsoft-office # Microsoft Office
+```
+
+# Finder: Organized Workflow 📁
+
+A well-configured Finder setup can greatly improve your productivity, especially if you’re managing datasets, code files, and project directories as a machine learning or deep learning engineer. Here’s a step-by-step guide to how Ioptimize Finder for clarity, easy access, and performance:
+
+## 1. General Finder Settings
+
+Open **Finder** → **Menu Bar** → **Settings** (`Cmd ⌘ + ,`)
+
+**🗂️ General Tab**
+
+- New Finder windows show:
+  - Set to Documents (or your preferred working directory) to quickly access important files.
+
+**📚 Sidebar Tab**
+
+Customize your Sidebar to keep only what you need. Enable the following:
+
+- ✅ Applications
+- ✅ Documents
+- ✅ Downloads
+- ✅ Movies (for local video storage, excludes from cloud backups if needed)
+- ✅ Home (your user account folder)
+- ✅ Hard disk (optional, leave checked or unchecked as preferred)
+- ✅ External disks
+- ✅ CDs, DVDs, and iOS Devices
+- ✅ Cloud Storage
+- ✅ Bonjour computers
+- ✅ Connected servers
+
+Uncheck everything else to reduce clutter.
+
+**⚡ Advanced Tab**
+
+Optimize Finder behavior:
+
+- ✅ Show all filename extensions (great for code, data, and config files)
+- ✅ Remove items from the Trash after 30 days (helps manage disk space)
+- ✅ Always keep folders on top (makes navigation easier when sorting files)
+
+## 2. View Options in Finder
+
+1. Open Your Home Folder
+
+   Press `Cmd ⌘ + Shift + H` to quickly open your home directory.
+
+2. Choose a View Style
+
+   Switch between Finder views based on preference: - Icon View: `Cmd ⌘ + 1` - List View: `Cmd ⌘ + 2` (recommended for most ML projects) - Column View: `Cmd ⌘ + 3` - Gallery View: `Cmd ⌘ + 4`
+
+3. Customize and Apply to All Folders
+   1. In Finder, go to **View** > **Show View Options** (`Cmd ⌘ + J`).
+   2. Adjust preferences (icon size, grid spacing, text size, etc.).
+   3. Click “**Use as Defaults**” to apply these settings to all new folders.
+
+### Apply View Settings System-Wide (Terminal)
+
+To force the same view style across all existing folders, use:
+
+```bash
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+killall Finder
+```
+
+    Replace "Nlsv" for different views:
+        - "icnv" → Icon View
+        - "clmv" → Column View
+        - "Flwv" → Gallery View
+
+## 3. Show Status and Path Bars
+
+    Enhance visibility while navigating Finder:
+        - Go to **View** > **Show Path Bar** (displays full file path at the bottom)
+        - Go to **View** > **Show Status Bar** (shows item count and available storage)
+
+### Why This Matters
+
+For developers and ML engineers constantly handling datasets, notebooks, scripts, and outputs, a clean, consistent Finder setup minimizes file management headaches and speeds up your workflow. Spend less time navigating and more time building.
+
+# Developer Environment Setup 💻
+
+Here’s how I set up a clean, efficient, and powerful development environment on macOS—perfect for machine learning, deep learning, and a bit of web development on the side. This stack is designed to stay lightweight but fully capable of handling serious projects.
+
+## Python 🐍 + Conda 📦
+
+First, we install Python and [Conda](https://www.anaconda.com), the dynamic duo for managing environments and packages with ease:
+
+```bash
+brew install python
+```
+
+```bash
+brew install --cask miniconda
+```
+
+Then create a fresh environment (because messing up your global Python is a nightmare):
+
+```bash
+conda create -n ml python=3.11
+conda activate ml
+```
+
+Now you’ve got an isolated space to build and break things safely.
+
+## Core Data Science Tools 📊
+
+These are your everyday essentials. Install them all in one go:
+
+```bash
+conda install numpy pandas matplotlib seaborn scikit-learn
+```
+
+From handling data with pandas to visualizing it with seaborn, this is your bread and butter.
+
+## Jupyter Notebook 📙
+
+For quick experimentation, visualizations, and sharing your work, Jupyter Notebook is a must:
+
+```bash
+conda install jupyter
+```
+
+Run Jupyter Notebook with:
+
+```bash
+jupyter notebook
+```
+
+This opens up a local server where you can write code, take notes, and visualize your data—all in one place.
+
+## TensorFlow 🌊
+
+Ready to build some deep learning models? TensorFlow has you covered:
+
+```bash
+conda install tensorflow
+```
+
+## PyTorch 🔥
+
+I recommend giving PyTorch its own environment to keep things clean, especially since CUDA versions can get messy:
+
+```bash
+conda create -n torchml python=3.11
+conda activate torchml
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+
+Boom—now you’ve got GPU-accelerated deep learning at your fingertips.
+
+## Git for Version Control 🔄
+
+Version control is a must-have for any developer. No project is complete without version control. Install Git with:
+
+```bash
+brew install git
+```
+
+## Node.js + npm (Optional)
+
+Because I still dabble in a little web development from time to time, I like to have Node.js and npm installed.
+
+```bash
+brew install node
+```
+
+## Docker (Optional)
+
+I don’t use Docker daily, but when I do, it saves me hours of setup pain:
+
+```bash
+brew install docker
+```
+
+Great for packaging and shipping projects without the “it works on my machine” drama.
+
+## PostgresSQL
+
+I use PostgreSQL for my database needs. It’s a powerful, open-source relational database management system that’s perfect for data storage and retrieval:
+
+```bash
+brew install postgresql
+```
+
+# Finishing Touches
+
+Once everything is installed, give your system a little **cleanup**:
+
+```bash
+brew cleanup
+```
+
+And make sure everything is ready to roll:
+
+```bash
+conda list
+```
+
+```bash
+python3 --version
+jupyter --version
+git --version
+```
+
+Finally, restart your Mac to apply any lingering updates:
+
+```bash
+sudo shutdown -r now
+```
+
+With this setup, your Mac is now a full-fledged machine learning powerhouse, prepped for data science, deep learning, and anything else you can throw at it. It’s simple, reliable, and built for serious work without unnecessary bloat.
