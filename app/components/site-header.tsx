@@ -1,41 +1,49 @@
 "use client";
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { Icons } from "./site-icons";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
+  // Calculate height to handle iOS Safari issues with vh units
+  const [windowHeight, setWindowHeight] = useState("100vh");
+  
+  useEffect(() => {
+    const setHeight = () => {
+      setWindowHeight(`${window.innerHeight}px`);
+    };
+    
+    setHeight();
+    window.addEventListener("resize", setHeight);
+    return () => window.removeEventListener("resize", setHeight);
+  }, []);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  // Handle outside clicks
-  // changing menu
+  // Close menu when route changes
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => { 
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node) &&
-        !(event.target as HTMLElement).closest("button")
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
+    setIsMenuOpen(false);
+  }, [pathname]);
 
-    document.addEventListener("mousedown", handleClickOutside);
-
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "unset";
     };
-  }, []);
+  }, [isMenuOpen]);
 
-  // Close menu on Escape key
+  // Handle Escape key press
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
       }
@@ -44,17 +52,17 @@ const Navbar = () => {
     if (isMenuOpen) {
       document.addEventListener("keydown", handleKeyDown);
     }
-
+    
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isMenuOpen]);
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path) => pathname === path;
 
   return (
     <div className="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/70 dark:bg-zinc-900/70 flex-none transition-colors duration-500 lg:z-50 border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] border-zinc-200 dark:border-zinc-800">
-      <div className=" max-w-screen-2xl mx-auto w-full px-4 sm:px-8 lg:px-16">
+      <div className="max-w-screen-2xl mx-auto w-full px-4 sm:px-8 lg:px-16">
         <div className="px-2 py-4 sm:px-8">
           <div className="flex justify-between items-center">
             {/* Navbar Start */}
@@ -66,9 +74,8 @@ const Navbar = () => {
                   width={40}
                   alt="logo of a stick man holding a beer"
                   priority
-                  className=" rounded-full"
+                  className="rounded-full"
                 />
-
                 <p className="text-xl tracking-tighter text-zinc-900 dark:text-zinc-100 pl-2">
                   Isaac
                   <strong>
@@ -77,21 +84,20 @@ const Navbar = () => {
                 </p>
               </Link>
             </div>
-
+            
             {/* Navbar Center (Desktop Menu) */}
             <div className="hidden md:flex items-center rounded-full shadow-md bg-zinc-0 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
               <ul className="flex space-x-6 text-sm">
                 <li>
                   <Link
                     href="/"
-                    className={`font-semibold rounded-full  hover:text-teal-500 transition ${
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
                       isActive("/") ? "text-teal-500" : ""
                     }`}
                   >
                     Home
                   </Link>
                 </li>
-
                 <li>
                   <Link
                     href="/blog"
@@ -112,16 +118,6 @@ const Navbar = () => {
                     Projects
                   </Link>
                 </li>
-                {/* <li>
-                  <Link
-                    href="/learn"
-                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
-                      isActive("/learn") ? "text-teal-500" : ""
-                    }`}
-                  >
-                    Learn
-                  </Link>
-                </li> */}
                 <li>
                   <Link
                     href="/about"
@@ -160,116 +156,132 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-
+            
             {/* Navbar End */}
             <div className="hidden md:flex">
               <a
                 href="mailto:ikeadoboe1@gmail.com"
-                className={`font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition`}
+                className="font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition"
               >
                 Get in touch
               </a>
             </div>
-            {/* Mobile Menu Button */}
+            
+            {/* Hamburger Menu Button - Improved for accessibility */}
             <div className="md:hidden">
               <button
-                className="flex items-center justify-center w-10 h-10 text-zinc-600 dark:text-zinc-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                aria-label="Open Menu"
-                onClick={() => setIsMenuOpen(!isMenuOpen)} // Toggle menu visibility
+                className="flex items-center justify-center w-10 h-10 text-zinc-600 dark:text-zinc-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-teal-500 z-50"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                <Icons.menuhamburg />
+                <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
+                {isMenuOpen ? (
+                  <Icons.menuclose aria-hidden="true" className="text-white" />
+                ) : (
+                  <Icons.menuhamburg aria-hidden="true" />
+                )}
               </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu (Conditional Rendering) */}
-      <div
-        className={`lg:hidden absolute inset-0 z-40 bg-teal-800 px-7 py-5 min-h-dvh transition-transform transform hidden`}
-        ref={menuRef}
-        style={{ display: isMenuOpen ? "block" : "none" }}
-      >
-        <div className="flex justify-end">
-          <button
-            className="text-white"
-            onClick={() => setIsMenuOpen(false)} // Close menu
+      
+      {/* Full-screen Mobile Menu with Animation */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            id="mobile-menu"
+            className="md:hidden fixed inset-0 z-50 bg-teal-800 flex flex-col justify-center px-6"
+            style={{ height: windowHeight }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            <Icons.menuclose />
-          </button>
-        </div>
-        <ul className="flex flex-col space-y-6 text-white">
-          <li>
-            <Link
-              href="/"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/") ? "text-teal-500" : ""
-              }`}
-            >
-              Home
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/blog"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/blog") ? "text-teal-500" : ""
-              }`}
-            >
-              Articles
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/projects"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/projects") ? "text-teal-500" : ""
-              }`}
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/spotify"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/spotify") ? "text-teal-500" : ""
-              }`}
-            >
-              Spotify
-            </Link>
-          </li>
-          {/* <li>
-            <Link
-              href="/learn"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/learn") ? "text-teal-500" : ""
-              }`}
-            >
-              Learn
-            </Link>
-          </li> */}
-          <li>
-            <Link
-              href="/about"
-              className={`block text-2xl font-bold text-zinc-100 hover:text-teal-500 ${
-                isActive("/about") ? "text-teal-500" : ""
-              }`}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="mailto:ikeadoboe1@gmail.com"
-              className={`block text-2xl font-bold  text-zinc-100 hover:text-teal-500`}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
+            {/* Close button for full-screen menu */}
+            <div className="absolute top-4 right-4">
+              <button
+                className="p-3 text-white focus:outline-none focus:ring-2 focus:ring-white rounded-full"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <Icons.menuclose aria-hidden="true" className="w-6 h-6" />
+              </button>
+            </div>
+            
+            <nav aria-label="Mobile navigation" className="flex items-center justify-center w-full">
+              <ul className="flex flex-col space-y-8 text-white text-center w-full max-w-xs">
+                <li>
+                  <Link
+                    href="/"
+                    className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
+                      isActive("/") ? "text-teal-300" : ""
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog"
+                    className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
+                      isActive("/blog") ? "text-teal-300" : ""
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Articles
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects"
+                    className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
+                      isActive("/projects") ? "text-teal-300" : ""
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/spotify"
+                    className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
+                      isActive("/spotify") ? "text-teal-300" : ""
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Spotify
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
+                      isActive("/about") ? "text-teal-300" : ""
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="mailto:ikeadoboe1@gmail.com"
+                    className="block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
