@@ -14,8 +14,9 @@ const Navbar = () => {
   const pathname = usePathname();
 
   // Handle outside clicks
+  // changing menu
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent) => { 
       if (
         menuRef.current &&
         !menuRef.current.contains(event.target as Node) &&
