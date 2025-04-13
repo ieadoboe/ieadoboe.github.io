@@ -43,7 +43,7 @@ const Navbar = () => {
 
   // Handle Escape key press
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
       }
@@ -58,7 +58,7 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  const isActive = (path) => pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <div className="sticky top-0 z-40 w-full backdrop-blur-lg bg-white/70 dark:bg-zinc-900/70 flex-none transition-colors duration-500 lg:z-50 border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] border-zinc-200 dark:border-zinc-800">
