@@ -11,12 +11,12 @@ import { motion, AnimatePresence } from "framer-motion";
 const Navbar = () => {
   // Calculate height to handle iOS Safari issues with vh units
   const [windowHeight, setWindowHeight] = useState("100vh");
-  
+
   useEffect(() => {
     const setHeight = () => {
       setWindowHeight(`${window.innerHeight}px`);
     };
-    
+
     setHeight();
     window.addEventListener("resize", setHeight);
     return () => window.removeEventListener("resize", setHeight);
@@ -52,7 +52,7 @@ const Navbar = () => {
     if (isMenuOpen) {
       document.addEventListener("keydown", handleKeyDown);
     }
-    
+
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -84,7 +84,7 @@ const Navbar = () => {
                 </p>
               </Link>
             </div>
-            
+
             {/* Navbar Center (Desktop Menu) */}
             <div className="hidden md:flex items-center rounded-full shadow-md bg-zinc-0 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
               <ul className="flex space-x-6 text-sm">
@@ -116,6 +116,18 @@ const Navbar = () => {
                     }`}
                   >
                     Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/quarto-learn"
+                    className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                      isActive("/quarto-learn") ? "text-teal-500" : ""
+                    }`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn
                   </Link>
                 </li>
                 <li>
@@ -156,7 +168,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            
+
             {/* Navbar End */}
             <div className="hidden md:flex">
               <a
@@ -166,7 +178,7 @@ const Navbar = () => {
                 Get in touch
               </a>
             </div>
-            
+
             {/* Hamburger Menu Button - Improved for accessibility */}
             <div className="md:hidden">
               <button
@@ -176,7 +188,9 @@ const Navbar = () => {
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
+                <span className="sr-only">
+                  {isMenuOpen ? "Close menu" : "Open menu"}
+                </span>
                 {isMenuOpen ? (
                   <Icons.menuclose aria-hidden="true" className="text-white" />
                 ) : (
@@ -187,7 +201,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Full-screen Mobile Menu with Animation */}
       <AnimatePresence>
         {isMenuOpen && (
@@ -210,8 +224,11 @@ const Navbar = () => {
                 <Icons.menuclose aria-hidden="true" className="w-6 h-6" />
               </button>
             </div>
-            
-            <nav aria-label="Mobile navigation" className="flex items-center justify-center w-full">
+
+            <nav
+              aria-label="Mobile navigation"
+              className="flex items-center justify-center w-full"
+            >
               <ul className="flex flex-col space-y-8 text-white text-center w-full max-w-xs">
                 <li>
                   <Link
