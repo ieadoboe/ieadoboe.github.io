@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { Icons } from "./site-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { NewsletterProvider } from "./newsletter-popup";
+import JoinNewsletter from "./newsletter-join";
 
 const Navbar = () => {
   // Calculate height to handle iOS Safari issues with vh units
@@ -119,15 +121,15 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                    <Link
+                  <Link
                     href="/quarto-learn"
                     className={`font-semibold rounded-full hover:text-teal-500 transition flex items-center ${
                       isActive("/quarto-learn") ? "text-teal-500" : ""
                     }`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    >
-                    Learn 
+                  >
+                    Learn
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="16px"
@@ -139,7 +141,7 @@ const Navbar = () => {
                     >
                       <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" />
                     </svg>
-                    </Link>
+                  </Link>
                 </li>
                 <li>
                   <Link
@@ -181,14 +183,18 @@ const Navbar = () => {
             </div>
 
             {/* Navbar End */}
-            <div className="hidden md:flex">
-              <a
-                href="mailto:ikeadoboe1@gmail.com"
+            {/* <div className="hidden md:flex">
+              <button
+                onClick={openNewsletterPopup}
                 className="font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition"
               >
                 Get in touch
-              </a>
-            </div>
+              </button>
+            </div> */}
+            <NewsletterProvider>
+              <JoinNewsletter />
+            </NewsletterProvider>
+            
 
             {/* Hamburger Menu Button - Improved for accessibility */}
             <div className="md:hidden">

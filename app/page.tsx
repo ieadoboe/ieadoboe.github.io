@@ -36,7 +36,7 @@ export default function Home() {
                     <SecondaryButton href="/blog" text="Read all articles" />
                     <AccentButton
                       href="/quarto-learn"
-                      text="Learn data science"
+                      text="Learn data science →"
                     />
                   </div>
                   <div className="mt-6 flex gap-6">
