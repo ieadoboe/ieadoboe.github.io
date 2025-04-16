@@ -1,5 +1,6 @@
 import PrimaryButton from "@/app/components/primary-button";
 import SecondaryButton from "@/app/components/secondary-button";
+import AccentButton from "@/app/components/accent-button";
 import LatestPostItem from "@/app/components/latest-post-item";
 import NewsletterForm from "@/app/components/newsletter-form";
 import WorkExperience from "@/app/components/work-experience";
@@ -8,6 +9,7 @@ import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";
 import { pagesContent } from "@/data/siteContent";
+import EducationHistory from "./components/education";
 
 export default function Home() {
   const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(
@@ -32,6 +34,7 @@ export default function Home() {
                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
                     <PrimaryButton href="/projects" text="View my projects" />
                     <SecondaryButton href="/blog" text="Read all articles" />
+                    <AccentButton href="/blog" text="Learn data science" />
                   </div>
                   <div className="mt-6 flex gap-6">
                     <a
@@ -85,6 +88,7 @@ export default function Home() {
                     </ul>
                     <div className="space-y-10 lg:pl-16 xl:pl-24">
                       <NewsletterForm />
+                      <EducationHistory />
                       <WorkExperience />
                     </div>
                   </div>

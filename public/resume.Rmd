@@ -1,0 +1,102 @@
+---
+title: ""
+author: ""
+date: ""
+output:
+  pdf_document: default
+  html_document: default
+header-includes:
+  - \usepackage{lmodern}
+  - \usepackage{geometry}
+  - \geometry{margin=1in}
+---
+
+\begin{center}
+\huge\textbf{Isaac Edem Adoboe}
+\end{center}
+
+\begin{center}
+19 Guy Street, St. John’s, NL A1B 1P4 | ikeadoboe1@gmail.com | (709) 853-2427
+\noindent\rule{\textwidth}{0.5pt}
+\end{center}
+
+\vspace{-5pt}
+
+\section*{Education}
+
+**Master of Data Science** (Expected Aug 2025)  
+*Memorial University of Newfoundland (MUN)* — St. John’s, NL      
+Interests: Deep Learning, Computer Vision, and Quantum Computing
+
+**BS, Electrical & Electronics Engineering** (Graduated Sep 2021)  
+*Kwame Nkrumah University of Science and Technology (KNUST)* — Kumasi, Ghana      
+Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
+
+\section*{Research and Projects}
+
+**“Heart Disease Prediction Using Machine Learning”** — *Memorial University of Newfoundland*   
+*(Jan 2021 – Aug 2021)*
+
+- Achieved 96% recall and 89.1% accuracy in heart disease prediction using SVM with hyperparameter optimization, emphasizing high sensitivity for identifying at-risk patients.
+- Designed and optimized neural networks with L2 regularization, dropout, and LeakyReLU, achieving 87.5% accuracy and 90.1% recall, highlighting scalability for larger datasets.
+- Conducted feature importance analysis, identifying key predictors like fluoroscopy vessel count and serum cholesterol, enhancing interpretability and reliability.
+- Proposed a cost-efficient, non-invasive diagnostic method to advance early disease detection and preventive healthcare.
+
+**“Machine Learning-Based Fault Detection System in Induction Motors”** — *KNUST, Ghana*
+**Project Lead** *(Jan 2021 – Aug 2021)*
+
+- Developed a novel fault detection algorithm, achieving 61.38% efficiency after 20 epochs using TensorFlow and MATLAB.
+- Processed and analyzed 2D images for model training, improving classification accuracy through advanced signal processing techniques.
+- Presented findings to faculty and peers, strengthening presentation and research dissemination skills.
+
+\section*{Technical Skills}
+
+- **Programming Languages:** Python, R, SQL, MATLAB, JavaScript
+- **Machine Learning Frameworks:** Scikit-Learn, TensorFlow, Keras
+- **Data Visualization:** Tableau, Power BI, Matplotlib, Seaborn
+- **Tools:** Jupyter Notebooks, Azure, GitHub
+- **Soft Skills:** Research Documentation, Academic Writing, Collaboration, Public Speaking
+
+\section*{Professional Experience}
+
+**Newmont Mining Corporation** — Akyem Mine, Ghana        
+**Technology Portfolio Support Analyst** *(Nov 2022 – Jul 2024)*
+
+- Coordinated cross-functional teams to support over 4 major IT projects, ensuring timely delivery of solutions that enhanced mining operations.
+- Automated reporting workflows using Python and Power BI, cutting manual reporting time by 40%.
+- Led system integration projects for mining operations, enabling seamless data flow and boosting operational efficiency.
+
+**End User Support Analyst** *(Nov 2021 – Aug 2022)*
+
+- Delivered technical support to over 900 users, achieving a 95% first-contact resolution rate.
+- Conducted software training sessions for drilling and blasting software, improving user productivity by 25%.
+
+**Envision Digital Signage Network** — Kumasi, Ghana  
+**Front-End Developer** *(Jan 2021 – Dec 2021)*
+
+- Led web app transformation, doubling sales and increasing user satisfaction by 30%.
+- Developed responsive components with React, reducing page load times by 40%.
+- Provided technical support, achieving 95% first-contact resolution and minimizing downtime.
+
+**Volta River Authority** — Akosombo, Ghana   
+**Electrical Engineering Assistant** *(May 2020 – Sep 2020)*
+
+-	Assisted in the maintenance and troubleshooting of high-voltage electrical systems, ensuring uninterrupted power distribution across multiple regions.
+-	Supported the design and implementation of electrical circuit layouts, improving system reliability.
+-	Collaborated with senior engineers in implementing safety protocols, reducing workplace hazards.
+	
+\section*{Awards and Certifications}
+
+- Advanced Google Data Analytics Program — Coursera *(Sep 2024)*
+- McKinsey Forward Program — McKinsey & Company *(Jul 2024)*
+- Azure Fundamentals Certification — Microsoft *(Aug 2022)*
+
+\section*{Professional Affiliations}
+
+- Member, **Ghana Institution of Engineering (GhIE)** *(May 2024 – Present)*
+
+\hrulefill
+
+\begin{center}
+\textit{References are available upon request.}
+\end{center}

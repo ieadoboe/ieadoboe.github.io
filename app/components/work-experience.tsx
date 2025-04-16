@@ -8,26 +8,26 @@ const WorkExperience = () => {
   const experiences = [
     {
       company: "Newmont Corporation",
-      role: "Tech Portfolio Support",
+      role: "Technology Portfolio Support",
       date: "2022—2024",
       logoSrc: newmontLogo,
     },
     {
       company: "Newmont Corporation",
-      role: "EUC Analyst",
+      role: "End-User Support Analyst",
       date: "2021—2022",
       logoSrc: newmontLogo,
     },
     {
       company: "Envision Digital ",
-      role: "Front-End Developer",
+      role: "Full-Stack Developer",
       date: "2020—2021",
       logoSrc: envisionLogo,
     },
     {
       company: "Volta River Authority",
       role: "Electrical Engineer",
-      date: "2014—2014",
+      date: "2018—2018",
       logoSrc: vraLogo,
     },
   ];
@@ -53,7 +53,7 @@ const WorkExperience = () => {
             className="stroke-zinc-400 dark:stroke-zinc-500"
           ></path>
         </svg>
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Experience</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {experiences.map((experience, index) => (
@@ -107,11 +107,11 @@ const WorkExperience = () => {
       </ol>
       <a
         className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
-        href="https://drive.google.com/file/d/10eDhioLAzP0r42rpYs7OBXRRBAUYq5IS/view?usp=sharing"
+        href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Download CV
+        Download Resume
         <svg
           viewBox="0 0 16 16"
           fill="none"
