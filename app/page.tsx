@@ -34,7 +34,10 @@ export default function Home() {
                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
                     <PrimaryButton href="/projects" text="View my projects" />
                     <SecondaryButton href="/blog" text="Read all articles" />
-                    <AccentButton href="/blog" text="Learn data science" />
+                    <AccentButton
+                      href="/quarto-learn"
+                      text="Learn data science"
+                    />
                   </div>
                   <div className="mt-6 flex gap-6">
                     <a
