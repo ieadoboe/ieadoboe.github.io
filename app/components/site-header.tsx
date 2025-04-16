@@ -183,18 +183,9 @@ const Navbar = () => {
             </div>
 
             {/* Navbar End */}
-            {/* <div className="hidden md:flex">
-              <button
-                onClick={openNewsletterPopup}
-                className="font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition"
-              >
-                Get in touch
-              </button>
-            </div> */}
             <NewsletterProvider>
               <JoinNewsletter />
             </NewsletterProvider>
-            
 
             {/* Hamburger Menu Button - Improved for accessibility */}
             <div className="md:hidden">
@@ -280,15 +271,29 @@ const Navbar = () => {
                     Projects
                   </Link>
                 </li>
+
                 <li>
                   <Link
-                    href="/spotify"
+                    href="/quarto-learn"
                     className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
-                      isActive("/spotify") ? "text-teal-300" : ""
+                      isActive("/quarto-learn") ? "text-teal-300" : ""
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Spotify
+                    <span className="flex items-center justify-center">
+                      Learn
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="16px"
+                        viewBox="0 -960 960 960"
+                        width="16px"
+                        fill="currentColor"
+                        className="ml-2"
+                        aria-hidden="true"
+                      >
+                        <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" />
+                      </svg>
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -304,11 +309,13 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="mailto:ikeadoboe1@gmail.com"
-                    className="block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition"
+                    href="/spotify"
+                    className={`block text-2xl font-bold text-zinc-100 hover:text-teal-300 transition ${
+                      isActive("/spotify") ? "text-teal-300" : ""
+                    }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Contact
+                    Spotify
                   </Link>
                 </li>
               </ul>
