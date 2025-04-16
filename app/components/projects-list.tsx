@@ -13,7 +13,7 @@ const ProjectsList = () => {
       description:
         "Deep statistical dive into the Automobile MPG Dataset to uncover fuel efficiency secrets.",
       cover_image: mpgCover,
-      link: "https://drive.google.com/file/d/1DRKsGXO-CyU_5_4wbs45hj6CVX3rQIdz/view?usp=sharing",
+      link: "/Regression-Analysis-of-the-Auto-MPG-Dataset.pdf",
       githubLink: "Report",
       date: "December 2024",
       newPage: true,
