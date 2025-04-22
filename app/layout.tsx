@@ -26,7 +26,17 @@ export default function RootLayout({
     <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
       <head>
         <meta name="apple-mobile-web-app-title" content="IsaacA." />
-        <meta name="theme-color" content="#14B8A6" />
+        {/* <meta name="theme-color" content="#14B8A6" /> */}
+        <meta
+          name="theme-color"
+          content="#fffff"
+          media="(prefers-color-scheme: light)"
+        ></meta>
+        <meta
+          name="theme-color"
+          content="#1C1D21"
+          media="(prefers-color-scheme: dark)"
+        ></meta>
         <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
