@@ -140,7 +140,7 @@ const Navbar = () => {
               </Link>
 
               {/* Desktop Menu */}
-              <div className="hidden md:flex items-center rounded-full shadow-md bg-zinc-0 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
+              <div className="hidden lg:flex items-center rounded-full shadow-md bg-zinc-0 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
                 {/* Desktop links... (same as before) */}
                 <ul className="flex space-x-6 text-sm">
                   {/* ... your desktop menu items ... */}
@@ -237,14 +237,14 @@ const Navbar = () => {
               </div>
 
               {/* Newsletter (Desktop) */}
-              <div className="hidden md:block">
+              <div className="hidden lg:block">
                 <NewsletterProvider>
                   <JoinNewsletter />
                 </NewsletterProvider>
               </div>
 
               {/* Hamburger Menu Button */}
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <button
                   ref={triggerRef} // Add ref to the trigger button
                   className="flex items-center justify-center p-2 text-zinc-600 dark:text-zinc-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
@@ -288,7 +288,7 @@ const Navbar = () => {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
               aria-hidden="true"
               initial="closed"
               animate="open"
@@ -305,7 +305,7 @@ const Navbar = () => {
               role="dialog" // Use role="dialog" for modal behavior
               aria-modal="true" // Indicate it's a modal dialog
               aria-label="Mobile Navigation Menu" // Label the dialog
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-zinc-900 shadow-xl md:hidden flex flex-col"
+              className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-zinc-900 shadow-xl lg:hidden flex flex-col"
               initial="closed"
               animate="open"
               exit="closed"
@@ -330,7 +330,7 @@ const Navbar = () => {
                   <p className="text-lg tracking-tighter text-zinc-900 dark:text-zinc-100 pl-2">
                     Isaac
                     <strong>
-                      <em className="font-extrabold">A.®</em>
+                      <em className="font-extrabold">Adoboe.®</em>
                     </strong>
                   </p>
                 </Link>
