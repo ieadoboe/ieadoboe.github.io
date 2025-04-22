@@ -7,12 +7,12 @@ export const pagesContent = {
   projects: {
     header: "Shaping the future through data.",
     description:
-      "Delving into data like a DJ mixes records—combining statistics and machine learning to understand its real-world influence and future implications. It’s about turning raw numbers into actionable insights that propel us forward.",
+      ""
   },
   articles: {
-    header: "All my ramblings on data science, statistical wizardry, and life.",
+    header: "All my ramblings on data science, statistics, and life.",
     description:
-      "Join me as I delve into the world of data science, statistical analysis, and the transformative power of innovation. This space is dedicated to uncovering insights, sharing knowledge, and discussing how data shapes the future of our lives and industries.",
+      "Explore my thoughts on data science, statistics, and innovation, and how they shape our world.",
   },
   about: {
     header: "I am Isaac Edem Adoboe.  ",
