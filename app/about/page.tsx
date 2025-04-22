@@ -163,7 +163,7 @@ const AboutPage = () => {
       type: "spring",
       stiffness: 400,
       damping: 17,
-      mass: 1,
+      mass: 2,
     },
   };
 

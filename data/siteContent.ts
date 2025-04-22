@@ -6,8 +6,7 @@ export const pagesContent = {
   },
   projects: {
     header: "Shaping the future through data.",
-    description:
-      ""
+    description: "",
   },
   articles: {
     header: "All my ramblings on data science, statistics, and life.",
