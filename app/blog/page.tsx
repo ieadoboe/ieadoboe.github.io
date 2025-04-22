@@ -7,12 +7,6 @@ import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 import { pagesContent } from "@/data/siteContent";
 
-// Metadata for the page
-// export const metadata: Metadata = {
-//   title: "Articles on data science and life",
-//   description: "Dive deep into the data with me!",
-// };
-
 // Physics-based animation variants for reusability
 const fadeInUp = {
   initial: { opacity: 0, y: 10 },
