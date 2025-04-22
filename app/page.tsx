@@ -4,12 +4,13 @@ import AccentButton from "@/app/components/accent-button";
 import LatestPostItem from "@/app/components/latest-post-item";
 import NewsletterForm from "@/app/components/newsletter-form";
 import WorkExperience from "@/app/components/work-experience";
+import EducationHistory from "@/app/components/education";
 import { Icons } from "@/app/components/site-icons";
 import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";
 import { pagesContent } from "@/data/siteContent";
-import EducationHistory from "./components/education";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(
