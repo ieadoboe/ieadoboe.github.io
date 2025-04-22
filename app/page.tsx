@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import PrimaryButton from "@/app/components/primary-button";
 import SecondaryButton from "@/app/components/secondary-button";
 import AccentButton from "@/app/components/accent-button";
@@ -11,6 +14,143 @@ import { posts } from "#site/content";
 import { siteConfig } from "@/config/site";
 import { pagesContent } from "@/data/siteContent";
 
+// export default function Home() {
+//   const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(
+//     0,
+//     3
+//   );
+//   return (
+//     <div className="w-full flex min-h-dvh">
+//       <div className="relative flex w-full flex-col">
+//         <main className="flex-auto sm:px-8 mt-9">
+//           <div className="flex-none min-h-28"></div>
+//           <div className="mx-auto w-full max-w-7xl lg:px-8">
+//             <div className="relative px-4 sm:px-8 lg:px-12">
+//               <div className="mx-auto max-w-2xl lg:max-w-5xl">
+//                 <motion.div
+//                   className="max-w-2xl"
+//                   initial={{ opacity: 0, scale: 0.5 }}
+//                   animate={{ opacity: 1, scale: 1 }}
+//                   transition={{ duration: 0.5 }}
+//                   whileHover={{ scale: 1.1 }}
+//                   whileTap={{ scale: 0.9 }}
+//                 >
+//                   <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+//                     {pagesContent.home.header}
+//                   </h1>
+//                   <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
+//                     {pagesContent.home.description}
+//                   </p>
+//                   <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
+//                     <PrimaryButton href="/projects" text="View my projects" />
+//                     <SecondaryButton href="/blog" text="Read all articles" />
+//                     <AccentButton
+//                       href="/quarto-learn"
+//                       text="Learn data science →"
+//                     />
+//                   </div>
+//                   <div className="mt-6 flex gap-6">
+//                     <a
+//                       className="group -m-1 p-1"
+//                       aria-label="Follow on X"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       href={siteConfig.links.twitter}
+//                     >
+//                       <Icons.twitter />
+//                     </a>
+//                     <a
+//                       className="group -m-1 p-1"
+//                       aria-label="Follow on GitHub"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       href={siteConfig.links.github}
+//                     >
+//                       <Icons.github />
+//                     </a>
+//                     <a
+//                       className="group -m-1 p-1"
+//                       aria-label="Follow on LinkedIn"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       href={siteConfig.links.linkedin}
+//                     >
+//                       <Icons.linkedin />
+//                     </a>
+//                   </div>
+//                 </motion.div>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="sm:px-8 mt-24 md:mt-28">
+//             <div className="mx-auto w-full max-w-7xl lg:px-8">
+//               <div className="relative px-4 sm:px-8 lg:px-12">
+//                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
+//                   <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+//                     <ul className="flex flex-col gap-16">
+//                       {latestPosts.map((post) => (
+//                         <li key={post.slug}>
+//                           <LatestPostItem
+//                             slug={post.slug}
+//                             title={post.title}
+//                             date={post.date}
+//                             description={post.description ?? ""}
+//                           />
+//                         </li>
+//                       ))}
+//                     </ul>
+//                     <div className="space-y-10 lg:pl-16 xl:pl-24">
+//                       <NewsletterForm />
+//                       <EducationHistory />
+//                       <WorkExperience />
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </main>
+//       </div>
+//     </div>
+//   );
+// }
+
+// // Define some animation variants for reusability
+// const fadeInUp = {
+//   initial: { opacity: 0, y: 10 },
+//   animate: { opacity: 1, y: 0 },
+//   transition: { duration: 0.4, ease: "easeOut" },
+// };
+
+// const staggerContainer = {
+//   animate: {
+//     transition: {
+//       staggerChildren: 0.1, // Delay between each child animating
+//     },
+//   },
+// };
+
+// Physics-based animation variants for reusability
+const fadeInUp = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    type: "spring",
+    stiffness: 400,
+    damping: 17,
+    mass: 2,
+  },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.05, // Slightly faster staggering for physics-based animations
+      delayChildren: 0.02, // Small initial delay
+    },
+  },
+};
+
 export default function Home() {
   const latestPosts = sortPosts(posts.filter((post) => post.published)).slice(
     0,
@@ -19,27 +159,57 @@ export default function Home() {
   return (
     <div className="w-full flex min-h-dvh">
       <div className="relative flex w-full flex-col">
-        <main className="flex-auto sm:px-8 mt-9">
+        {/* Use motion.main for overall entry, though optional */}
+        <motion.main
+          initial="initial" // Use initial state defined in variants
+          animate="animate" // Use animate state defined in variants
+          variants={{ animate: { transition: { delayChildren: 0.2 } } }} // Add slight delay before children start
+          className="flex-auto sm:px-8 mt-9"
+        >
           <div className="flex-none min-h-28"></div>
           <div className="mx-auto w-full max-w-7xl lg:px-8">
             <div className="relative px-4 sm:px-8 lg:px-12">
               <div className="mx-auto max-w-2xl lg:max-w-5xl">
-                <div className="max-w-2xl">
-                  <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                {/* Animate the header container */}
+                <motion.div
+                  className="max-w-2xl"
+                  initial="initial"
+                  animate="animate"
+                  variants={staggerContainer} // Apply stagger for children
+                  transition={{ delayChildren: 0.3 }} // Start animating children after a small delay
+                >
+                  <motion.h1
+                    className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+                    variants={fadeInUp} // Fade in + slide up
+                  >
                     {pagesContent.home.header}
-                  </h1>
-                  <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
+                  </motion.h1>
+                  <motion.p
+                    className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base"
+                    variants={fadeInUp} // Fade in + slide up
+                    transition={{ ...fadeInUp.transition, delay: 0.1 }} // Add slight delay
+                  >
                     {pagesContent.home.description}
-                  </p>
-                  <div className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row">
+                  </motion.p>
+                  {/* Animate Button Group */}
+                  <motion.div
+                    className="flex pt-6 gap-2 sm:gap-4 flex-col sm:flex-row"
+                    variants={fadeInUp}
+                    transition={{ ...fadeInUp.transition, delay: 0.2 }}
+                  >
                     <PrimaryButton href="/projects" text="View my projects" />
                     <SecondaryButton href="/blog" text="Read all articles" />
                     <AccentButton
                       href="/quarto-learn"
                       text="Learn data science →"
                     />
-                  </div>
-                  <div className="mt-6 flex gap-6">
+                  </motion.div>
+                  {/* Animate Social Links Group */}
+                  <motion.div
+                    className="mt-6 flex gap-6"
+                    variants={fadeInUp}
+                    transition={{ ...fadeInUp.transition, delay: 0.3 }}
+                  >
                     <a
                       className="group -m-1 p-1"
                       aria-label="Follow on X"
@@ -67,39 +237,68 @@ export default function Home() {
                     >
                       <Icons.linkedin />
                     </a>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
             </div>
           </div>
-          <div className="sm:px-8 mt-24 md:mt-28">
+
+          {/* Animate the second major section */}
+          <motion.div
+            className="sm:px-8 mt-24 md:mt-28"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }} // Delay this whole section slightly
+          >
             <div className="mx-auto w-full max-w-7xl lg:px-8">
               <div className="relative px-4 sm:px-8 lg:px-12">
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
                   <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-                    <ul className="flex flex-col gap-16">
+                    {/* Animate Post List with Stagger */}
+                    <motion.ul
+                      className="flex flex-col gap-16"
+                      initial="initial" // Use initial state defined in variants (though handled by stagger parent)
+                      animate="animate" // Use animate state defined in variants
+                      variants={staggerContainer} // Apply stagger effect
+                    >
                       {latestPosts.map((post) => (
-                        <li key={post.slug}>
+                        // Animate each list item
+                        <motion.li key={post.slug} variants={fadeInUp}>
                           <LatestPostItem
                             slug={post.slug}
                             title={post.title}
                             date={post.date}
                             description={post.description ?? ""}
                           />
-                        </li>
+                        </motion.li>
                       ))}
-                    </ul>
-                    <div className="space-y-10 lg:pl-16 xl:pl-24">
-                      <NewsletterForm />
-                      <EducationHistory />
-                      <WorkExperience />
-                    </div>
+                    </motion.ul>
+
+                    {/* Animate the right column container */}
+                    <motion.div
+                      className="space-y-10 lg:pl-16 xl:pl-24"
+                      initial="initial"
+                      animate="animate"
+                      variants={staggerContainer} // Stagger the items inside
+                      transition={{ delayChildren: 0.2 }} // Delay children slightly
+                    >
+                      {/* Animate each component within the right column */}
+                      <motion.div variants={fadeInUp}>
+                        <NewsletterForm />
+                      </motion.div>
+                      <motion.div variants={fadeInUp}>
+                        <EducationHistory />
+                      </motion.div>
+                      <motion.div variants={fadeInUp}>
+                        <WorkExperience />
+                      </motion.div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </main>
+          </motion.div>
+        </motion.main>
       </div>
     </div>
   );
