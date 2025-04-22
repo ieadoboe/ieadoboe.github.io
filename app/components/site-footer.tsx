@@ -53,9 +53,9 @@ const Footer = () => {
                   Spotify
                 </Link>
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                © 2025 - Powered by God. All rights reserved.
-              </p>
+                <p className="text-sm text-zinc-400 dark:text-zinc-500">
+                © {new Date().getFullYear()} - Powered by God. All rights reserved.
+                </p>
             </div>
           </div>
         </div>
