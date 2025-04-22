@@ -134,7 +134,7 @@ const Navbar = () => {
                 <p className="text-xl tracking-tighter text-zinc-900 dark:text-zinc-100 pl-2">
                   Isaac
                   <strong>
-                    <em className="font-extrabold">A.®</em>
+                    <em className="font-extrabold">Adoboe.®</em>
                   </strong>
                 </p>
               </Link>
