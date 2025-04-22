@@ -1,14 +1,37 @@
+"use client";
+
+import { motion } from "framer-motion";
 import React from "react";
-import { Metadata } from "next";
 import PostItem from "@/app/components/post-item";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 import { pagesContent } from "@/data/siteContent";
 
 // Metadata for the page
-export const metadata: Metadata = {
-  title: "Articles on data science and life",
-  description: "Dive deep into the data with me!",
+// export const metadata: Metadata = {
+//   title: "Articles on data science and life",
+//   description: "Dive deep into the data with me!",
+// };
+
+// Physics-based animation variants for reusability
+const fadeInUp = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  transition: {
+    type: "spring",
+    stiffness: 400,
+    damping: 17,
+    mass: 2,
+  },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.05, // Slightly faster staggering for physics-based animations
+      delayChildren: 0.02, // Small initial delay
+    },
+  },
 };
 
 export default function BlogPage() {
@@ -23,37 +46,52 @@ export default function BlogPage() {
             <div className="mx-auto w-full max-w-7xl lg:px-8">
               <div className="relative px-4 sm:px-8 lg:px-12">
                 <div className="mx-auto max-w-2xl lg:max-w-5xl">
-                  <header className="max-w-2xl pt-4">
+                  <motion.header
+                    className="max-w-2xl pt-4"
+                    initial="initial"
+                    animate="animate"
+                    variants={fadeInUp}
+                  >
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                       {pagesContent.articles.header}
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
                       {pagesContent.articles.description}
                     </p>
-                  </header>
+                  </motion.header>
                   <div className="mt-16 sm:mt-20">
                     <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-                      <div className="flex max-w-3xl flex-col space-y-16">
+                      <motion.div
+                        className="flex max-w-3xl flex-col space-y-16"
+                        initial="initial"
+                        animate="animate"
+                        variants={staggerContainer}
+                      >
                         {sortedPosts.length > 0 ? (
-                          <ul className="flex max-w-3xl flex-col space-y-16">
+                          <motion.ul
+                            className="flex max-w-3xl flex-col space-y-16"
+                            variants={staggerContainer}
+                          >
                             {sortedPosts.map((post) => {
                               const { slug, title, date, description } = post;
                               return (
-                                <li key={slug}>
+                                <motion.li key={slug} variants={fadeInUp}>
                                   <PostItem
                                     slug={slug}
                                     date={date}
                                     title={title}
                                     description={description || ""}
                                   />
-                                </li>
+                                </motion.li>
                               );
                             })}
-                          </ul>
+                          </motion.ul>
                         ) : (
-                          <p>No posts found</p>
+                          <motion.p variants={fadeInUp}>
+                            No posts found
+                          </motion.p>
                         )}
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
