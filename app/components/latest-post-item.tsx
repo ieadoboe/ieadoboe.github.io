@@ -2,19 +2,19 @@ import Link from "next/link";
 import { formatDate } from "@/lib/utils";
 import { Icons } from "@/app/components/site-icons";
 
-interface HomePostItemProps {
+interface LatestPostItemProps {
   slug: string;
-  title: string; 
+  title: string;
   date: string;
   description: string;
 }
 
-const HomePostItem = ({
+const LatestPostItem = ({
   title,
   slug,
   date,
   description,
-}: HomePostItemProps) => {
+}: LatestPostItemProps) => {
   const formattedDate = formatDate(date);
 
   return (
@@ -61,4 +61,4 @@ const HomePostItem = ({
   );
 };
 
-export default HomePostItem;
+export default LatestPostItem;
