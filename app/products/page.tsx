@@ -16,7 +16,7 @@ const ProductsPage = () => {
                       society.
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      Digging into data like a DJ spins records — blending stats
+                      Digging into data like a DJ spins records - blending stats
                       and machine learning to see how they groove with real
                       lives and shape the future. It’s all about turning numbers
                       into a beat that moves us forward through one question:

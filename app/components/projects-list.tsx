@@ -21,7 +21,7 @@ const ProjectsList = () => {
     {
       name: "Los Angeles Airbnb Listings Exploratory Analysis",
       description:
-        "Explore the trends, pricing, and hidden gems of Los Angeles’ Airbnb scene—discover what makes a listing shine!",
+        "Explore the trends, pricing, and hidden gems of Los Angeles’ Airbnb scene-discover what makes a listing shine!",
       cover_image: airbnbCover,
       link: "https://github.com/ieadoboe/los-angeles-airbnb.git",
       githubLink: "GitHub",

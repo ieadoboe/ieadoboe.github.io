@@ -25,16 +25,16 @@ header-includes:
 \section*{Education}
 
 **Master of Data Science** (Expected Aug 2025)  
-*Memorial University of Newfoundland (MUN)* — St. John’s, NL      
+*Memorial University of Newfoundland (MUN)* - St. John’s, NL      
 Interests: Deep Learning, Computer Vision, and Quantum Computing
 
 **BS, Electrical & Electronics Engineering** (Graduated Sep 2021)  
-*Kwame Nkrumah University of Science and Technology (KNUST)* — Kumasi, Ghana      
+*Kwame Nkrumah University of Science and Technology (KNUST)* - Kumasi, Ghana      
 Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
 
 \section*{Research and Projects}
 
-**“Heart Disease Prediction Using Machine Learning”** — *Memorial University of Newfoundland*   
+**“Heart Disease Prediction Using Machine Learning”** - *Memorial University of Newfoundland*   
 *(Jan 2021 – Aug 2021)*
 
 - Achieved 96% recall and 89.1% accuracy in heart disease prediction using SVM with hyperparameter optimization, emphasizing high sensitivity for identifying at-risk patients.
@@ -42,7 +42,7 @@ Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
 - Conducted feature importance analysis, identifying key predictors like fluoroscopy vessel count and serum cholesterol, enhancing interpretability and reliability.
 - Proposed a cost-efficient, non-invasive diagnostic method to advance early disease detection and preventive healthcare.
 
-**“Machine Learning-Based Fault Detection System in Induction Motors”** — *KNUST, Ghana*
+**“Machine Learning-Based Fault Detection System in Induction Motors”** - *KNUST, Ghana*
 **Project Lead** *(Jan 2021 – Aug 2021)*
 
 - Developed a novel fault detection algorithm, achieving 61.38% efficiency after 20 epochs using TensorFlow and MATLAB.
@@ -59,7 +59,7 @@ Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
 
 \section*{Professional Experience}
 
-**Newmont Mining Corporation** — Akyem Mine, Ghana        
+**Newmont Mining Corporation** - Akyem Mine, Ghana        
 **Technology Portfolio Support Analyst** *(Nov 2022 – Jul 2024)*
 
 - Coordinated cross-functional teams to support over 4 major IT projects, ensuring timely delivery of solutions that enhanced mining operations.
@@ -71,14 +71,14 @@ Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
 - Delivered technical support to over 900 users, achieving a 95% first-contact resolution rate.
 - Conducted software training sessions for drilling and blasting software, improving user productivity by 25%.
 
-**Envision Digital Signage Network** — Kumasi, Ghana  
+**Envision Digital Signage Network** - Kumasi, Ghana  
 **Front-End Developer** *(Jan 2021 – Dec 2021)*
 
 - Led web app transformation, doubling sales and increasing user satisfaction by 30%.
 - Developed responsive components with React, reducing page load times by 40%.
 - Provided technical support, achieving 95% first-contact resolution and minimizing downtime.
 
-**Volta River Authority** — Akosombo, Ghana   
+**Volta River Authority** - Akosombo, Ghana   
 **Electrical Engineering Assistant** *(May 2020 – Sep 2020)*
 
 -	Assisted in the maintenance and troubleshooting of high-voltage electrical systems, ensuring uninterrupted power distribution across multiple regions.
@@ -87,9 +87,9 @@ Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
 	
 \section*{Awards and Certifications}
 
-- Advanced Google Data Analytics Program — Coursera *(Sep 2024)*
-- McKinsey Forward Program — McKinsey & Company *(Jul 2024)*
-- Azure Fundamentals Certification — Microsoft *(Aug 2022)*
+- Advanced Google Data Analytics Program - Coursera *(Sep 2024)*
+- McKinsey Forward Program - McKinsey & Company *(Jul 2024)*
+- Azure Fundamentals Certification - Microsoft *(Aug 2022)*
 
 \section*{Professional Affiliations}
 
