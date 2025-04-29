@@ -1,0 +1,45 @@
+## Issue 1: Potential Performance Issues with Framer Motion
+**Type:** Performance, Optimization
+**Priority:** Medium
+
+The `app/page.tsx` file heavily relies on Framer Motion animations with numerous animation effects. This could cause performance issues, especially on lower-end devices. The nested motion components with multiple variants and staggered animations may lead to unnecessary re-renders and jank.
+
+## Issue 2: Missing Accessibility Features
+**Type:** Accessibility
+**Priority:** High
+
+    Several UI components don't have proper accessibility attributes. For example:
+    - Social media links in `page.tsx` have `aria-label` but some other interactive elements across the site are missing proper ARIA attributes
+    - The mobile menu in `site-header.tsx` needs more comprehensive keyboard navigation support
+    - Color contrast issues may exist with the teal-500 color used for active links
+
+## Issue 3: Client-Side Rendering Overuse
+**Type:** Performance, SEO
+**Priority:** Medium
+
+The widespread use of "use client" directives in components that could potentially be server components is limiting Next.js's optimization capabilities. This affects both performance and SEO, particularly for crucial pages like the homepage.
+
+## Issue 4: Incomplete ESLint Configuration
+**Type:** Code Quality
+**Priority:** Low
+
+The `eslint.config.mjs` file has minimal configuration with only Next.js core web vitals and TypeScript rules. It lacks custom rules for enforcing consistent code style and best practices which could lead to inconsistent code quality across the project.
+
+## Issue 5: Overcomplicated Component Structure
+**Type:** Code Organization
+**Priority:** Low
+
+Some components like `site-header.tsx` (over 400 lines) are too large and handle multiple responsibilities. This makes the code harder to maintain and understand. Consider breaking down larger components into smaller, more focused ones.
+
+## Issue 6: Hardcoded Values
+**Type:** Maintainability
+**Priority:** Medium
+
+Several hardcoded values exist throughout the codebase instead of being centralized in configuration files. For example, the Google Analytics ID in the layout file should be in an environment variable or config file.
+
+## Issue 7: Lack of Comprehensive Unit Tests
+**Type:** Testing
+**Priority:** High
+
+The codebase appears to lack a testing framework or test files. Implementing unit tests, especially for critical components like forms and navigation, would improve reliability and make future changes safer.
+
