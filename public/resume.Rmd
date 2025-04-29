@@ -26,16 +26,21 @@ header-includes:
 
 **Master of Data Science** (Expected Aug 2025)  
 *Memorial University of Newfoundland (MUN)* - St. John’s, NL      
-Interests: Deep Learning, Computer Vision, and Quantum Computing
 
 **BS, Electrical & Electronics Engineering** (Graduated Sep 2021)  
 *Kwame Nkrumah University of Science and Technology (KNUST)* - Kumasi, Ghana      
 Thesis: “Machine Learning-Based Fault Detection in Induction Motors”
 
-\section*{Research and Projects}
+\section*{Projects}
 
-**“Heart Disease Prediction Using Machine Learning”** - *Memorial University of Newfoundland*   
-*(Jan 2021 – Aug 2021)*
+**"Fine-Tuning Code Autocompletion Model"** - *MUN (Apr 2025)*
+
+- Implemented fine-tuning methodology for pre-trained language models to enhance code completion capabilities
+- Utilized the `Code_Search_Net` dataset from Huggingface to train the model on unseen Python functions
+- Optimized model performance through hyperparameter tuning, achieving significant improvement in completion accuracy
+- Implemented evaluation metrics to quantitatively assess model performance
+
+**“Heart Disease Prediction Using Machine Learning”** - *MUN (Jan 2021 – Aug 2021)*
 
 - Achieved 96% recall and 89.1% accuracy in heart disease prediction using SVM with hyperparameter optimization, emphasizing high sensitivity for identifying at-risk patients.
 - Designed and optimized neural networks with L2 regularization, dropout, and LeakyReLU, achieving 87.5% accuracy and 90.1% recall, highlighting scalability for larger datasets.
