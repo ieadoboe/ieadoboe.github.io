@@ -58,7 +58,7 @@ export default function Image() {
               textAlign: "center",
             }}
           >
-            Data Scientist and Innovator
+            Data Science & Research
           </h2>
           <p
             style={{

@@ -13,9 +13,9 @@ import aiCodeCover from "@/public/projects-autocomplete-cover.png";
 const ProjectsList = () => {
   const projects = [
     {
-      name: "CodeGen Copilot: Fine-tuned Code Completion",
+      name: "Demo App: Fine-tuned Code Completion LLM",
       description:
-        "An intelligent Python code completion system that uses the Salesforce CodeGen model with PEFT/LoRA fine-tuning to provide context-aware code suggestions.",
+        "An intelligent code completion system that uses the Salesforce CodeGen model with PEFT/LoRA fine-tuning to provide context-aware code suggestions.",
       cover_image: aiCodeCover,
       link: "https://github.com/ieadoboe/ai-code-autocompletion",
       githubLink: "GitHub",
