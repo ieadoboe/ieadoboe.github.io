@@ -46,7 +46,7 @@ const Navbar = () => {
   ];
 
   const moreMenuItems: NavItem[] = [
-    { href: "/airbnb", label: "Airbnb" },
+    // { href: "/airbnb", label: "Airbnb" },
     { href: "/spotify", label: "Spotify" },
   ];
 
@@ -235,12 +235,12 @@ const Navbar = () => {
                         className="absolute z-10 mt-4 w-38 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg bg-white dark:bg-zinc-800 dark:border dark:border-zinc-700 ring-1 ring-black ring-opacity-5 focus:outline-none"
                       >
                         <div className="p-1">
-                          <Link
+                          {/* <Link
                             href="/airbnb"
                             className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
                           >
                             Airbnb
-                          </Link>
+                          </Link> */}
                           <Link
                             href="/spotify"
                             className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
