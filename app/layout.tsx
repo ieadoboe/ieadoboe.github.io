@@ -5,6 +5,7 @@ import Footer from "@/app/components/site-footer";
 import { siteConfig } from "@/config/site";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import StructuredData from "@/app/components/structured-data";
+import { ThemeProvider } from "@/app/components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -112,11 +113,13 @@ export default function RootLayout({
         className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
         suppressHydrationWarning={true}
       >
-        <div className="relative flex w-full flex-col">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <ThemeProvider>
+          <div className="relative flex w-full flex-col">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

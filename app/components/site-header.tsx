@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { NewsletterProvider } from "./newsletter-popup";
 import JoinNewsletter from "./newsletter-join";
 import MobileMenu from "./mobile-menu"; // Import the new component
+import ThemeToggle from "./theme-toggle"; // Import the ThemeToggle component
 
 // Define type for navigation items
 interface NavItem {
@@ -158,10 +159,8 @@ const Navbar = () => {
               </Link>
 
               {/* Desktop Menu */}
-              <div className="hidden lg:flex items-center rounded-full shadow-md bg-zinc-0 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
-                {/* Desktop links... (same as before) */}
-                <ul className="flex space-x-6 text-sm">
-                  {/* ... your desktop menu items ... */}
+              <div className="hidden lg:flex items-center rounded-full shadow-md bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-6 py-2">
+                <ul className="flex space-x-6 text-sm text-zinc-800 dark:text-zinc-200">
                   <li>
                     <Link
                       href="/"
@@ -227,7 +226,7 @@ const Navbar = () => {
                   </li>
                   <li className="relative">
                     <Popover>
-                      <PopoverButton className="font-semibold hover:text-teal-500 transition focus:outline-none">
+                      <PopoverButton className="font-semibold text-zinc-800 dark:text-zinc-200 hover:text-teal-500 transition focus:outline-none">
                         More
                       </PopoverButton>
                       <PopoverPanel
@@ -235,12 +234,6 @@ const Navbar = () => {
                         className="absolute z-10 mt-4 w-38 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg bg-white dark:bg-zinc-800 dark:border dark:border-zinc-700 ring-1 ring-black ring-opacity-5 focus:outline-none"
                       >
                         <div className="p-1">
-                          {/* <Link
-                            href="/airbnb"
-                            className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
-                          >
-                            Airbnb
-                          </Link> */}
                           <Link
                             href="/spotify"
                             className="block px-4 py-2 font-semibold rounded-lg text-sm text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-teal-500 transition-colors"
@@ -255,19 +248,21 @@ const Navbar = () => {
               </div>
 
               {/* Newsletter (Desktop) */}
-              <div className="hidden lg:block">
+              <div className="hidden lg:flex items-center space-x-3">
+                <ThemeToggle />
                 <NewsletterProvider>
                   <JoinNewsletter />
                 </NewsletterProvider>
               </div>
 
               {/* Hamburger Menu Button */}
-              <div className="lg:hidden">
+              <div className="lg:hidden flex items-center">
+                <ThemeToggle />
                 <button
-                  ref={triggerRef} // Add ref to the trigger button
-                  className="flex items-center justify-center p-2 text-zinc-600 dark:text-zinc-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
+                  ref={triggerRef}
+                  className="ml-3 flex items-center justify-center p-2 text-zinc-600 dark:text-zinc-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
                   aria-expanded={isMenuOpen}
-                  aria-controls="mobile-menu-panel" // Controls the panel
+                  aria-controls="mobile-menu-panel"
                   aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                   onClick={toggleMenu}
                 >
