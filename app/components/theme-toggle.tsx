@@ -5,7 +5,7 @@ import { useTheme } from "./theme-provider";
 import { motion } from "framer-motion";
 
 const ThemeToggle = () => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   // Simplified toggle that always cycles between light and dark
   const toggleTheme = () => {

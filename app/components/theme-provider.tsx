@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 
 type Theme = "light" | "dark" | "system";
 
@@ -21,37 +27,40 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
 
   // Function to determine the actual theme based on system preference and user choice
-  const resolveTheme = (themeValue: Theme): "light" | "dark" => {
+  const resolveTheme = useCallback((themeValue: Theme): "light" | "dark" => {
     if (themeValue === "system") {
       return window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
     }
     return themeValue;
-  };
+  }, []);
 
   // Apply the current theme
-  const applyTheme = (themeValue: Theme) => {
-    const root = window.document.documentElement;
-    const resolvedValue = resolveTheme(themeValue);
+  const applyTheme = useCallback(
+    (themeValue: Theme) => {
+      const root = window.document.documentElement;
+      const resolvedValue = resolveTheme(themeValue);
 
-    // Set the resolved theme for components to use
-    setResolvedTheme(resolvedValue);
+      // Set the resolved theme for components to use
+      setResolvedTheme(resolvedValue);
 
-    // Update the class on the html element
-    if (resolvedValue === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+      // Update the class on the html element
+      if (resolvedValue === "dark") {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
 
-    // Store the user's explicit preference
-    if (themeValue !== "system") {
-      localStorage.setItem("theme", themeValue);
-    } else {
-      localStorage.setItem("theme", "system");
-    }
-  };
+      // Store the user's explicit preference
+      if (themeValue !== "system") {
+        localStorage.setItem("theme", themeValue);
+      } else {
+        localStorage.setItem("theme", "system");
+      }
+    },
+    [resolveTheme]
+  );
 
   // Initialize theme on first mount
   useEffect(() => {
@@ -65,12 +74,12 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
         applyTheme("system");
       }
     }
-  }, []);
+  }, [applyTheme]);
 
   // Update when theme state changes
   useEffect(() => {
     applyTheme(theme);
-  }, [theme]);
+  }, [theme, applyTheme]);
 
   // Add listener for system theme changes
   useEffect(() => {
@@ -96,7 +105,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       mediaQuery.addListener(handleSystemThemeChange);
       return () => mediaQuery.removeListener(handleSystemThemeChange);
     }
-  }, [theme]);
+  }, [theme, applyTheme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
