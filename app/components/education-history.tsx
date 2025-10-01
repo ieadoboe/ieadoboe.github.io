@@ -5,9 +5,15 @@ import knustLogo from "@/public/logo-knust.png";
 
 const EducationHistory = () => {
   const education = [
+        {
+      organization: "Memorial University of Newfoundland",
+      role: "MSc in Scientific Computing", 
+      period: "2025-present", 
+      logoSrc: munLogo, 
+    },
     {
       organization: "Memorial University of Newfoundland",
-      role: "MSc Data Science", 
+      role: "Master of Data Science", 
       period: "2024—2025", 
       logoSrc: munLogo, 
     },
