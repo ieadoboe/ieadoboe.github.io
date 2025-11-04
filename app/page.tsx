@@ -82,7 +82,7 @@ export default function Home() {
                     transition={{ ...fadeInUp.transition, delay: 0.2 }}
                   >
                     <PrimaryButton href="/projects" text="View my projects" />
-                    <SecondaryButton href="/blog" text="Read all articles" />
+                    <SecondaryButton href="/blog" text="Read all posts" />
                     <AccentButton
                       href="/quarto-learn"
                       text="Learn data science →"

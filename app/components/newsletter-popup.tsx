@@ -91,17 +91,18 @@ const NewsletterPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   return (
     <div
-      className="fixed left-0 top-0 right-0 bottom-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-      style={{ position: "fixed", width: "100vw", height: "100vh" }}
+      className="fixed inset-0 z-50 !m-0 flex items-center justify-center bg-black bg-opacity-50"
+      style={{height: "100vh" }}
     >
       <div
         className="absolute bg-white dark:bg-zinc-800 rounded-xl shadow-2xl w-full sm:w-4/5 md:w-3/5 lg:w-2/5 xl:w-1/3 mx-4 sm:mx-auto animate-fadeIn"
-        style={{ maxHeight: "90vh", overflow: "auto" }}
+        style={{ maxHeight: "70vh", overflow: "auto" }}
       >
         {/* Close button */}
-        <button
+        <div className="bg-slate-50 rounded-full">
+          <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-100"
+          className="absolute top-4 right-4 bg-gray-100 rounded-md p-1 text-zinc-500 hover:text-zinc-800 hover:bg-gray-200 dark:text-zinc-400 dark:hover:text-zinc-100 transition-all"
           aria-label="Close popup"
         >
           <svg
@@ -119,16 +120,16 @@ const NewsletterPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
+        </div>
 
-        <div className="p-6">
+        <div className="p-8">
           <form onSubmit={handleSubmit}>
             <h2 className="flex items-center text-xl font-semibold text-zinc-900 dark:text-zinc-100">
               <Icons.newslettermail />
               <span className="ml-3">Join My Newsletter</span>
             </h2>
             <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-              Get monthly updates on the latest insights, and unsubscribe at any
-              time.
+              Get monthly updates on the latest insights, and unsubscribe at any time.
             </p>
             <div className="mt-6">
               <input

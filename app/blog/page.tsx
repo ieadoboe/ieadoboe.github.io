@@ -47,10 +47,10 @@ export default function BlogPage() {
                     variants={fadeInUp}
                   >
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-                      {pagesContent.articles.header}
+                      {pagesContent.blogs.header}
                     </h1>
                     <p className="mt-6 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
-                      {pagesContent.articles.description}
+                      {pagesContent.blogs.description}
                     </p>
                   </motion.header>
                   <div className="mt-16 sm:mt-20">

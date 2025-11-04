@@ -8,7 +8,7 @@ const EducationHistory = () => {
         {
       organization: "Memorial University of Newfoundland",
       role: "MSc in Scientific Computing", 
-      period: "2025-present", 
+      period: "2025—2027", 
       logoSrc: munLogo, 
     },
     {

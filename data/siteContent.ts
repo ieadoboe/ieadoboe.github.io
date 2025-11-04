@@ -8,7 +8,7 @@ export const pagesContent = {
     header: "Shaping the future through data.",
     description: "",
   },
-  articles: {
+  blogs: {
     header: "All my ramblings on data science, statistics, and life.",
     description:
       "Explore my thoughts on data science, statistics, and innovation, and how they shape our world.",

@@ -40,7 +40,7 @@ const Navbar = () => {
   // Define navigation items centrally
   const navItems: NavItem[] = [
     { href: "/", label: "Home" },
-    { href: "/blog", label: "Articles" },
+    { href: "/blog", label: "Blog" },
     { href: "/projects", label: "Projects" },
     { href: "/quarto-learn", label: "Learn", external: true },
     { href: "/about", label: "About" },
@@ -178,7 +178,7 @@ const Navbar = () => {
                         isActive("/blog") ? "text-teal-500" : ""
                       }`}
                     >
-                      Articles
+                      Blog
                     </Link>
                   </li>
                   <li>

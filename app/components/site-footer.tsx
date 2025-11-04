@@ -28,7 +28,7 @@ const Footer = () => {
                   href="/blog"
                   className="transition hover:text-teal-500 dark:hover:text-teal-400"
                 >
-                  Articles
+                  Blog
                 </Link>
 
                 {/* <Link

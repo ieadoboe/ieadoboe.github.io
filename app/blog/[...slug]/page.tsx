@@ -4,13 +4,13 @@ import { MDXContent } from "@/app/components/mdx-component";
 import "@/styles/mdx.css";
 import { notFound } from "next/navigation";
 
-interface ArticlePageProps {
+interface BlogPageProps {
   params: Promise<{
     slug: string[];
   }>;
 }
 
-async function getPostFromParams(params: Awaited<ArticlePageProps["params"]>) {
+async function getPostFromParams(params: Awaited<BlogPageProps["params"]>) {
   const slug = params?.slug?.join("/");
   const post = posts.find((post) => post.slugAsParams === slug);
 
@@ -18,15 +18,15 @@ async function getPostFromParams(params: Awaited<ArticlePageProps["params"]>) {
 }
 
 export async function generateStaticParams(): Promise<
-  Awaited<ArticlePageProps["params"]>[]
+  Awaited<BlogPageProps["params"]>[]
 > {
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-export default async function ArticlePage({
+export default async function BlogPage({
   params,
 }: {
-  params: ArticlePageProps["params"];
+  params: BlogPageProps["params"];
 }) {
   const resolvedParams = await params;
   const post = await getPostFromParams(resolvedParams);
