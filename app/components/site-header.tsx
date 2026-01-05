@@ -53,9 +53,9 @@ const Navbar = () => {
 
   // Combine main nav and more items for the mobile menu
   const mobileNavItems: NavItem[] = [
-    ...navItems.slice(0, 4),
+    ...navItems.slice(0, 3),
     ...moreMenuItems,
-    navItems[4],
+    navItems[3],
   ]; // Keep 'About' last visually
 
   // Close menu when route changes
