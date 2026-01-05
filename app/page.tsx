@@ -83,10 +83,10 @@ export default function Home() {
                   >
                     <PrimaryButton href="/projects" text="View my projects" />
                     <SecondaryButton href="/blog" text="Read all posts" />
-                    <AccentButton
+                    {/* <AccentButton
                       href="/quarto-learn"
                       text="Learn data science →"
-                    />
+                    /> */}
                   </motion.div>
                   {/* Animate Social Links Group */}
                   <motion.div
