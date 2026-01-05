@@ -12,7 +12,7 @@ export default function StructuredData() {
       siteConfig.links.github,
       siteConfig.links.linkedin,
     ],
-    jobTitle: "Data Scientist",
+    jobTitle: "Computational scientist",
     worksFor: {
       "@type": "Organization",
       name: "Isaac Adoboe",

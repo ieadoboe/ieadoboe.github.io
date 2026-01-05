@@ -1,8 +1,9 @@
 export const pagesContent = {
   home: {
-    header: "Data scientist, hobbyist chef, and part-time overthinker. 🤔",
+    header:
+      "Computational scientist building physics-informed machine learning systems. 🌍",
     description:
-      "Hey, I’m Isaac, a data scientist and lifelong learner with a passion for research and transforming complexity into clarity. I thrive on digging deep into data, uncovering insights, and using those findings to help businesses and individuals make smarter, more informed decisions.",
+      "Hey, I'm Isaac, a scientific computing researcher specializing in hybrid physics-ML methods for climate, environmental and energy applications. I build machine learning models that respect physical laws whether accelerating quantum chemistry calculations with surrogate optimization or generating extreme weather scenarios with differentiable climate models. My work bridges numerical simulation, optimization, and deep learning to solve problems where pure data-driven approaches fall short.",
   },
   projects: {
     header: "Shaping the future through data.",

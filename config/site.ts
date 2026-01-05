@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Isaac Adoboe - Data Scientist and Innovator",
+  name: "Isaac Adoboe - Computational scientist and Innovator",
   url: "https://ieadoboe.github.io",
-  description: "Data scientist, hobbyist chef, and part-time overthinker. 🤔",
+  description: "Computational scientist, hobbyist chef, and part-time overthinker. 🤔",
   author: "Isaac Edem Adoboe",
   links: {
     twitter: "https://twitter.com/ieadoboe",
