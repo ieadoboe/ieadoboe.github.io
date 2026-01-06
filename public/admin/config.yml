@@ -26,8 +26,6 @@ collections:
     create: true
     slug: "{{fields.title}}"
     path: "{{slug}}/{{slug}}"
-    media_folder: "{{media_folder}}/{{slug}}"
-    public_folder: "{{public_folder}}/{{slug}}"
     format: "frontmatter"
     extension: "mdx"
     preview_path: "blog/{{slug}}"
@@ -59,8 +57,6 @@ collections:
           widget: "image",
           required: false,
           hint: "Main cover image for the post (recommended: 1200x630px for social sharing)",
-          media_folder: "/public/static",
-          public_folder: "/static",
         }
 
       - {
@@ -235,8 +231,6 @@ collections:
     create: true
     slug: "{{fields.title}}"
     path: "{{slug}}"
-    media_folder: "public/static"
-    public_folder: "/static"
     format: "frontmatter"
     extension: "mdx"
     preview_path: "notes/{{slug}}"
@@ -268,8 +262,6 @@ collections:
           widget: "image",
           required: false,
           hint: "Optional cover image for the note",
-          media_folder: "/public/static",
-          public_folder: "/static",
         }
 
       - {
@@ -452,8 +444,6 @@ collections:
           name: "cover_image",
           widget: "image",
           hint: "Project cover image",
-          media_folder: "/public",
-          public_folder: "/",
         }
       - {
           label: "Link",
@@ -580,8 +570,6 @@ collections:
           name: "logo",
           widget: "image",
           hint: "Company logo image",
-          media_folder: "/public",
-          public_folder: "/",
         }
       - {
           label: "Order",
@@ -644,8 +632,6 @@ collections:
           name: "logo",
           widget: "image",
           hint: "Institution logo image",
-          media_folder: "/public",
-          public_folder: "/",
         }
       - {
           label: "Order",
