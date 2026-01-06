@@ -15,11 +15,9 @@ backend:
 # publish_mode: editorial_workflow
 
 # Media storage configuration
-# NOTE: Decap CMS image picker works best with images at the root of media_folder
-# Images in subdirectories won't appear in the image picker modal
-# All uploaded images will be saved to public/static/
+# Global fallback for non-blog content
 media_folder: "public/static"
-public_folder: "/static" # 512KB
+public_folder: "/static"
 
 # Collections configuration
 collections:
@@ -32,6 +30,10 @@ collections:
     format: "frontmatter"
     extension: "mdx"
     preview_path: "blog/{{slug}}"
+    # Blog-specific media configuration: store images alongside the MDX file
+    # This ensures Velite can process images during build
+    media_folder: ""  # Relative to the collection entry (same directory as MDX file)
+    public_folder: "./"  # Use relative paths in frontmatter
 
     fields:
       # Basic Information
