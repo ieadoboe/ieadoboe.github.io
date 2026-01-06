@@ -21,6 +21,12 @@ backend:
 media_folder: "public/static"
 public_folder: "/static"
 
+# Media library settings
+media_library:
+  name: git
+  config:
+    max_file_size: 512000 # 512KB
+
 # Collections configuration
 collections:
   - name: "blog"
