@@ -19,13 +19,7 @@ backend:
 # Images in subdirectories won't appear in the image picker modal
 # All uploaded images will be saved to public/static/
 media_folder: "public/static"
-public_folder: "/static"
-
-# Media library settings
-media_library:
-  name: git
-  config:
-    max_file_size: 512000 # 512KB
+public_folder: "/static" # 512KB
 
 # Collections configuration
 collections:
