@@ -46,7 +46,7 @@ The literature review revealed multiple methods for motor fault detection:
 In this project, we purchased a perfectly working induction motor and run a bunch of experiments on it to collect data. Signals from current and vibration sensors were collected for five motor conditions: healthy, single phasing, overloading, bearing faults, and washer faults. Over 1,500 data points were compiled using MATLAB and Excel for preprocessing. Spoiler alert: The motor did not survive.
 
 <CenteredImage
-  src="./Experimentalsetup.jpg"
+  src="/static/fault-detection-in-induction-motors/Experimentalsetup.jpg"
   alt="An example image"
   width={400}
 />
@@ -55,7 +55,7 @@ In this project, we purchased a perfectly working induction motor and run a bunc
 
 MATLAB’s algorithms transformed raw signals into scalograms, which were then augmented by applying rotations (90°, 180°, and 270°) to expand the dataset. Applying rotations to the scalograms helps in data augmentation, a technique used to artificially expand the training dataset by introducing slight variations in the data. In this case, rotating the scalograms ensures that the model becomes more robust and generalizable by learning features that are invariant to orientation. This can improve the model’s ability to recognize faults in induction motors regardless of the orientation of the signal, leading to better performance and accuracy in real-world applications. This augmented our original 1,500 data points to 6,000, providing enough variety for most machine learning algorithms to effectively learn patterns in the data.
 
-<CenteredImage src="./scalogram.png" alt="Scalogram" width={700} />
+<CenteredImage src="/static/fault-detection-in-induction-motors/scalogram.png" alt="Scalogram" width={700} />
 
 ## Model Training
 
@@ -63,7 +63,7 @@ CNNs are a specialized type of deep neural network designed primarily for proces
 
 I do not want to turn this into a Convolutional Neural Network class. If you are interested in diving deeper, here's a great blogpost from [Towards Data Science](https://towardsdatascience.com/) -> [Convolutional Neural Networks, Explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939)
 
-![Architecture of Convolutional Neural Networks](./convnet.jpg)
+![Architecture of Convolutional Neural Networks](/static/fault-detection-in-induction-motors/convnet.jpg)
 
 The CNN was built using TensorFlow and Keras, with 90% of the data for training and 10% for testing. Model training was executed on Google Colab to leverage free GPU resources.
 
