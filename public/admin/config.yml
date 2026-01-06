@@ -766,7 +766,7 @@ collections:
         file: "data/taxonomies.json"
         fields:
           - {
-              label: "Blog Categories",
+              label: "Categories List",
               name: "blogCategories",
               widget: "list",
               hint: "Categories for organizing blog posts. After updating, manually sync with blog collection in config.yml",
@@ -778,7 +778,7 @@ collections:
         file: "data/taxonomies.json"
         fields:
           - {
-              label: "Blog Tags",
+              label: "Tags List",
               name: "blogTags",
               widget: "list",
               hint: "Tags for blog posts (topics, technologies, keywords). After updating, manually sync with blog collection in config.yml",
@@ -791,7 +791,7 @@ collections:
         file: "data/taxonomies.json"
         fields:
           - {
-              label: "Notes Categories",
+              label: "Categories List",
               name: "notesCategories",
               widget: "list",
               hint: "Categories for organizing notes. After updating, manually sync with notes collection in config.yml",
@@ -803,7 +803,7 @@ collections:
         file: "data/taxonomies.json"
         fields:
           - {
-              label: "Notes Tags",
+              label: "Tags List",
               name: "notesTags",
               widget: "list",
               hint: "Tags for notes (topics, tools, concepts). After updating, manually sync with notes collection in config.yml",
@@ -816,7 +816,7 @@ collections:
         file: "data/taxonomies.json"
         fields:
           - {
-              label: "Project Tags",
+              label: "Tags List",
               name: "projectTags",
               widget: "list",
               hint: "Tags for projects (technologies, frameworks, topics). After updating, manually sync with projects collection in config.yml",
