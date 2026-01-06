@@ -2,9 +2,11 @@ backend:
   name: github
   repo: ieadoboe/ieadoboe.github.io
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 # Local development backend
-local_backend: true
+# local_backend: true
 
 # Enable editorial workflow for better content management
 # This creates a Draft → In Review → Ready workflow
