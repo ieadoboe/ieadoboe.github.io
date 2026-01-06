@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import PrimaryButton from "@/app/components/primary-button";
 import SecondaryButton from "@/app/components/secondary-button";
-import AccentButton from "@/app/components/accent-button";
+// import AccentButton from "@/app/components/accent-button";
 import LatestPostItem from "@/app/components/latest-post-item";
 import NewsletterForm from "@/app/components/newsletter-form";
 import WorkExperience from "@/app/components/work-experience";

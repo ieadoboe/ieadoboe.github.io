@@ -1,0 +1,202 @@
+backend:
+  name: github
+  repo: ieadoboe/ieadoboe.github.io
+  branch: main
+
+# Local development backend
+local_backend: true
+
+# Enable editorial workflow for better content management
+# This creates a Draft → In Review → Ready workflow
+# NOTE: Editorial workflow requires GitHub backend (doesn't work with local_backend)
+# Uncomment this when deploying to production with GitHub OAuth or Netlify
+# publish_mode: editorial_workflow
+
+# Media storage configuration
+media_folder: "public/static"
+public_folder: "/static"
+
+# Collections configuration
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{fields.title}}"
+    path: "{{slug}}/{{slug}}"
+    media_folder: "{{media_folder}}/{{slug}}"
+    public_folder: "{{public_folder}}/{{slug}}"
+    format: "frontmatter"
+    extension: "mdx"
+    preview_path: "blog/{{slug}}"
+
+    fields:
+      # Basic Information
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: "Blog post title (will auto-generate URL-friendly slug)",
+          pattern: ["^.{5,99}$", "Title must be between 5-99 characters"],
+        }
+
+      - { label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}" }
+
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+          hint: "SEO meta description (150-160 characters recommended)",
+        }
+
+      # Featured Image
+      - {
+          label: "Featured Image",
+          name: "cover_image",
+          widget: "image",
+          required: false,
+          hint: "Main cover image for the post (recommended: 1200x630px for social sharing)",
+          media_folder: "/public/static",
+          public_folder: "/static",
+        }
+
+      - {
+          label: "Cover Image Alt Text",
+          name: "cover_image_alt",
+          widget: "string",
+          required: false,
+          hint: "Describe the image for accessibility and SEO",
+        }
+
+      # Publishing Details
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          hint: "Date when the post is/was published",
+        }
+
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          default: "Isaac Adoboe",
+          options: ["Isaac Adoboe"],
+          required: false,
+          hint: "Post author (can add more authors later)",
+        }
+
+      - {
+          label: "Published Status",
+          name: "published",
+          widget: "boolean",
+          default: true,
+          hint: "Toggle to publish/unpublish this post",
+        }
+
+      # Organization & Discovery
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          required: false,
+          hint: "Add relevant tags (e.g., Machine Learning, Python, Tutorial)",
+          field: { label: "Tag", name: "tag", widget: "string" },
+        }
+
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          required: false,
+          options:
+            [
+              "Data Science",
+              "Machine Learning",
+              "Statistics",
+              "Web Development",
+              "Tutorial",
+              "AI & Deep Learning",
+              "Software Engineering",
+              "Personal",
+              "Opinion",
+            ],
+          hint: "Primary category for this post",
+        }
+
+      # SEO & Metadata
+      - {
+          label: "SEO Title Override",
+          name: "seo_title",
+          widget: "string",
+          required: false,
+          hint: "Custom title for search engines (optional, defaults to main title)",
+        }
+
+      - {
+          label: "Keywords",
+          name: "keywords",
+          widget: "list",
+          required: false,
+          hint: "SEO keywords (e.g., deep learning, neural networks, python)",
+          field: { label: "Keyword", name: "keyword", widget: "string" },
+        }
+
+      - {
+          label: "Reading Time",
+          name: "reading_time",
+          widget: "string",
+          required: false,
+          hint: "Estimated reading time (e.g., '5 min read'). Can be auto-calculated later.",
+        }
+
+      # Content
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          hint: "Write your blog post content. Supports:\n• Markdown & MDX\n• Math equations: $inline$ or $$block$$\n• Code blocks with syntax highlighting\n• Images via upload or markdown",
+          modes: ["raw", "rich_text"],
+        }
+
+    # List view configuration
+    summary: "{{title}} - {{date}}"
+    sortable_fields: ["date", "title", "published", "category"]
+
+    # View filters for easy navigation
+    view_filters:
+      - label: "Published Posts"
+        field: published
+        pattern: true
+      - label: "Draft Posts"
+        field: published
+        pattern: false
+      - label: "Data Science"
+        field: category
+        pattern: "Data Science"
+      - label: "Machine Learning"
+        field: category
+        pattern: "Machine Learning"
+      - label: "Tutorials"
+        field: category
+        pattern: "Tutorial"
+
+    # Group posts by category or year
+    view_groups:
+      - label: "By Category"
+        field: category
+      - label: "By Year"
+        field: date
+        pattern: \d{4}
+      - label: "Published"
+        field: published
+
+# Slug configuration
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"

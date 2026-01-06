@@ -16,11 +16,28 @@ const posts = defineCollection({
   pattern: "blog/**/*.mdx",
   schema: s
     .object({
+      // Core fields
       slug: s.path(),
       title: s.string().max(99),
       description: s.string().max(999).optional(),
       date: s.isodate(),
       published: s.boolean().default(true),
+      
+      // Featured image
+      cover_image: s.string().optional(),
+      cover_image_alt: s.string().optional(),
+      
+      // Author and categorization
+      author: s.string().default("Isaac Adoboe"),
+      tags: s.array(s.string()).optional(),
+      category: s.string().optional(),
+      
+      // SEO fields
+      seo_title: s.string().optional(),
+      keywords: s.array(s.string()).optional(),
+      reading_time: s.string().optional(),
+      
+      // Content
       body: s.mdx(),
     })
     .transform(computedFields),

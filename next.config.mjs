@@ -124,6 +124,17 @@ const nextConfig = {
       },
     ];
   },
+
+  // Add redirect for Decap CMS admin
+  async redirects() {
+    return [
+      {
+        source: "/admin",
+        destination: "/admin/index.html",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
