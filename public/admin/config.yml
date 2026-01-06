@@ -651,6 +651,111 @@ collections:
     summary: "{{institution}} - {{degree}} ({{start_date}}-{{end_date}})"
     sortable_fields: ["institution", "start_date", "order"]
 
+  # Site Settings (File Collection)
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Global Site Settings"
+        name: "site_config"
+        file: "config/site.json"
+        fields:
+          - {
+              label: "Site Name",
+              name: "name",
+              widget: "string",
+              hint: "Full site title",
+            }
+          - {
+              label: "Site URL",
+              name: "url",
+              widget: "string",
+              hint: "Main URL",
+            }
+          - {
+              label: "Site Description",
+              name: "description",
+              widget: "text",
+              hint: "Default meta description",
+            }
+          - {
+              label: "Author Name",
+              name: "author",
+              widget: "string",
+              hint: "Site author",
+            }
+          - label: "Social Links"
+            name: "links"
+            widget: "object"
+            fields:
+              - { label: "Twitter", name: "twitter", widget: "string" }
+              - { label: "GitHub", name: "github", widget: "string" }
+              - { label: "VSCO", name: "vsco", widget: "string" }
+              - { label: "LinkedIn", name: "linkedin", widget: "string" }
+
+  # Page Content (File Collection)
+  - name: "pages"
+    label: "Page Content"
+    files:
+      - label: "All Pages"
+        name: "all_pages"
+        file: "data/siteContent.json"
+        fields:
+          - label: "Home Page"
+            name: "home"
+            widget: "object"
+            fields:
+              - {
+                  label: "Header",
+                  name: "header",
+                  widget: "string",
+                  hint: "Main headline on home page",
+                }
+              - {
+                  label: "Description",
+                  name: "description",
+                  widget: "text",
+                  hint: "Intro paragraph",
+                }
+          - label: "Projects Page"
+            name: "projects"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Blog Page"
+            name: "blogs"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Notes Page"
+            name: "notes"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "About Page"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Paragraph 1", name: "p1", widget: "text" }
+              - { label: "Paragraph 2", name: "p2", widget: "text" }
+              - { label: "Paragraph 3", name: "p3", widget: "text" }
+              - { label: "Paragraph 4", name: "p4", widget: "text" }
+          - label: "Spotify Page"
+            name: "spotify"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Airbnb Page"
+            name: "airbnb"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
   # Taxonomies Collection (Tags & Categories)
   - name: "taxonomies"
     label: "Tags & Categories"
