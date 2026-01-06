@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cms-proxy": "npx decap-server"
+    "cms-proxy": "npx decap-server",
+    "flatten-images": "bash scripts/flatten-images.sh"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

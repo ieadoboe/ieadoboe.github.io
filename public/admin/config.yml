@@ -15,6 +15,9 @@ backend:
 # publish_mode: editorial_workflow
 
 # Media storage configuration
+# NOTE: Decap CMS image picker works best with images at the root of media_folder
+# Images in subdirectories won't appear in the image picker modal
+# All uploaded images will be saved to public/static/
 media_folder: "public/static"
 public_folder: "/static"
 
