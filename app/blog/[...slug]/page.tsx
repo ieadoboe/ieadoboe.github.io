@@ -59,9 +59,6 @@ export default async function BlogPage({
 
                 {/* Hero Header with Gradient Background - Full Width */}
                 <div className="relative -mx-4 sm:-mx-8 lg:-mx-12 mb-12 sm:mb-16">
-                  {/* Gradient Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-50/50 via-emerald-50/30 to-green-50/40 dark:from-teal-950/20 dark:via-emerald-950/15 dark:to-green-950/20" />
-
                   <header className="relative pt-12 sm:pt-16 pb-12 sm:pb-16 px-4 sm:px-8 lg:px-12">
                     {/* Category Badge */}
                     {post.category && (
@@ -81,7 +78,26 @@ export default async function BlogPage({
                         {post.description}
                       </p>
                     )}
-
+                    {/* Featured Image */}
+                    {post.cover_image && (
+                      <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
+                        <div className="relative overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-xl">
+                          <ImageLightbox
+                            src={post.cover_image}
+                            alt={post.cover_image_alt || post.title}
+                            className="w-full h-auto [&_img]:!shadow-none [&_img]:!rounded-none"
+                            width={1200}
+                            height={630}
+                            priority
+                          />
+                        </div>
+                        {post.cover_image_alt && (
+                          <p className="mt-3 text-center text-sm text-zinc-500 dark:text-zinc-500 italic">
+                            {post.cover_image_alt}
+                          </p>
+                        )}
+                      </div>
+                    )}
                     {/* Metadata Row with Reading Time Indicator */}
                     <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
                       {/* Date */}
@@ -114,24 +130,6 @@ export default async function BlogPage({
                     {post.tags && post.tags.length > 0 && (
                       <div className="mt-8 flex justify-center">
                         <TagList tags={post.tags} />
-                      </div>
-                    )}
-
-                    {/* Featured Image */}
-                    {post.cover_image && (
-                      <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
-                        <ImageLightbox
-                          src={post.cover_image}
-                          alt={post.cover_image_alt || post.title}
-                          className="relative aspect-video overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-xl"
-                          fill
-                          priority
-                        />
-                        {post.cover_image_alt && (
-                          <p className="mt-3 text-center text-sm text-zinc-500 dark:text-zinc-500 italic">
-                            {post.cover_image_alt}
-                          </p>
-                        )}
                       </div>
                     )}
                   </header>

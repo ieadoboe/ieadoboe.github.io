@@ -27,7 +27,7 @@ const MDXImage = ({ src, alt, width, height }: MDXImageProps) => {
       alt={alt || ""}
       width={width || 800}
       height={height || 600}
-      className="rounded-xl shadow-md"
+      className=""
     />
   );
 };

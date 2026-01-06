@@ -40,4 +40,3 @@ export default function SideNote({ children, type = "note" }: SideNoteProps) {
     </aside>
   );
 }
-
