@@ -756,47 +756,70 @@ collections:
               - { label: "Header", name: "header", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
-  # Taxonomies Collection (Tags & Categories)
+  # Taxonomies Collection (Tags & Categories) - Separated for easier management
   - name: "taxonomies"
-    label: "Tags & Categories"
+    label: "📚 Taxonomies"
     files:
-      - label: "Manage Tags & Categories"
-        name: "taxonomies"
+      # Blog Taxonomies
+      - label: "Blog Categories"
+        name: "blog_categories"
         file: "data/taxonomies.json"
         fields:
           - {
               label: "Blog Categories",
               name: "blogCategories",
               widget: "list",
-              hint: "Categories for blog posts. After updating, manually sync with blog collection in config.yml",
+              hint: "Categories for organizing blog posts. After updating, manually sync with blog collection in config.yml",
               field: { label: "Category", name: "category", widget: "string" },
             }
-          - {
-              label: "Notes Categories",
-              name: "notesCategories",
-              widget: "list",
-              hint: "Categories for notes. After updating, manually sync with notes collection in config.yml",
-              field: { label: "Category", name: "category", widget: "string" },
-            }
+
+      - label: "Blog Tags"
+        name: "blog_tags"
+        file: "data/taxonomies.json"
+        fields:
           - {
               label: "Blog Tags",
               name: "blogTags",
               widget: "list",
-              hint: "Tags for blog posts. After updating, manually sync with blog collection in config.yml",
+              hint: "Tags for blog posts (topics, technologies, keywords). After updating, manually sync with blog collection in config.yml",
               field: { label: "Tag", name: "tag", widget: "string" },
             }
+
+      # Notes Taxonomies
+      - label: "Notes Categories"
+        name: "notes_categories"
+        file: "data/taxonomies.json"
+        fields:
+          - {
+              label: "Notes Categories",
+              name: "notesCategories",
+              widget: "list",
+              hint: "Categories for organizing notes. After updating, manually sync with notes collection in config.yml",
+              field: { label: "Category", name: "category", widget: "string" },
+            }
+
+      - label: "Notes Tags"
+        name: "notes_tags"
+        file: "data/taxonomies.json"
+        fields:
           - {
               label: "Notes Tags",
               name: "notesTags",
               widget: "list",
-              hint: "Tags for notes. After updating, manually sync with notes collection in config.yml",
+              hint: "Tags for notes (topics, tools, concepts). After updating, manually sync with notes collection in config.yml",
               field: { label: "Tag", name: "tag", widget: "string" },
             }
+
+      # Project Tags
+      - label: "Project Tags"
+        name: "project_tags"
+        file: "data/taxonomies.json"
+        fields:
           - {
               label: "Project Tags",
               name: "projectTags",
               widget: "list",
-              hint: "Tags for projects (technologies, topics). After updating, manually sync with projects collection in config.yml",
+              hint: "Tags for projects (technologies, frameworks, topics). After updating, manually sync with projects collection in config.yml",
               field: { label: "Tag", name: "tag", widget: "string" },
             }
 
