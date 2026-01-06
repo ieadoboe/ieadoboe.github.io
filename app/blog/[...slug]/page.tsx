@@ -50,33 +50,46 @@ export default async function BlogPage({
                   <BackButton />
                 </div>
                 <div className="mx-auto max-w-3xl lg:max-w-3xl">
-                  <header className="max-w-2xl pt-4">
+                  <header className="pt-2 sm:pt-4">
                     {/* Category Badge */}
                     {post.category && (
-                      <div className="mb-4">
+                      <div className="mb-6 flex justify-center">
                         <CategoryBadge category={post.category} />
                       </div>
                     )}
 
                     {/* Title */}
-                    <h1 className="text-3xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                    <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100 leading-tight sm:leading-tight text-center">
                       {post.title}
                     </h1>
 
+                    {/* Description */}
+                    {post.description && (
+                      <p className="mt-6 sm:mt-8 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300 text-center mx-auto max-w-2xl">
+                        {post.description}
+                      </p>
+                    )}
+
                     {/* Metadata: Author, Date, Reading Time */}
-                    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
                       {post.author && (
                         <div className="flex items-center gap-1">
                           <span className="font-medium">By {post.author}</span>
                         </div>
                       )}
-                      <span aria-hidden="true" className="text-zinc-300 dark:text-zinc-600">
+                      <span
+                        aria-hidden="true"
+                        className="text-zinc-300 dark:text-zinc-600"
+                      >
                         •
                       </span>
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
                       {post.reading_time && (
                         <>
-                          <span aria-hidden="true" className="text-zinc-300 dark:text-zinc-600">
+                          <span
+                            aria-hidden="true"
+                            className="text-zinc-300 dark:text-zinc-600"
+                          >
                             •
                           </span>
                           <span>{post.reading_time}</span>
@@ -84,23 +97,9 @@ export default async function BlogPage({
                       )}
                     </div>
 
-                    {/* Description */}
-                    {post.description && (
-                      <p className="mt-6 text-zinc-600 dark:text-zinc-300 text-sm sm:text-base text-prettier">
-                        {post.description}
-                      </p>
-                    )}
-
-                    {/* Tags */}
-                    {post.tags && post.tags.length > 0 && (
-                      <div className="mt-6">
-                        <TagList tags={post.tags} />
-                      </div>
-                    )}
-
                     {/* Featured Image */}
                     {post.cover_image && (
-                      <div className="mt-8 relative aspect-video overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
+                      <div className="mt-10 sm:mt-12 relative aspect-video overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 mx-auto">
                         <Image
                           src={post.cover_image}
                           alt={post.cover_image_alt || post.title}
@@ -110,9 +109,16 @@ export default async function BlogPage({
                         />
                       </div>
                     )}
+
+                    {/* Tags */}
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="mt-8 flex justify-center">
+                        <TagList tags={post.tags} />
+                      </div>
+                    )}
                   </header>
 
-                  <main className="max-w-3xl mt-16 sm:mt-20 prose prose-zinc dark:prose-invert">
+                  <main className="mx-auto max-w-2xl mt-12 sm:mt-16 lg:mt-20 prose prose-zinc dark:prose-invert prose-base sm:prose-lg prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-p:leading-relaxed prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-a:text-neutral-800 dark:prose-a:text-neutral-100 prose-a:no-underline hover:prose-a:underline [&_h1_a]:no-underline [&_h1_a:hover]:no-underline [&_h2_a]:no-underline [&_h2_a:hover]:no-underline [&_h3_a]:no-underline [&_h3_a:hover]:no-underline [&_h4_a]:no-underline [&_h4_a:hover]:no-underline [&_h5_a]:no-underline [&_h5_a:hover]:no-underline [&_h6_a]:no-underline [&_h6_a:hover]:no-underline prose-img:rounded-xl prose-img:shadow-md">
                     <MDXContent code={post.body} />
                   </main>
                 </div>

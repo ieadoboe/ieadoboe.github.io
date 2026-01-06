@@ -5,11 +5,11 @@ date: 2025-01-11
 published: true
 ---
 
-# Introduction
+## Introduction
 
-In this _blog_ post, I’ll be walking you through the process of building my personal portfolio website using Next.js TailwindCSS, Velite and, of course, GitHub Copilot as my junior web developer. As a young data scientist and budding entrepreneur, I needed a clean, professional online space to showcase my projects, blog posts, articles (and lessons, coming soon 😉), all while leveraging modern web development tools. By combining the power of Next.js, TailwindCSS and Velite, I’ve created a simple and responsive portfolio that highlights my journey in data science, software design and creativity with a touch of personality. Let’s dive into how I built this website.
+In this _blog_ post, I'll be walking you through the process of building my personal portfolio website using Next.js TailwindCSS, Velite and, of course, GitHub Copilot as my junior web developer. As a young data scientist and budding entrepreneur, I needed a clean, professional online space to showcase my projects, blog posts, articles (and lessons, coming soon 😉), all while leveraging modern web development tools. By combining the power of Next.js, TailwindCSS and Velite, I've created a simple and responsive portfolio that highlights my journey in data science, software design and creativity with a touch of personality. Let's dive into how I built this website.
 
-# Why did I build a website?
+## Why did I build a website?
 
 Because I thought it would be fun (trust me, it wasn’t). But seriously, why? 3 reasons:
 
@@ -17,7 +17,7 @@ Because I thought it would be fun (trust me, it wasn’t). But seriously, why? 3
 2. Build my personal brand and share my voice - I wanted a space where I could truly express who I am-not just as a data scientist but as a thinker, writer, and innovator. Through my website, I can share my unique perspective, write about topics I care about, and craft a professional identity that resonates with others in my field. It’s about standing out and letting my voice be heard.
 3. Share well-explained (tutorial) lessons - One thing I’ve noticed is the lack of well-explained, beginner-friendly tutorials in certain areas of data science, machine learning, mathematics and statistics. My website gives me a platform to fill that gap by sharing clear, practical lessons and insights that others can learn from. If I can make someone’s learning journey a little easier, that’s a win for me! (Spoiler: The learning page is a whole different project on its own, and is still in the pipeline).
 
-# Stages of the project
+## Stages of the project
 
 I started this endeavour at the start of the winter break and had only 3 weeks to get it done. I had a part-time job to juggle so I needed tools to make my life easy and speed up the development process.
 
@@ -33,7 +33,7 @@ I started this endeavour at the start of the winter break and had only 3 weeks t
 - Building the project: After designing my website, I had to pick the stack and tools, I would use to build it. I landed on Next.js, tailwindCSS and Velite. I choose Next.js and tailwindCSS because I have had prior experience with them and it would just make my life a little easier because I was on a timeline. I choose Velite because it would make it easy to post blog posts and articles with markdown.
 - Deployment: I deployed the site on GitHub (more below).
 
-# The Project Stack
+## The Project Stack
 
 - [NextJS](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -58,7 +58,7 @@ This website also uses Tailwind CSS for styling, along with the `@tailwindcss/ty
 
 To manage my content, I experimented with Velite, a lightweight framework designed for content-driven sites. Velite simplifies building type-safe data layers by converting Markdown, MDX, YAML, and JSON files into application-ready data. It allowed me to easily define collections (like articles and blogs) and handle them efficiently. That said, setting up the .velite folder required some troubleshooting. _Pro tip_: Read the docs carefully and double-check your paths in tsconfig.json-it’ll save you some headaches!
 
-# Features of the Project
+## Features of the Project
 
 The project utilized other cutting-edge technologies and tools. Here are some of the key technologies and integrations in this project:
 
@@ -90,7 +90,7 @@ The project integrates [Brevo](https://www.brevo.com/) (formerly Sendinblue) for
 
 Would I really be a data scientist without adding some analytics? I have to see the numbers. Using the `@next/third-parties/google` package, the project incorporates Google Analytics to track website traffic, user interactions, and other key metrics. This integration provides insights into user behavior, helping to improve the overall website experience and performance.
 
-# Pages of the Website
+## Pages of the Website
 
 - **Homepage**
 
@@ -116,13 +116,13 @@ Would I really be a data scientist without adding some analytics? I have to see 
 
   A curated page my Airbnb listings. Each listing includes vibrant photos, detailed descriptions, and a direct link for booking, making it convenient for potential guests to explore and book accommodations with me.
 
-# Deployment
+## Deployment
 
 I deployed the project on GitHub Pages, primarily for the simpler .github.io domain name. Deploying a Next.js project to GitHub Pages involves automating the build and deployment process through GitHub Actions [GitHub Actions](https://github.com/actions). The process typically starts with setting up the build job, where dependencies are installed, and the Next.js app is built. The output is then prepared for deployment, and in the deployment step, the built files are pushed to GitHub Pages. Key configurations include specifying the correct Node.js version, caching dependencies for faster builds, and using actions like actions/deploy-pages for seamless deployment to GitHub Pages.
 
 It is important to look into automation because it makes for consistency and saves time. Automating the build and deployment steps eliminates manual errors and increases reliability. GitHub provides common Actions (that’s automations, `.yml`) as a starting point. Most of the time, it should be enough for simple projects.
 
-# Challenges Faced
+## Challenges Faced
 
 ![developer joke](./developer_joke.jpeg)
 
@@ -132,7 +132,7 @@ Next.js 15 introduced changes to how params and searchParams are handled in sync
 
 I ran into hiccups with dynamic imports, experimental module warnings, and typical dependency problems, requiring deep dives into Node.js warnings and cleaning up node_modules. Additionally, when deploying to GitHub Pages, it’s important to remember that it’s optimized for static sites, meaning dynamic components might not compile and if they do, they might not work as expected.
 
-# Lessons Learned
+## Lessons Learned
 
 1. **Efficiency is Key**: With limited time and a part-time job, the importance of choosing the right tools (Next.js, TailwindCSS, Velite) to streamline development became clear. The right stack can make or break your timeline.
 2. **Flexibility of Markdown**: Velite’s ability to convert Markdown files into application-ready data (fancy way of saying, what you are reading now is markdown converted) made managing my blog posts and articles easier, but it required some patience. Double-checking paths and configurations in tsconfig.json is essential to avoid unnecessary roadblocks.
@@ -140,11 +140,11 @@ I ran into hiccups with dynamic imports, experimental module warnings, and typic
 4. **Design Process Matters**: Taking time to plan and design my site in Figma, despite the limited time, allowing for a smooth development process. A well-organized design can guide you through the building process with greater ease.
 5. **Deployment Automation**: Automating deployment through GitHub Actions significantly improved the consistency and reliability of my workflow. Setting up automated builds and deployments is a game-changer. Now, when I have a new blogpost, I simply push it and GitHub Actions handles the rest.
 
-# Conclusion
+## Conclusion
 
 Building this website was not just a technical challenge but a personal journey of growth. The project pushed me to enhance my development skills and was a good refresher (retired web dev, wink again) while allowing me to reflect on my career as a data scientist, new writer, and life-long learner. By combining Next.js, TailwindCSS, and Velite, I was able to create a visually appealing and functional portfolio that’s both easy to maintain and update. While there were moments of frustration (…sigh…), the experience taught me how to navigate web development workflows efficiently.
 
-# What Next?
+## What Next?
 
 Now that my portfolio website is live, the next step is to focus on content. I plan to add more detailed projects, write blog posts on the latest developments in data science and machine learning, and launch a learning page with tutorials to help others in the field. Additionally, I’ll be refining the website’s design and user experience as I continue to explore new web development tools and frameworks.
 
