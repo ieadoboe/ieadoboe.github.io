@@ -6,6 +6,7 @@ import { CopyButton } from "./copy-button";
 interface PreProps {
   children?: React.ReactNode;
   raw?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 

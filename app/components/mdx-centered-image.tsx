@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageLightbox from "@/app/components/image-lightbox";
 
 interface CenteredImageProps {
   src: string;
@@ -15,15 +15,13 @@ export function CenteredImage({
   ...props
 }: CenteredImageProps) {
   return (
-    <div className={`flex items-center w-full justify-center`} {...props}>
-      <Image
+    <div className={`flex items-center w-full justify-center my-8`} {...props}>
+      <ImageLightbox
         src={src}
         alt={alt}
         width={width}
         height={height}
-        unoptimized
-        layout="intrinsic"
-        quality={100}
+        className="rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
       />
     </div>
   );

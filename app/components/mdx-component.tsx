@@ -5,14 +5,36 @@ import { Callout } from "@/app/components/mdx-callout";
 import { CenteredImage } from "@/app/components/mdx-centered-image";
 import { Pre } from "@/app/components/mdx-pre";
 import SideNote from "@/app/components/mdx-sidenote";
+import ImageLightbox from "@/app/components/image-lightbox";
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
   return fn({ ...runtime }).default;
 };
 
+// Wrapper for markdown images to add lightbox
+interface MDXImageProps {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
+
+const MDXImage = ({ src, alt, width, height }: MDXImageProps) => {
+  return (
+    <ImageLightbox
+      src={src}
+      alt={alt || ""}
+      width={width || 800}
+      height={height || 600}
+      className="rounded-xl shadow-md"
+    />
+  );
+};
+
 const components = {
   Image,
+  img: MDXImage,
   Link,
   Callout,
   CenteredImage,
