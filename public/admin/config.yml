@@ -32,8 +32,8 @@ collections:
     preview_path: "blog/{{slug}}"
     # Blog-specific media configuration: store images alongside the MDX file
     # This ensures Velite can process images during build
-    media_folder: ""  # Relative to the collection entry (same directory as MDX file)
-    public_folder: "./"  # Use relative paths in frontmatter
+    media_folder: "" # Relative to the collection entry (same directory as MDX file)
+    public_folder: "" # Use just the filename (no path prefix)
 
     fields:
       # Basic Information
