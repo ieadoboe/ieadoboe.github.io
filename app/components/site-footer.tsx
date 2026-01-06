@@ -30,6 +30,13 @@ const Footer = () => {
                 >
                   Blog
                 </Link>
+                <Link
+                  key="notes"
+                  href="/notes"
+                  className="transition hover:text-teal-500 dark:hover:text-teal-400"
+                >
+                  Notes
+                </Link>
 
                 {/* <Link
                   key="products"

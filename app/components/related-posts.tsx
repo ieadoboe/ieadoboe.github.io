@@ -15,6 +15,7 @@ interface RelatedPostsProps {
   currentPost: Post;
   allPosts: Post[];
   maxPosts?: number;
+  contentType?: "blog" | "notes";
 }
 
 /**
@@ -74,6 +75,7 @@ export default function RelatedPosts({
   currentPost,
   allPosts,
   maxPosts = 3,
+  contentType = "blog",
 }: RelatedPostsProps) {
   const relatedPosts = getRelatedPosts(currentPost, allPosts, maxPosts);
 
@@ -81,15 +83,21 @@ export default function RelatedPosts({
     return null;
   }
 
+  const title = contentType === "notes" ? "Explore other notes" : "Related Articles";
+  const subtitle = contentType === "notes" 
+    ? "Continue learning with these notes" 
+    : "Continue exploring similar topics";
+  const basePath = contentType === "notes" ? "/notes" : "/blog";
+
   return (
     <section className="mt-16 sm:mt-20 border-t border-zinc-200 dark:border-zinc-700 pt-12 sm:pt-16">
       <div className="space-y-8">
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-            Related Articles
+            {title}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            Continue exploring similar topics
+            {subtitle}
           </p>
         </div>
 
@@ -98,7 +106,7 @@ export default function RelatedPosts({
             {relatedPosts.map((post) => (
               <PostItem
                 key={post.slug}
-                slug={`/blog/${post.slug}`}
+                slug={`${basePath}/${post.slug}`}
                 title={post.title}
                 date={post.date}
                 description={post.description || ""}

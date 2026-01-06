@@ -14,6 +14,11 @@ export const pagesContent = {
     description:
       "Explore my thoughts on data science, statistics, and innovation, and how they shape our world.",
   },
+  notes: {
+    header: "Learning in public.",
+    description:
+      "Quick notes and research findings on AI, tools, and technologies I'm exploring. A personal knowledge base for staying sharp in a fast-moving industry.",
+  },
   about: {
     header: "I am Isaac Edem Adoboe.  ",
     p1: "I’m a Christian, a curious soul and an unapologetic life explorer based in Canada. My life is a tapestry of diverse passions, quirky adventures, and a relentless thirst for discovery. My faith is the foundation of everything I do, grounding me and inspiring the way I live, dream, and connect with others.",

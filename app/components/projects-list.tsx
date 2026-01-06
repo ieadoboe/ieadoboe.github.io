@@ -4,65 +4,16 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import mpgCover from "@/public/projects-mpg-cover.jpg";
-import heartCover from "@/public/projects-heart-cover.jpg";
-import airbnbCover from "@/public/projects-airbnb-cover.webp";
-import motorCover from "@/public/projects-motor-cover.webp";
-import aiCodeCover from "@/public/projects-autocomplete-cover.png";
+import { projects } from "#site/content";
 
 const ProjectsList = () => {
-  const projects = [
-    {
-      name: "Demo App: Fine-tuned Code Completion LLM",
-      description:
-        "An intelligent code completion system that uses the Salesforce CodeGen model with PEFT/LoRA fine-tuning to provide context-aware code suggestions.",
-      cover_image: aiCodeCover,
-      link: "https://github.com/ieadoboe/ai-code-autocompletion",
-      githubLink: "GitHub",
-      date: "April 2025",
-      newPage: true,
-    },
-    {
-      name: "Regression Analysis of the Automobile MPG Dataset",
-      description:
-        "Deep statistical dive into the Automobile MPG Dataset to uncover fuel efficiency secrets.",
-      cover_image: mpgCover,
-      link: "/Regression-Analysis-of-the-Auto-MPG-Dataset.pdf",
-      githubLink: "Report",
-      date: "December 2024",
-      newPage: true,
-    },
-    {
-      name: "Los Angeles Airbnb Listings Exploratory Analysis",
-      description:
-        "Explore the trends, pricing, and hidden gems of Los Angeles' Airbnb scene-discover what makes a listing shine!",
-      cover_image: airbnbCover,
-      link: "https://github.com/ieadoboe/los-angeles-airbnb.git",
-      githubLink: "GitHub",
-      date: "December 2024",
-      newPage: true,
-    },
-    {
-      name: "Non-invasive Heart Disease Prediction",
-      description:
-        "Predict heart disease using machine learning for early detection and better health outcomes.",
-      cover_image: heartCover,
-      link: "/blog/heart-disease-prediction/cvd",
-      githubLink: "Post",
-      date: "November 2024",
-      newPage: false,
-    },
-    {
-      name: "Real-Time Fault Detection in Induction Motors Using CNNs and CWT Analysis",
-      description:
-        "A stepping stone in motor maintenance with real-time fault detection using CNNs and CWT analysis.",
-      cover_image: motorCover,
-      link: "/blog/fault-detection-in-induction-motors/motor-faults",
-      githubLink: "Post",
-      date: "Jan 2021 - Sep 2021",
-      newPage: false,
-    },
-  ];
+  // Sort projects by order field, then by date
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.order !== b.order) {
+      return a.order - b.order;
+    }
+    return 0;
+  });
 
   // Physics-based animation variants for the container
   const containerVariants = {
@@ -122,9 +73,9 @@ const ProjectsList = () => {
       initial="hidden"
       animate="visible"
     >
-      {projects.map((project, index) => (
+      {sortedProjects.map((project, index) => (
         <motion.li
-          key={index}
+          key={project.slug}
           className="group relative flex flex-col items-start"
           variants={projectVariants}
           whileHover="hover"
@@ -134,9 +85,9 @@ const ProjectsList = () => {
               <Image
                 alt={project.name}
                 src={project.cover_image}
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
+                width={400}
+                height={300}
+                className="w-full h-full object-cover object-center"
                 priority={index < 2} // Prioritize loading first two images
               />
             </motion.div>
@@ -145,8 +96,8 @@ const ProjectsList = () => {
             <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"></div>
             <Link
               href={project.link}
-              target={project.newPage ? "_blank" : "_self"}
-              rel={project.newPage ? "noopener noreferrer" : undefined}
+              target={project.new_page ? "_blank" : "_self"}
+              rel={project.new_page ? "noopener noreferrer" : undefined}
             >
               <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
               <span className="relative z-10">{project.name}</span>
@@ -177,7 +128,7 @@ const ProjectsList = () => {
                 fill="currentColor"
               ></path>
             </svg>
-            <motion.span className="ml-2">{project.githubLink}</motion.span>
+            <motion.span className="ml-2">{project.link_text}</motion.span>
           </motion.p>
         </motion.li>
       ))}

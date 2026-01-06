@@ -41,6 +41,7 @@ const Navbar = () => {
   const navItems: NavItem[] = [
     { href: "/", label: "Home" },
     { href: "/blog", label: "Blog" },
+    { href: "/notes", label: "Notes" },
     { href: "/projects", label: "Projects" },
     // { href: "/quarto-learn", label: "Learn", external: true },
     { href: "/about", label: "About" },
@@ -53,9 +54,9 @@ const Navbar = () => {
 
   // Combine main nav and more items for the mobile menu
   const mobileNavItems: NavItem[] = [
-    ...navItems.slice(0, 3),
+    ...navItems.slice(0, 4),
     ...moreMenuItems,
-    navItems[3],
+    navItems[4],
   ]; // Keep 'About' last visually
 
   // Close menu when route changes
@@ -179,6 +180,16 @@ const Navbar = () => {
                       }`}
                     >
                       Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/notes"
+                      className={`font-semibold rounded-full hover:text-teal-500 transition ${
+                        isActive("/notes") ? "text-teal-500" : ""
+                      }`}
+                    >
+                      Notes
                     </Link>
                   </li>
                   <li>

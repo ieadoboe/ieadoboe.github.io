@@ -52,6 +52,103 @@ const posts = defineCollection({
     .transform(computedFields),
 });
 
+const notes = defineCollection({
+  name: "Note",
+  pattern: "notes/**/*.mdx",
+  schema: s
+    .object({
+      // Core fields
+      slug: s.path(),
+      title: s.string().max(99),
+      description: s.string().max(999).optional(),
+      date: s.isodate(),
+      published: s.boolean().default(true),
+
+      // Featured image
+      cover_image: s.string().optional(),
+      cover_image_alt: s.string().optional(),
+
+      // Author and categorization
+      author: s.string().default("Isaac Adoboe"),
+      tags: s.array(s.string()).optional(),
+      category: s.string().optional(),
+
+      // SEO fields
+      seo_title: s.string().optional(),
+      keywords: s.array(s.string()).optional(),
+
+      // Content
+      body: s.mdx(),
+    })
+    .transform(computedFields),
+});
+
+const projects = defineCollection({
+  name: "Project",
+  pattern: "projects/**/*.mdx",
+  schema: s
+    .object({
+      slug: s.path(),
+      name: s.string().max(150),
+      description: s.string().max(500),
+      date: s.string(), // e.g., "April 2025" or "Jan 2021 - Sep 2021"
+      cover_image: s.string(),
+      link: s.string().url(),
+      link_text: s.string().default("GitHub"), // "GitHub", "Report", "Post", etc.
+      new_page: s.boolean().default(true),
+      featured: s.boolean().default(false),
+      tags: s.array(s.string()).optional(),
+      order: s.number().default(999), // For manual ordering
+      body: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      slugAsParams: data.slug.split("/").slice(1).join("/"),
+    })),
+});
+
+const workExperience = defineCollection({
+  name: "WorkExperience",
+  pattern: "work/**/*.mdx",
+  schema: s
+    .object({
+      slug: s.path(),
+      company: s.string().max(100),
+      role: s.string().max(150),
+      start_date: s.string(), // e.g., "2022"
+      end_date: s.string(), // e.g., "2024" or "Present"
+      logo: s.string(),
+      order: s.number().default(999),
+      body: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      slugAsParams: data.slug.split("/").slice(1).join("/"),
+      date_range: `${data.start_date}—${data.end_date}`,
+    })),
+});
+
+const education = defineCollection({
+  name: "Education",
+  pattern: "education/**/*.mdx",
+  schema: s
+    .object({
+      slug: s.path(),
+      institution: s.string().max(150),
+      degree: s.string().max(150),
+      start_date: s.string(),
+      end_date: s.string(),
+      logo: s.string(),
+      order: s.number().default(999),
+      body: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      slugAsParams: data.slug.split("/").slice(1).join("/"),
+      date_range: `${data.start_date}—${data.end_date}`,
+    })),
+});
+
 export default defineConfig({
   root: "content",
   output: {
@@ -61,7 +158,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { posts },
+  collections: { posts, notes, projects, workExperience, education },
   mdx: {
     remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [

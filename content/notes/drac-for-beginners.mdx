@@ -1,0 +1,114 @@
+---
+title: "DRAC for Beginners"
+description: "Getting started with Digital Research Alliance of Canada (DRAC) for high-performance computing and research."
+date: 2026-01-06
+published: true
+tags: ["HPC", "DRAC", "Computing", "Research"]
+category: "Tools"
+author: "Isaac Adoboe"
+---
+
+## What is DRAC?
+
+The **Digital Research Alliance of Canada (DRAC)** is Canada's national platform for advanced research computing, data management, and software solutions. It provides researchers with access to high-performance computing (HPC) resources, cloud computing, and research data storage.
+
+### Why Use DRAC?
+
+- **Free for Canadian researchers**: Access to world-class computing infrastructure at no cost
+- **Scalable resources**: From small projects to massive simulations
+- **Expert support**: Technical support and training resources
+- **Secure storage**: Research data management with robust security
+
+## Getting Started
+
+### 1. Create an Account
+
+Visit [alliancecan.ca](https://alliancecan.ca) and register using your institutional email.
+
+### 2. Request a Resource Allocation
+
+For most projects, you'll need to request:
+- **Compute resources**: CPU/GPU hours
+- **Storage**: Project storage space
+- **Cloud resources**: If you need virtual machines
+
+### 3. Connect to Systems
+
+DRAC operates several national clusters:
+- **Cedar**: General-purpose cluster
+- **Graham**: Large-scale simulations
+- **Beluga**: AI and machine learning workloads
+- **Narval**: Québec-based cluster
+
+## Basic SSH Connection
+
+```bash
+# Connect to Cedar cluster
+ssh username@cedar.alliancecan.ca
+
+# Connect to Graham
+ssh username@graham.alliancecan.ca
+```
+
+## Running Your First Job
+
+DRAC uses **Slurm** workload manager. Here's a simple job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=my_first_job
+#SBATCH --account=def-professor
+#SBATCH --time=1:00:00
+#SBATCH --mem=4G
+#SBATCH --cpus-per-task=1
+
+# Load modules
+module load python/3.10
+
+# Run your script
+python my_script.py
+```
+
+Submit the job:
+
+```bash
+sbatch job_script.sh
+```
+
+## Useful Commands
+
+```bash
+# Check job status
+squeue -u $USER
+
+# Cancel a job
+scancel JOB_ID
+
+# Check available modules
+module avail
+
+# Load a module
+module load python/3.10
+
+# Check account balance
+sshare -U
+```
+
+## Best Practices
+
+1. **Test locally first**: Debug on small datasets before scaling up
+2. **Use modules**: Don't install software system-wide
+3. **Request appropriate resources**: Don't over-request CPU/memory
+4. **Clean up**: Delete temporary files to save storage quota
+5. **Use scratch space**: For temporary computation files
+
+## Resources
+
+- [DRAC Documentation](https://docs.alliancecan.ca)
+- [Slurm Quickstart](https://docs.alliancecan.ca/wiki/Running_jobs)
+- [Available Software](https://docs.alliancecan.ca/wiki/Available_software)
+
+---
+
+**Pro Tip**: Join the DRAC mailing list for updates on maintenance, new features, and training sessions.
+

@@ -1,29 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import munLogo from "@/public/logo-mun.png";
-import knustLogo from "@/public/logo-knust.png";
+import { education } from "#site/content";
 
 const EducationHistory = () => {
-  const education = [
-        {
-      organization: "Memorial University of Newfoundland",
-      role: "MSc in Scientific Computing", 
-      period: "2025—2027", 
-      logoSrc: munLogo, 
-    },
-    {
-      organization: "Memorial University of Newfoundland",
-      role: "Master of Data Science", 
-      period: "2024—2025", 
-      logoSrc: munLogo, 
-    },
-    {
-      organization: "Kwame Nkrumah University of Science and Technology",
-      role: "BSc Electrical Engineering", 
-      period: "2017—2021",
-      logoSrc: knustLogo,
-    },
-  ];
+  // Sort education by order field
+  const sortedEducation = [...education].sort((a, b) => a.order - b.order);
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -54,8 +35,8 @@ const EducationHistory = () => {
         <span className="ml-3">Education</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {education.map((education, index) => (
-          <li key={index} className="flex gap-4">
+        {sortedEducation.map((edu) => (
+          <li key={edu.slug} className="flex gap-4">
             <div
               style={{
                 backgroundColor: "white",
@@ -67,36 +48,36 @@ const EducationHistory = () => {
               className="object-cover relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
             >
               <Image
-                alt={education.organization}
+                alt={edu.institution}
                 loading="lazy"
                 width={32}
                 height={32}
-                src={education.logoSrc}
+                src={edu.logo}
                 style={{
                   objectFit: "cover",
                 }}
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Company</dt>
+              <dt className="sr-only">Institution</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {education.organization}
+                {edu.institution}
               </dd>
-              <dt className="sr-only">Role</dt>
+              <dt className="sr-only">Degree</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {education.role}
+                {edu.degree}
               </dd>
               <dt className="sr-only">Date</dt>
               <dd
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={education.period}
+                aria-label={edu.date_range}
               >
-                <time dateTime={education.period.split("—")[0]}>
-                  {education.period.split("—")[0]}
+                <time dateTime={edu.start_date}>
+                  {edu.start_date}
                 </time>
                 <span aria-hidden="true">—</span>
-                <time dateTime={education.period.split("—")[1]}>
-                  {education.period.split("—")[1]}
+                <time dateTime={edu.end_date}>
+                  {edu.end_date}
                 </time>
               </dd>
             </dl>

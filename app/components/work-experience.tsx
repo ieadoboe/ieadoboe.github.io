@@ -1,36 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import vraLogo from "@/public/logo-vra.png";
-import newmontLogo from "@/public/logo-newmont.png";
-import envisionLogo from "@/public/logo-envision.png";
+import { workExperience } from "#site/content";
 
 const WorkExperience = () => {
-  const experiences = [
-    {
-      company: "Newmont Corporation",
-      role: "Technology Portfolio Support",
-      date: "2022—2024",
-      logoSrc: newmontLogo,
-    },
-    {
-      company: "Newmont Corporation",
-      role: "End-User Support Analyst",
-      date: "2021—2022",
-      logoSrc: newmontLogo,
-    },
-    {
-      company: "Envision Digital ",
-      role: "Full-Stack Developer",
-      date: "2020—2021",
-      logoSrc: envisionLogo,
-    },
-    {
-      company: "Volta River Authority",
-      role: "Electrical Engineer",
-      date: "2018—2018",
-      logoSrc: vraLogo,
-    },
-  ];
+  // Sort work experience by order field
+  const sortedExperiences = [...workExperience].sort((a, b) => a.order - b.order);
 
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -56,8 +30,8 @@ const WorkExperience = () => {
         <span className="ml-3">Experience</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {experiences.map((experience, index) => (
-          <li key={index} className="flex gap-4">
+        {sortedExperiences.map((experience) => (
+          <li key={experience.slug} className="flex gap-4">
             <div
               style={{
                 backgroundColor: "white",
@@ -73,7 +47,7 @@ const WorkExperience = () => {
                 loading="lazy"
                 width={32}
                 height={32}
-                src={experience.logoSrc}
+                src={experience.logo}
                 style={{
                   objectFit: "cover",
                 }}
@@ -91,14 +65,14 @@ const WorkExperience = () => {
               <dt className="sr-only">Date</dt>
               <dd
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={experience.date}
+                aria-label={experience.date_range}
               >
-                <time dateTime={experience.date.split("—")[0]}>
-                  {experience.date.split("—")[0]}
+                <time dateTime={experience.start_date}>
+                  {experience.start_date}
                 </time>
                 <span aria-hidden="true">—</span>
-                <time dateTime={experience.date.split("—")[1]}>
-                  {experience.date.split("—")[1]}
+                <time dateTime={experience.end_date}>
+                  {experience.end_date}
                 </time>
               </dd>
             </dl>

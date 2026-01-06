@@ -102,10 +102,48 @@ collections:
       - {
           label: "Tags",
           name: "tags",
-          widget: "list",
+          widget: "select",
           required: false,
-          hint: "Add relevant tags (e.g., Machine Learning, Python, Tutorial)",
-          field: { label: "Tag", name: "tag", widget: "string" },
+          multiple: true,
+          hint: "Select relevant tags. Manage tags in 'Tags & Categories' section.",
+          options:
+            [
+              "Machine Learning",
+              "Python",
+              "Tutorial",
+              "Deep Learning",
+              "Neural Networks",
+              "NLP",
+              "Computer Vision",
+              "Data Visualization",
+              "Pandas",
+              "NumPy",
+              "TensorFlow",
+              "PyTorch",
+              "React",
+              "JavaScript",
+              "TypeScript",
+              "Web Development",
+              "API",
+              "Database",
+              "SQL",
+              "NoSQL",
+              "Docker",
+              "Kubernetes",
+              "Cloud",
+              "AWS",
+              "Azure",
+              "Git",
+              "CI/CD",
+              "Testing",
+              "Performance",
+              "Security",
+              "DevOps",
+              "Algorithms",
+              "Data Structures",
+              "System Design",
+              "Best Practices",
+            ],
         }
 
       - {
@@ -125,7 +163,7 @@ collections:
               "Personal",
               "Opinion",
             ],
-          hint: "Primary category for this post",
+          hint: "Primary category. Manage categories in 'Tags & Categories' section.",
         }
 
       # SEO & Metadata
@@ -187,6 +225,592 @@ collections:
         pattern: \d{4}
       - label: "Published"
         field: published
+
+  # Notes Collection
+  - name: "notes"
+    label: "Notes"
+    folder: "content/notes"
+    create: true
+    slug: "{{fields.title}}"
+    path: "{{slug}}"
+    media_folder: "public/static"
+    public_folder: "/static"
+    format: "frontmatter"
+    extension: "mdx"
+    preview_path: "notes/{{slug}}"
+
+    fields:
+      # Basic Information
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: "Note title (will auto-generate URL-friendly slug)",
+          pattern: ["^.{5,99}$", "Title must be between 5-99 characters"],
+        }
+
+      - { label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}" }
+
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+          hint: "Brief description of what this note covers",
+        }
+
+      # Featured Image (optional for notes)
+      - {
+          label: "Featured Image",
+          name: "cover_image",
+          widget: "image",
+          required: false,
+          hint: "Optional cover image for the note",
+          media_folder: "/public/static",
+          public_folder: "/static",
+        }
+
+      - {
+          label: "Cover Image Alt Text",
+          name: "cover_image_alt",
+          widget: "string",
+          required: false,
+          hint: "Describe the image for accessibility",
+        }
+
+      # Publishing Details
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          hint: "Date when the note was created/updated",
+        }
+
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          default: "Isaac Adoboe",
+          options: ["Isaac Adoboe"],
+          required: false,
+        }
+
+      - {
+          label: "Published Status",
+          name: "published",
+          widget: "boolean",
+          default: true,
+          hint: "Toggle to publish/unpublish this note",
+        }
+
+      # Organization & Discovery
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "select",
+          required: false,
+          multiple: true,
+          hint: "Select relevant tags. Manage tags in 'Tags & Categories' section.",
+          options:
+            [
+              "AI",
+              "MCP",
+              "Tools",
+              "Mathematics",
+              "HPC",
+              "DRAC",
+              "Computing",
+              "Research",
+              "Python",
+              "Machine Learning",
+              "Deep Learning",
+              "Numerical Methods",
+              "PDEs",
+              "Tutorial",
+              "Quick Reference",
+              "Concepts",
+              "Best Practices",
+            ],
+        }
+
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          required: false,
+          options:
+            [
+              "AI",
+              "Mathematics",
+              "Tools",
+              "HPC",
+              "Research",
+              "Programming",
+              "Concepts",
+              "Quick Reference",
+            ],
+          hint: "Primary category. Manage categories in 'Tags & Categories' section.",
+        }
+
+      # SEO & Metadata
+      - {
+          label: "SEO Title Override",
+          name: "seo_title",
+          widget: "string",
+          required: false,
+          hint: "Custom title for search engines (optional)",
+        }
+
+      - {
+          label: "Keywords",
+          name: "keywords",
+          widget: "list",
+          required: false,
+          hint: "SEO keywords",
+          field: { label: "Keyword", name: "keyword", widget: "string" },
+        }
+
+      # Content
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          hint: "Write your note content. Supports:\n• Markdown & MDX\n• Math equations: $inline$ or $$block$$\n• Code blocks with syntax highlighting\n• Images",
+          modes: ["raw", "rich_text"],
+        }
+
+    # List view configuration
+    summary: "{{title}} - {{date}}"
+    sortable_fields: ["date", "title", "published", "category"]
+
+    # View filters for easy navigation
+    view_filters:
+      - label: "Published Notes"
+        field: published
+        pattern: true
+      - label: "Draft Notes"
+        field: published
+        pattern: false
+      - label: "AI Notes"
+        field: category
+        pattern: "AI"
+      - label: "Mathematics"
+        field: category
+        pattern: "Mathematics"
+      - label: "Tools & HPC"
+        field: category
+        pattern: "Tools|HPC"
+
+    # Group notes by category or year
+    view_groups:
+      - label: "By Category"
+        field: category
+      - label: "By Year"
+        field: date
+        pattern: \d{4}
+      - label: "Published"
+        field: published
+
+  # Projects Collection
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "mdx"
+
+    fields:
+      - {
+          label: "Project Name",
+          name: "name",
+          widget: "string",
+          hint: "Name of the project",
+          pattern: ["^.{5,150}$", "Name must be between 5-150 characters"],
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          hint: "Brief project description",
+          pattern:
+            ["^.{10,500}$", "Description must be between 10-500 characters"],
+        }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "string",
+          hint: 'e.g., "April 2025" or "Jan 2021 - Sep 2021"',
+        }
+      - {
+          label: "Cover Image",
+          name: "cover_image",
+          widget: "image",
+          hint: "Project cover image",
+          media_folder: "/public",
+          public_folder: "/",
+        }
+      - {
+          label: "Link",
+          name: "link",
+          widget: "string",
+          hint: "Project URL (GitHub, external site, or internal path)",
+        }
+      - {
+          label: "Link Text",
+          name: "link_text",
+          widget: "select",
+          default: "GitHub",
+          options: ["GitHub", "Report", "Post", "Demo", "Website"],
+          hint: "Button text for the link",
+        }
+      - {
+          label: "Open in New Page",
+          name: "new_page",
+          widget: "boolean",
+          default: true,
+          hint: "Open link in new tab/window",
+        }
+      - {
+          label: "Featured",
+          name: "featured",
+          widget: "boolean",
+          default: false,
+          hint: "Mark as featured project",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "select",
+          required: false,
+          multiple: true,
+          hint: "Select technologies/topics. Manage tags in 'Tags & Categories'.",
+          options:
+            [
+              "AI",
+              "Machine Learning",
+              "LLM",
+              "Python",
+              "Data Science",
+              "Statistics",
+              "Regression",
+              "Data Analysis",
+              "EDA",
+              "Healthcare",
+              "Classification",
+              "Deep Learning",
+              "CNN",
+              "Signal Processing",
+              "React",
+              "Next.js",
+              "TypeScript",
+              "JavaScript",
+              "Neural Networks",
+              "Computer Vision",
+              "NLP",
+              "PyTorch",
+              "TensorFlow",
+              "Scikit-learn",
+              "Pandas",
+              "NumPy",
+            ],
+        }
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          default: 999,
+          hint: "Display order (lower = first)",
+        }
+      - {
+          label: "Body",
+          name: "body",
+          widget: "markdown",
+          required: false,
+          hint: "Detailed project description (optional)",
+        }
+
+    summary: "{{name}} - {{date}}"
+    sortable_fields: ["name", "date", "order", "featured"]
+
+  # Work Experience Collection
+  - name: "work"
+    label: "Work Experience"
+    folder: "content/work"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "mdx"
+
+    fields:
+      - {
+          label: "Company",
+          name: "company",
+          widget: "string",
+          hint: "Company name",
+          pattern: ["^.{2,100}$", "Company must be between 2-100 characters"],
+        }
+      - {
+          label: "Role",
+          name: "role",
+          widget: "string",
+          hint: "Job title/role",
+          pattern: ["^.{2,150}$", "Role must be between 2-150 characters"],
+        }
+      - {
+          label: "Start Date",
+          name: "start_date",
+          widget: "string",
+          hint: 'e.g., "2022"',
+          pattern: ["^\\d{4}$", "Must be a 4-digit year"],
+        }
+      - {
+          label: "End Date",
+          name: "end_date",
+          widget: "string",
+          hint: 'e.g., "2024" or "Present"',
+        }
+      - {
+          label: "Company Logo",
+          name: "logo",
+          widget: "image",
+          hint: "Company logo image",
+          media_folder: "/public",
+          public_folder: "/",
+        }
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          default: 999,
+          hint: "Display order (lower = first, typically chronological reverse)",
+        }
+      - {
+          label: "Description",
+          name: "body",
+          widget: "markdown",
+          required: false,
+          hint: "Job description and responsibilities (optional)",
+        }
+
+    summary: "{{company}} - {{role}} ({{start_date}}-{{end_date}})"
+    sortable_fields: ["company", "start_date", "order"]
+
+  # Education Collection
+  - name: "education"
+    label: "Education"
+    folder: "content/education"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "mdx"
+
+    fields:
+      - {
+          label: "Institution",
+          name: "institution",
+          widget: "string",
+          hint: "School/University name",
+          pattern:
+            ["^.{5,150}$", "Institution must be between 5-150 characters"],
+        }
+      - {
+          label: "Degree",
+          name: "degree",
+          widget: "string",
+          hint: "Degree/Program name",
+          pattern: ["^.{2,150}$", "Degree must be between 2-150 characters"],
+        }
+      - {
+          label: "Start Date",
+          name: "start_date",
+          widget: "string",
+          hint: 'e.g., "2024"',
+          pattern: ["^\\d{4}$", "Must be a 4-digit year"],
+        }
+      - {
+          label: "End Date",
+          name: "end_date",
+          widget: "string",
+          hint: 'e.g., "2027" or "Present"',
+        }
+      - {
+          label: "Institution Logo",
+          name: "logo",
+          widget: "image",
+          hint: "Institution logo image",
+          media_folder: "/public",
+          public_folder: "/",
+        }
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          default: 999,
+          hint: "Display order (lower = first, typically chronological reverse)",
+        }
+      - {
+          label: "Details",
+          name: "body",
+          widget: "markdown",
+          required: false,
+          hint: "Program details, honors, GPA, etc. (optional)",
+        }
+
+    summary: "{{institution}} - {{degree}} ({{start_date}}-{{end_date}})"
+    sortable_fields: ["institution", "start_date", "order"]
+
+  # Taxonomies Collection (Tags & Categories)
+  - name: "taxonomies"
+    label: "Tags & Categories"
+    files:
+      - label: "Manage Tags & Categories"
+        name: "taxonomies"
+        file: "data/taxonomies.json"
+        fields:
+          - {
+              label: "Blog Categories",
+              name: "blogCategories",
+              widget: "list",
+              hint: "Categories for blog posts. After updating, manually sync with blog collection in config.yml",
+              field: { label: "Category", name: "category", widget: "string" },
+            }
+          - {
+              label: "Notes Categories",
+              name: "notesCategories",
+              widget: "list",
+              hint: "Categories for notes. After updating, manually sync with notes collection in config.yml",
+              field: { label: "Category", name: "category", widget: "string" },
+            }
+          - {
+              label: "Blog Tags",
+              name: "blogTags",
+              widget: "list",
+              hint: "Tags for blog posts. After updating, manually sync with blog collection in config.yml",
+              field: { label: "Tag", name: "tag", widget: "string" },
+            }
+          - {
+              label: "Notes Tags",
+              name: "notesTags",
+              widget: "list",
+              hint: "Tags for notes. After updating, manually sync with notes collection in config.yml",
+              field: { label: "Tag", name: "tag", widget: "string" },
+            }
+          - {
+              label: "Project Tags",
+              name: "projectTags",
+              widget: "list",
+              hint: "Tags for projects (technologies, topics). After updating, manually sync with projects collection in config.yml",
+              field: { label: "Tag", name: "tag", widget: "string" },
+            }
+
+  # Site Settings (File Collection)
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Global Site Settings"
+        name: "site_config"
+        file: "config/site.ts"
+        fields:
+          - {
+              label: "Site Name",
+              name: "name",
+              widget: "string",
+              hint: "Full site title",
+            }
+          - {
+              label: "Site URL",
+              name: "url",
+              widget: "string",
+              hint: "Main URL",
+            }
+          - {
+              label: "Site Description",
+              name: "description",
+              widget: "text",
+              hint: "Default meta description",
+            }
+          - {
+              label: "Author Name",
+              name: "author",
+              widget: "string",
+              hint: "Site author",
+            }
+          - label: "Social Links"
+            name: "links"
+            widget: "object"
+            fields:
+              - { label: "Twitter", name: "twitter", widget: "string" }
+              - { label: "GitHub", name: "github", widget: "string" }
+              - { label: "VSCO", name: "vsco", widget: "string" }
+              - { label: "LinkedIn", name: "linkedin", widget: "string" }
+
+  # Page Content (File Collection)
+  - name: "pages"
+    label: "Page Content"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "data/siteContent.ts"
+        fields:
+          - label: "Home Page"
+            name: "home"
+            widget: "object"
+            fields:
+              - {
+                  label: "Header",
+                  name: "header",
+                  widget: "string",
+                  hint: "Main headline on home page",
+                }
+              - {
+                  label: "Description",
+                  name: "description",
+                  widget: "text",
+                  hint: "Intro paragraph",
+                }
+          - label: "Projects Page"
+            name: "projects"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Blog Page"
+            name: "blogs"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Notes Page"
+            name: "notes"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "About Page"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Paragraph 1", name: "p1", widget: "text" }
+              - { label: "Paragraph 2", name: "p2", widget: "text" }
+              - { label: "Paragraph 3", name: "p3", widget: "text" }
+              - { label: "Paragraph 4", name: "p4", widget: "text" }
+          - label: "Spotify Page"
+            name: "spotify"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Airbnb Page"
+            name: "airbnb"
+            widget: "object"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
 
 # Slug configuration
 slug:

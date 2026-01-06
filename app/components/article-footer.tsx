@@ -24,13 +24,19 @@ interface ArticleFooterProps {
     reading_time?: string;
     cover_image?: string;
   }>;
+  contentType?: "blog" | "notes";
 }
 
 export default function ArticleFooter({
   tags,
   currentPost,
   allPosts,
+  contentType = "blog",
 }: ArticleFooterProps) {
+  const basePath = contentType === "notes" ? "/notes" : "/blog";
+  const backLinkText =
+    contentType === "notes" ? "Back to all notes" : "Back to all articles";
+
   return (
     <footer className="mt-16 sm:mt-20">
       {/* Decorative Divider */}
@@ -59,7 +65,7 @@ export default function ArticleFooter({
                 {tags.map((tag) => (
                   <Link
                     key={tag}
-                    href={`/blog?tag=${encodeURIComponent(tag)}`}
+                    href={`${basePath}?tag=${encodeURIComponent(tag)}`}
                     className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-400 hover:bg-teal-200 dark:hover:bg-teal-900/50 transition-all duration-200 hover:scale-105"
                   >
                     #{tag}
@@ -76,6 +82,7 @@ export default function ArticleFooter({
         currentPost={currentPost}
         allPosts={allPosts}
         maxPosts={3}
+        contentType={contentType}
       />
 
       {/* Newsletter Signup */}
@@ -96,11 +103,11 @@ export default function ArticleFooter({
         </div>
       </section>
 
-      {/* Back to Blog Navigation */}
+      {/* Back to Blog/Notes Navigation */}
       <section className="border-t border-zinc-200 dark:border-zinc-700 pt-8">
         <div className="flex justify-center">
           <Link
-            href="/blog"
+            href={basePath}
             className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
           >
             <svg
@@ -117,7 +124,7 @@ export default function ArticleFooter({
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            <span>Back to all articles</span>
+            <span>{backLinkText}</span>
           </Link>
         </div>
       </section>

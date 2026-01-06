@@ -1,0 +1,162 @@
+---
+title: "Solving PDEs: A Quick Reference"
+description: "Common methods and approaches for solving partial differential equations (PDEs) in computational science."
+date: 2026-01-06
+published: true
+tags: ["Mathematics", "PDEs", "Numerical Methods"]
+category: "Mathematics"
+author: "Isaac Adoboe"
+---
+
+## Introduction to PDEs
+
+**Partial Differential Equations (PDEs)** describe relationships between functions and their partial derivatives. They're fundamental in physics, engineering, and many scientific fields.
+
+### Common Types of PDEs
+
+1. **Elliptic PDEs** (e.g., Laplace's equation)
+   - Steady-state problems
+   - Example: Heat distribution at equilibrium
+
+2. **Parabolic PDEs** (e.g., Heat equation)
+   - Time-dependent diffusion
+   - Example: Temperature evolution over time
+
+3. **Hyperbolic PDEs** (e.g., Wave equation)
+   - Propagation phenomena
+   - Example: Sound waves, electromagnetic waves
+
+## The Heat Equation
+
+One of the most common parabolic PDEs:
+
+$$
+\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+$$
+
+Where:
+- \(u(x,t)\) is temperature
+- \(\alpha\) is thermal diffusivity
+- \(t\) is time, \(x\) is position
+
+## Numerical Methods
+
+### 1. Finite Difference Method (FDM)
+
+Approximate derivatives using discrete grid points:
+
+$$
+\frac{\partial u}{\partial x} \approx \frac{u_{i+1} - u_i}{\Delta x}
+$$
+
+**Pros**: Simple to implement, intuitive
+**Cons**: Limited to regular grids
+
+### 2. Finite Element Method (FEM)
+
+Divide domain into elements and use basis functions:
+
+$$
+u(x) \approx \sum_{i=1}^n u_i \phi_i(x)
+$$
+
+**Pros**: Handles complex geometries, flexible
+**Cons**: More complex implementation
+
+### 3. Spectral Methods
+
+Represent solution as sum of basis functions (e.g., Fourier series):
+
+$$
+u(x) = \sum_{k=0}^N a_k \psi_k(x)
+$$
+
+**Pros**: High accuracy for smooth solutions
+**Cons**: Requires smooth solutions, global basis
+
+## Python Example: Heat Equation with FDM
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+L = 1.0          # Length of rod
+T = 0.5          # Total time
+Nx = 50          # Number of spatial points
+Nt = 1000        # Number of time steps
+alpha = 0.01     # Thermal diffusivity
+
+# Discretization
+dx = L / (Nx - 1)
+dt = T / Nt
+x = np.linspace(0, L, Nx)
+
+# Stability condition (CFL)
+r = alpha * dt / dx**2
+if r > 0.5:
+    print(f"Warning: Unstable! r = {r} > 0.5")
+
+# Initial condition
+u = np.sin(np.pi * x)
+
+# Time stepping
+for n in range(Nt):
+    u_new = u.copy()
+    for i in range(1, Nx-1):
+        u_new[i] = u[i] + r * (u[i+1] - 2*u[i] + u[i-1])
+    
+    # Boundary conditions (Dirichlet)
+    u_new[0] = 0
+    u_new[-1] = 0
+    
+    u = u_new
+
+plt.plot(x, u)
+plt.xlabel('Position')
+plt.ylabel('Temperature')
+plt.title('Heat Distribution')
+plt.show()
+```
+
+## Boundary Conditions
+
+### Dirichlet Boundary Conditions
+Specify the value at boundaries:
+$$u(0,t) = u_0, \quad u(L,t) = u_L$$
+
+### Neumann Boundary Conditions
+Specify the derivative at boundaries:
+$$\frac{\partial u}{\partial x}\bigg|_{x=0} = g_0$$
+
+### Robin (Mixed) Boundary Conditions
+Combination of value and derivative:
+$$\alpha u + \beta \frac{\partial u}{\partial x} = \gamma$$
+
+## Stability Analysis
+
+For explicit schemes, check the **CFL condition**:
+
+$$
+r = \frac{\alpha \Delta t}{\Delta x^2} \leq \frac{1}{2}
+$$
+
+If violated, the solution becomes unstable!
+
+## Software Tools
+
+- **Python**: NumPy, SciPy, FEniCS
+- **MATLAB**: Built-in PDE solvers
+- **Julia**: DifferentialEquations.jl
+- **C++**: deal.II, FEniCS
+
+## Further Reading
+
+- *Numerical Methods for PDEs* by John Strikwerda
+- *Finite Difference Methods for Ordinary and Partial Differential Equations* by LeVeque
+- [SciPy PDE Tutorial](https://docs.scipy.org/)
+
+---
+
+**Note**: This is a quick reference. Each method deserves deep study for proper implementation and understanding of convergence, stability, and accuracy.
+
