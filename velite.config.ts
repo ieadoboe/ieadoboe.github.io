@@ -156,7 +156,7 @@ export default defineConfig({
     assets: "public/static",
     base: "/static/",
     name: "[name]-[hash:6].[ext]",
-    clean: true,
+    clean: false, // Changed from true to false to preserve manually-placed images in public/static
   },
   collections: { posts, notes, projects, workExperience, education },
   mdx: {
