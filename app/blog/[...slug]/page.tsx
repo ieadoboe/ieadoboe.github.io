@@ -3,6 +3,8 @@ import BackButton from "@/app/components/back-button";
 import { MDXContent } from "@/app/components/mdx-component";
 import { TagList } from "@/app/components/tag-badge";
 import CategoryBadge from "@/app/components/category-badge";
+import ReadingProgress from "@/app/components/reading-progress";
+import ContentDivider from "@/app/components/content-divider";
 import { formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
 import { notFound } from "next/navigation";
@@ -41,6 +43,7 @@ export default async function BlogPage({
 
   return (
     <article className="w-full flex min-h-screen">
+      <ReadingProgress />
       <div className="relative flex w-full flex-col">
         <div className="flex-auto">
           <div className="sm:px-8 mt-10 sm:mt-10">
@@ -118,7 +121,9 @@ export default async function BlogPage({
                     )}
                   </header>
 
-                  <main className="mx-auto max-w-2xl mt-12 sm:mt-16 lg:mt-20 prose prose-zinc dark:prose-invert prose-base sm:prose-lg prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-p:leading-relaxed prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-a:text-neutral-800 dark:prose-a:text-neutral-100 prose-a:no-underline hover:prose-a:underline [&_h1_a]:no-underline [&_h1_a:hover]:no-underline [&_h2_a]:no-underline [&_h2_a:hover]:no-underline [&_h3_a]:no-underline [&_h3_a:hover]:no-underline [&_h4_a]:no-underline [&_h4_a:hover]:no-underline [&_h5_a]:no-underline [&_h5_a:hover]:no-underline [&_h6_a]:no-underline [&_h6_a:hover]:no-underline prose-img:rounded-xl prose-img:shadow-md">
+                  <ContentDivider />
+
+                  <main className="mx-auto max-w-2xl prose prose-zinc dark:prose-invert prose-base sm:prose-lg prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-10 prose-h3:mb-4 prose-p:leading-relaxed prose-p:text-zinc-700 dark:prose-p:text-zinc-300 prose-a:text-neutral-800 dark:prose-a:text-neutral-100 prose-a:no-underline hover:prose-a:underline [&_h1_a]:no-underline [&_h1_a:hover]:no-underline [&_h2_a]:no-underline [&_h2_a:hover]:no-underline [&_h3_a]:no-underline [&_h3_a:hover]:no-underline [&_h4_a]:no-underline [&_h4_a:hover]:no-underline [&_h5_a]:no-underline [&_h5_a:hover]:no-underline [&_h6_a]:no-underline [&_h6_a:hover]:no-underline prose-img:rounded-xl prose-img:shadow-md">
                     <MDXContent code={post.body} />
                   </main>
                 </div>

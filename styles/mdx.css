@@ -69,3 +69,65 @@ code[data-theme*=" "] span {
 .subheading-anchor:hover::after {
   opacity: 1;
 }
+
+/* Drop cap styling for first paragraph */
+.prose > p:first-of-type::first-letter {
+  @apply float-left text-6xl sm:text-8xl font-bold leading-none mr-2 mt-1;
+  @apply bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent;
+  font-family: Georgia, serif;
+  line-height: 0.8;
+}
+
+.dark .prose > p:first-of-type::first-letter {
+  @apply from-teal-400 to-teal-500;
+}
+
+/* Pull quote styling */
+.prose blockquote {
+  @apply relative border-l-4 border-teal-500 bg-teal-50/50 dark:bg-teal-950/20;
+  @apply pl-6 pr-4 py-4 my-8 rounded-r-lg;
+  @apply italic font-medium text-lg;
+  @apply shadow-sm;
+}
+
+.prose blockquote::before {
+  content: '"';
+  @apply absolute -left-2 -top-2 text-6xl text-teal-500/20 dark:text-teal-400/20;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.prose blockquote p {
+  @apply m-0 text-zinc-700 dark:text-zinc-300;
+}
+
+.prose blockquote p:last-child {
+  @apply pb-0;
+}
+
+/* Aside/Side notes styling */
+.prose aside {
+  @apply border-l-2 border-amber-400 bg-amber-50/50 dark:bg-amber-950/20;
+  @apply pl-4 pr-4 py-3 my-6 rounded-r;
+  @apply text-sm text-zinc-600 dark:text-zinc-400;
+}
+
+.prose aside::before {
+  content: "💡";
+  @apply mr-2;
+}
+
+/* Enhanced images in prose */
+.prose img {
+  @apply rounded-xl shadow-lg my-8;
+  @apply transition-transform duration-300 hover:scale-[1.02];
+}
+
+/* Figure captions */
+.prose figure {
+  @apply my-8;
+}
+
+.prose figcaption {
+  @apply text-center text-sm text-zinc-500 dark:text-zinc-400 mt-3 italic;
+}
