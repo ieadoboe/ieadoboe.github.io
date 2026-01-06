@@ -37,7 +37,7 @@ const ProjectsList = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 350,
         damping: 15,
         mass: 1.2,
@@ -46,7 +46,7 @@ const ProjectsList = () => {
     hover: {
       y: -7,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 10,
       },
@@ -58,7 +58,7 @@ const ProjectsList = () => {
     hover: {
       scale: 1.05,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 15,
       },
@@ -113,7 +113,7 @@ const ProjectsList = () => {
             className="relative items-center z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200"
             whileHover={{ x: 3 }}
             transition={{
-              type: "spring",
+              type: "spring" as const,
               stiffness: 500,
               damping: 17,
             }}

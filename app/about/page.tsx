@@ -14,7 +14,7 @@ const AboutPage = () => {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 17,
       mass: 2,
@@ -25,7 +25,7 @@ const AboutPage = () => {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 17,
       mass: 2,
@@ -48,7 +48,7 @@ const AboutPage = () => {
     hover: {
       x: 5,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 10,
       },
@@ -69,7 +69,7 @@ const AboutPage = () => {
                       initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
                       animate={{ opacity: 1, scale: 1, rotate: 0 }}
                       transition={{
-                        type: "spring",
+                        type: "spring" as const,
                         stiffness: 260,
                         damping: 20,
                         delay: 0.3,

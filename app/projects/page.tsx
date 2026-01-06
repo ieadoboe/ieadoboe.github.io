@@ -11,7 +11,7 @@ const ProjectsPage = () => {
     initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 17,
       mass: 2,
@@ -28,7 +28,7 @@ const ProjectsPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 17,
       },
