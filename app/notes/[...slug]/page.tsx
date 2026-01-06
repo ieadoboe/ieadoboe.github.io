@@ -83,7 +83,7 @@ export default async function NotePage({
                       <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
                         <div className="relative overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-xl">
                           <ImageLightbox
-                            src={note.cover_image}
+                            src={note.cover_image.src}
                             alt={note.cover_image_alt || note.title}
                             className="w-full h-auto [&_img]:!shadow-none [&_img]:!rounded-none"
                             width={1200}
@@ -156,7 +156,7 @@ export default async function NotePage({
                           tags: note.tags,
                           category: note.category,
                           reading_time: note.reading_time,
-                          cover_image: note.cover_image,
+                          cover_image: note.cover_image?.src,
                         }}
                         allPosts={notes
                           .filter((n) => n.published)
@@ -168,7 +168,7 @@ export default async function NotePage({
                             tags: n.tags,
                             category: n.category,
                             reading_time: n.reading_time,
-                            cover_image: n.cover_image,
+                            cover_image: n.cover_image?.src,
                           }))}
                         contentType="notes"
                       />

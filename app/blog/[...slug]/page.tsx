@@ -83,7 +83,7 @@ export default async function BlogPage({
                       <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
                         <div className="relative overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-xl">
                           <ImageLightbox
-                            src={post.cover_image}
+                            src={post.cover_image.src}
                             alt={post.cover_image_alt || post.title}
                             className="w-full h-auto [&_img]:!shadow-none [&_img]:!rounded-none"
                             width={1200}
@@ -156,7 +156,7 @@ export default async function BlogPage({
                           tags: post.tags,
                           category: post.category,
                           reading_time: post.reading_time,
-                          cover_image: post.cover_image,
+                          cover_image: post.cover_image?.src,
                         }}
                         allPosts={posts
                           .filter((p) => p.published)
@@ -168,7 +168,7 @@ export default async function BlogPage({
                             tags: p.tags,
                             category: p.category,
                             reading_time: p.reading_time,
-                            cover_image: p.cover_image,
+                            cover_image: p.cover_image?.src,
                           }))}
                       />
                     </div>
