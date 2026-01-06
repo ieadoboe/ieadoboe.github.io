@@ -34,7 +34,7 @@ const posts = defineCollection({
       published: s.boolean().default(true),
 
       // Featured image
-      cover_image: s.string().optional(),
+      cover_image: s.image().optional(),
       cover_image_alt: s.string().optional(),
 
       // Author and categorization
@@ -65,7 +65,7 @@ const notes = defineCollection({
       published: s.boolean().default(true),
 
       // Featured image
-      cover_image: s.string().optional(),
+      cover_image: s.image().optional(),
       cover_image_alt: s.string().optional(),
 
       // Author and categorization
