@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Callout } from "@/app/components/mdx-callout";
 import { CenteredImage } from "@/app/components/mdx-centered-image";
+import { Pre } from "@/app/components/mdx-pre";
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
@@ -14,6 +15,7 @@ const components = {
   Link,
   Callout,
   CenteredImage,
+  pre: Pre,
 };
 
 interface MDXProps {

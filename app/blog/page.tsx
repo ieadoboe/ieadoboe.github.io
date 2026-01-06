@@ -67,7 +67,7 @@ export default function BlogPage() {
                             variants={staggerContainer}
                           >
                             {sortedPosts.map((post) => {
-                              const { slug, title, date, description } = post;
+                              const { slug, title, date, description, tags, category, reading_time } = post;
                               return (
                                 <motion.li key={slug} variants={fadeInUp}>
                                   <PostItem
@@ -75,6 +75,9 @@ export default function BlogPage() {
                                     date={date}
                                     title={title}
                                     description={description || ""}
+                                    tags={tags}
+                                    category={category}
+                                    reading_time={reading_time}
                                   />
                                 </motion.li>
                               );

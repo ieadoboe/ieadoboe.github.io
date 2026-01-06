@@ -6,9 +6,19 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 
-const computedFields = <T extends { slug: string }>(data: T) => ({
+// Calculate reading time based on word count
+// Average reading speed: 200-250 words per minute
+function calculateReadingTime(content: string): string {
+  const wordsPerMinute = 225;
+  const wordCount = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
+  return `${minutes} min read`;
+}
+
+const computedFields = <T extends { slug: string; body: string }>(data: T) => ({
   ...data,
   slugAsParams: data.slug.split("/").slice(1).join("/"),
+  reading_time: calculateReadingTime(data.body),
 });
 
 const posts = defineCollection({
@@ -22,21 +32,20 @@ const posts = defineCollection({
       description: s.string().max(999).optional(),
       date: s.isodate(),
       published: s.boolean().default(true),
-      
+
       // Featured image
       cover_image: s.string().optional(),
       cover_image_alt: s.string().optional(),
-      
+
       // Author and categorization
       author: s.string().default("Isaac Adoboe"),
       tags: s.array(s.string()).optional(),
       category: s.string().optional(),
-      
+
       // SEO fields
       seo_title: s.string().optional(),
       keywords: s.array(s.string()).optional(),
-      reading_time: s.string().optional(),
-      
+
       // Content
       body: s.mdx(),
     })
@@ -57,7 +66,15 @@ export default defineConfig({
     remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { theme: "github-dark" }],
+      [
+        rehypePrettyCode,
+        {
+          theme: {
+            dark: "github-dark-dimmed",
+            light: "github-light",
+          },
+        },
+      ],
       [
         rehypeAutolinkHeadings,
         {

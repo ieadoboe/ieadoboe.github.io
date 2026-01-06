@@ -1,5 +1,27 @@
+/* Code block dual theme support */
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: #fafafa;
+  /* background-color: var(--shiki-light-bg); */
+}
+
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+/* Code block container */
 [data-rehype-pretty-code-figure] pre {
-  @apply px-0;
+  @apply px-0 py-4 rounded-xl overflow-x-auto;
+  @apply border border-zinc-200;
+  /* margin: 0 !important; */
+  padding: 0 !important;
+}
+
+.dark [data-rehype-pretty-code-figure] pre {
+  @apply border-zinc-700;
 }
 
 [data-rehype-pretty-code-figure] code {
@@ -38,9 +60,9 @@
 }
 
 .subheading-anchor::after {
-  content: "🔗"; 
-  opacity: 0; 
-  @apply ml-2; 
+  content: "🔗";
+  opacity: 0;
+  @apply ml-2;
   transition: opacity 0.3s ease;
 }
 

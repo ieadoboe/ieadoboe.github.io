@@ -146,15 +146,8 @@ collections:
           field: { label: "Keyword", name: "keyword", widget: "string" },
         }
 
-      - {
-          label: "Reading Time",
-          name: "reading_time",
-          widget: "string",
-          required: false,
-          hint: "Estimated reading time (e.g., '5 min read'). Can be auto-calculated later.",
-        }
-
       # Content
+      # Note: Reading time is automatically calculated based on word count
       - {
           label: "Body",
           name: "body",
