@@ -42,3 +42,8 @@ next-env.d.ts
 
 # velite files
 .velite
+
+# rendercv: rendered output, private tailored resumes, private notes
+cv/rendercv_output/
+cv/resumes/
+cv/notes/

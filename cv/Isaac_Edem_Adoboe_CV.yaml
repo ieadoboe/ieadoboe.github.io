@@ -1,0 +1,280 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+#
+# MASTER CV: the single source of truth for all achievements.
+# Add every new achievement here as it happens. Keep alternate bullet
+# versions (tailored for different role types) as comments next to the
+# entry they belong to, so nothing is ever lost.
+#
+# To tailor a resume for a role: copy this file into resumes/<role>/,
+# trim and reorder, then render. See README.md for the workflow.
+cv:
+  name: Isaac Edem Adoboe
+  headline:
+  location:
+  email: ikeadoboe1@gmail.com
+  photo:
+  phone: +1-709-853-2427
+  website: https://ieadoboe.github.io
+  social_networks:
+    - network: LinkedIn
+      username: isaacedemadoboe
+    - network: GitHub
+      username: ieadoboe
+  custom_connections:
+  sections:
+    education:
+      - institution: Memorial University of Newfoundland
+        area: Scientific Computing
+        degree: Master of Science
+        date:
+        start_date: 2025-09
+        end_date: present
+        location: St. John's, NL
+        summary: 'Thesis-based program focusing on physics-informed machine learning and optimization methods for computational science applications. Building on coursework-intensive Data Science foundation.'
+        highlights:
+          - 'Thesis: extreme heatwave storylines with differentiable climate models (NeuralGCM), via gradient-based optimization of atmospheric initial conditions'
+          - 'Research interests: surrogate modeling, inverse problems, physics-informed neural networks'
+      - institution: Memorial University of Newfoundland
+        area: 'Data Science; GPA: 4.0; Fellow of the School of Graduate Studies'
+        degree: Masters
+        date:
+        start_date: 2024-09
+        end_date: 2025-08
+        location: St. John's, NL
+        summary:
+        highlights:
+          # - 'GPA: 4.0/4.0'
+          # - 'Awards: Fellow of the School of Graduate Studies'
+      - institution: Kwame Nkrumah University of Science and Technology
+        area: 'Electrical Engineering; GPA: 3.55/4.0'
+        degree: 'Bachelor of Science'
+        date:
+        start_date: 2017-09
+        end_date: 2021-09
+        location: Kumasi, Ghana
+        summary:
+        highlights:
+          # - 'GPA: 3.55/4.0'
+
+    projects:
+      - name: 'MSc Thesis Research: Extreme Heatwave Storylines with Differentiable Climate Models'
+        date:
+        start_date: 2026-03
+        end_date: present
+        location:
+        summary: Thesis research extending a published framework for constructing extreme heatwave storylines with differentiable climate models (Whittaker & Di Luca, 2026), using NeuralGCM and gradient-based optimization of atmospheric initial conditions.
+        highlights:
+          - 'Developed a modular Python research package (data, model, optimization, ensemble, evaluation, and plotting modules) in JAX with a reproducible experiment pipeline over ARCO-ERA5 reanalysis data (xarray, Zarr, Google Cloud Storage).'
+          - 'Ran NeuralGCM lead-time sensitivity and ensemble hit-rate experiments on the August 2025 St. John''s heatwave to establish the lead time at which forecast skill for the event emerges.'
+          - 'Built a multi-event heatwave atlas spanning 7 historical events across Köppen climate zones, including Moscow 2010, Pacific Northwest 2021, Japan 2018, Siberia 2020, Brazil 2023, and Sahel 2024.'
+      - name: 'Surrogate-Based Optimization for Molecular Configurations'
+        date: Spring 2025
+        start_date: 2025-01
+        end_date: 2025-08
+        location:
+        summary: Developed machine learning surrogates to replace expensive quantum chemistry calculations in protein-carbohydrate binding energy predictions, accelerating optimization
+        highlights:
+          - "Formulated surrogate modeling problem in 16-dimensional molecular configuration space. Trained 4 ML models (Random Forest, XGBoost, MLP, SVR) on 740 DFT-computed samples with 80/20 cross-validation and hyperparameter optimization."
+          - "Implemented global optimization using Differential Evolution with trained surrogates as objective function approximations. Achieved speedup over direct quantum chemistry calculations while maintaining prediction accuracy for binding energy landscapes."
+          - "Validated surrogate predictions against ground-truth DFT calculations. Analyzed model uncertainty quantification and explored multi-fidelity modeling approaches."
+          # - '**Surrogate Modeling:** Developed 5 surrogate models (Random Forest, XGBoost, MERF, MLP, SVR) achieving 0.5 kcal/mol RMSE on SAPT energy predictions, reducing computational cost by 1000x compared to direct quantum chemistry calculations while maintaining chemical accuracy.'
+          # - '**Global Optimization:** Implemented 3 optimization algorithms (L-BFGS-B, Differential Evolution, Bayesian Optimization) in factorial experimental design across 24 molecular pairs. Conducted 3,600 optimization experiments (3.6M surrogate evaluations) comparing surrogate-optimizer performance.'
+          # - '**Feature Engineering:** Applied preprocessing pipeline for 16D mixed continuous-categorical input space (6 geometric features + 10 binary encoding). Implemented one-hot encoding for categorical variables and standardization for continuous features to improve model convergence.'
+      - name: 'Fault Detection in Induction Motors using Deep Learning [*BlogPost*](https://ieadoboe.github.io/blog/fault-detection-in-induction-motors/motor-faults)'
+        date: 'Jan - Aug 2021'
+        start_date: 2021-01
+        end_date: 2021-08
+        location:
+        summary: Developed CNN architecture for induction motor fault classification by extracting physics-informed features from current and vibration signals via time-frequency analysis.
+        highlights:
+          - "Designed signal processing pipeline converting raw sensor data into physics-informed spectrograms using Continuous Wavelet Transform (CWT). Extracted time-frequency representations capturing electromechanical fault signatures from 1,500 data points across 5 fault conditions."
+          - "Built custom CNN (4 Conv2D layers, 64 filters) achieving 61.4% multi-class accuracy on motor fault classification using TensorFlow/Keras. Implemented data augmentation strategies to address limited experimental dataset constraints."
+          - "Analyzed model interpretability by visualizing learned feature maps and correlating them with known physical fault mechanisms (bearing degradation, winding failures, phase imbalances)."
+          # - '**Deep Learning Architecture:** Developed convolutional neural network achieving 61.4% multi-class classification accuracy on motor fault dataset (bearing faults, rotor faults, stator faults). Trained for 20 epochs using TensorFlow/Keras with Adam optimizer.'
+          # - '**Signal Processing:** Processed motor current signals into 2D time-frequency spectrograms using Fast Fourier Transform (FFT) and short-time Fourier transform (STFT). Applied data augmentation (rotation, scaling, noise injection) to improve model generalization with limited training samples.'
+          # - '**Research Delivery:** Presented thesis findings to faculty evaluation panel, demonstrating technical communication skills. Documented complete methodology, experimental results, and recommendations for industrial deployment of fault detection system.'
+      - name: 'Fine-Tuned CodeGen Model [*GitHub*](https://github.com/ieadoboe/ai-code-autocompletion)'
+        date: Winter 2025
+        start_date: 2025-01
+        end_date: 2025-04
+        location:
+        summary: Fine-tuned transformer-based CodeGen-350M on CodeSearchNet Python corpus using HuggingFace Transformers. Optimized training with GPU acceleration and evaluated using BLEU, CodeBLEU metrics for code completion quality.
+        highlights:
+          - "Trained on 2,700 samples (300 validation) with GPU acceleration. Implemented learning rate scheduling, warmup steps, and mixed-precision training for efficient convergence. Evaluated using BLEU and CodeBLEU metrics"
+          # - '**Model Fine-Tuning:** Fine-tuned transformer-based CodeGen-350M model on CodeSearchNet Python corpus using HuggingFace Transformers. Developed preprocessing pipeline handling programming language syntax and abstract syntax tree (AST) structure for improved code understanding.'
+          # - '**Training Optimization:** Optimized training hyperparameters (learning rate scheduling, batch size, warmup steps) using GPU acceleration. Implemented gradient accumulation and mixed-precision training to handle large batch sizes within memory constraints.'
+          # - '**Evaluation Framework:** Implemented comprehensive evaluation metrics (BLEU, CodeBLEU, exact-match accuracy) to quantify code completion quality. Conducted ablation studies comparing different model sizes and training configurations.'
+
+    experience:
+      - company: Center for Analytics, Informatics, and Research (CAIR), Memorial University
+        position: Data Center Intern
+        date:
+        start_date: 2026-02
+        end_date: present
+        location: St. John's, NL
+        summary: AI and software development internship at Memorial's Research Data Centre, a research and innovation hub in partnership with IBM, building and deploying LLM-powered applications for university service teams and industry clients.
+        highlights:
+          # Client project under IP agreement: client name and domain withheld here.
+          # The named version lives in cv/notes/cair-internship-log.md (gitignored).
+          - '**AI Adaptive Training Platform (Industry Client):** Architected and built the full-stack application for an AI-powered adaptive training platform: React/TypeScript SPA, Django backend, and MongoDB case repository, deployed with Docker Compose. Developed LLM-driven content generation with versioned prompts against a CAIR-hosted open-weights model, built an authoring studio with a question bank for subject-matter experts, and implemented beginner-to-advanced adaptive difficulty progression.'
+          - '**RIS Policy & Procedures Chatbot:** Built and deployed an LLM-powered chatbot for Memorial''s Research Initiatives & Services (RIS) team, answering questions grounded in university policies and procedures. Designed the policy-document ingestion pipeline, A/B tested retrieval and prompt configurations, realigned model responses for accuracy, and delivered the production chat UI; demoed to university stakeholders.'
+          - '**RIS Ticketing System:** Developed an internal ticketing web application for the RIS team. Refactored it and the chatbot onto a shared application core, rebuilt the UI/UX with TailwindCSS and Web Awesome, and implemented feature flags to right-size scope to stakeholder needs.'
+          - '**Deployment & Operations:** Containerized both applications (Docker/Podman) and deployed to Linux VMs with admin panel and support-email integration. Managed LLM API key security, debugged inference failures, and ran phased testing from internal team to single external tester to full client-team rollout.'
+          - '**Collaboration & Documentation:** Ran 1-1 requirements sessions with client stakeholders, drove PR-review cycles with the development team, migrated the codebase into the CAIR organization repository, and authored user manuals and technical documentation for both applications.'
+          # Alternates / extra detail (see also cv/notes/cair-internship-log.md, private):
+          # - 'Evaluated Keycloak / zero-trust SSO integration and university-realm (OCI) hosting options with infrastructure stakeholders.'
+          # - 'Scoped an approval-workflow module: digital forms, signature capture, email attachments, and document upload for internal approvals.'
+          # - 'Coordinated phased feature rollout after stakeholder feedback: scaled features down for an internal-use-only release behind feature flags.'
+      - company: Newmont Mining Corporation
+        position: Technology Portfolio Support Analyst
+        # This CV is authoritative (confirmed July 2026): promotion story, 900+ users,
+        # end date Jul 2024. LinkedIn is OUT OF DATE (shows a single "Information
+        # Technology Support Analyst" title, 600+ users, Jun 2024) and should be
+        # updated to match this entry.
+        date:
+        start_date: 2021-11
+        end_date: 2024-07
+        location: Akyem Mine, Ghana
+        summary: Promoted from End User Support Analyst (Aug 2022) to Technology Portfolio Support Analyst. Transitioned from frontline technical support to infrastructure development and data automation projects supporting 900+ users across mining operations.
+        highlights:
+          - '**Data Automation & Analytics (2023-2024):** Built Python-based reporting pipeline automating Lenel security system data extraction and transformation for finance/HR stakeholders (Power BI dashboards). Replaced manual processes with scheduled delivery reducing turnaround from days to hours.'
+          - '**Infrastructure Deployment (2023-2024):** Coordinated 8+ major IT infrastructure projects including LIMS modernization, workforce management systems, and mining software deployments (MineSight, Deswik). Bridged technical requirements between vendor solutions and operational needs.'
+          - '**Technical Operations Support (2021-2022):** Provided frontline technical support achieving 90% first-contact resolution. Built foundational expertise in enterprise systems, Azure cloud infrastructure, and mining-specific software platforms.'
+          ####### For IT Project Manager Roles
+          # - '**IT Infrastructure Projects:** Coordinated cross-functional teams supporting 8+ major IT deployments including LIMS modernization (laboratory information management system), security system upgrades (Lenel), workforce management implementation (UKG), workstation transformation (hardware refresh), data center upgrades, AV infrastructure (Cisco/MS Teams), and mobile workforce management (iPad mWorkOrder). Participated in OPEX/CAPEX budget planning for technology investments.'
+          # - '**Reporting Automation:** Developed automated reports from Lenel security systems data for finance and HR via Python and Power BI, scheduled for delivery at set times and replacing manual data collection processes.'
+          # - '**Technical Support:** Achieved 95% first-contact resolution rate providing tier-1 and tier-2 support for 900+ users across enterprise software (MS Office, Webex) and mining applications (MineSight, Deswik, Vulcan, Jigsaw, LIMS).'
+          # - '**User Adoption & Training:** Championed user engagement initiatives for IT infrastructure deployments, coordinating between IT/OT teams and operations to ensure seamless technology adoption. Conducted training sessions and developed troubleshooting documentation for technical systems.'
+          ####### From LinkedIn (frontline support era)
+          # - 'Provided timely technical support to 600+ onsite end users, resolving hardware, software, and network issues with minimal disruption to operations.'
+          # - 'As a ServiceNow superuser, leveraged data analysis to identify opportunities for streamlining processes, reducing costs, and enhancing user experience and operational efficiency.'
+          # - 'Spearheaded the Workstation Transformation Project, ensuring seamless deployment of new computers and mobile devices in adherence to internal policies for standardized software and security configurations.'
+          # - 'Led installation and setup of Mining and Processing applications following the hardware refresh, enabling users to swiftly resume essential tasks.'
+          # - 'Delivered Talk-to-the-Customer user training sessions, equipping employees to leverage the company''s technology infrastructure and software applications.'
+      - company: Envision Digital Signage Network
+        position: Web Developer
+        date:
+        start_date: 2021-02
+        end_date: 2022-12
+        location: Kumasi, Ghana (Remote)
+        summary: Part-time remote web development role begun during final year of undergraduate studies, designing, developing, and supporting the company's main website and React-based applications
+        highlights:
+          - '**Web Application:** Developed responsive React application for digital signage management, contributing to 100% sales growth. Reduced page load times by 40% through code splitting and performance optimization.'
+          - '**Component Architecture:** Created reusable component libraries (dashboards, data visualizations, forms) using React Context API and custom hooks.'
+          - '**APIs, Backend & SEO:** Integrated third-party APIs and built backend functionality with SQL databases and JavaScript libraries. Implemented responsive design and search engine optimization to increase visibility and attract clients.'
+          ####### From LinkedIn (full bullet bank)
+          # - 'Designed, developed, and provided ongoing support for the company''s main website, establishing a strong online presence and streamlining the contract signing process.'
+          # - 'Conducted thorough testing and debugging to ensure a seamless user experience across devices and browsers.'
+      - company: Global Startup Ecosystem (GSE)
+        position: Intern, Ghana Career Program 2021 Cohort
+        date:
+        start_date: 2021-03
+        end_date: 2021-07
+        location: Remote
+        summary: Career development program fostering entrepreneurship in Ghana, combining mentorship, training, and networking with hands-on project work
+        highlights:
+          - 'Collaborated remotely on social media design projects, ensuring consistent branding and high-quality visuals aligned with GSE''s target audience and brand identity.'
+          - 'Managed and analyzed program data in Excel; received mentorship on startup funding, essential skills, and navigating the startup ecosystem.'
+      - company: Fredmef Group Limited
+        position: Electrical and Electronic Engineering Intern
+        date:
+        start_date: 2020-09
+        end_date: 2020-12
+        location: Accra, Ghana
+        summary: Engineering internship supporting building projects, from site drawings to client and logistics coordination
+        highlights:
+          - 'Reviewed and corrected site drawings for 4 buildings using AutoCAD.'
+          - 'Coordinated with clients, supply, and logistics teams to make provisions for new and existing projects; organized project information in Excel for analysis and research.'
+      - company: Volta River Authority
+        position: Electrical Engineering Intern
+        date:
+        start_date: 2020-05
+        end_date: 2020-08
+        location: Akosombo, Ghana
+        summary: Summer internship supporting high-voltage electrical distribution systems for national power infrastructure
+        highlights:
+          - '**High-Voltage Systems:** Assisted maintenance and troubleshooting of 161kV and 330kV transmission lines ensuring continuous power delivery. Participated in preventive maintenance scheduling and fault analysis.'
+          - '**Power Distribution Analysis:** Processed load flow data and voltage profiles for distribution optimization studies, identifying system improvements and efficiency opportunities.'
+
+    skills:
+      - label: Scientific Computing & Optimization
+        details: Numerical optimization (SciPy, Differential Evolution), surrogate modeling, physics-informed ML, inverse problems, differentiable climate modeling (NeuralGCM, JAX)
+      - label: Machine Learning Frameworks
+        details: TensorFlow, Keras, PyTorch, scikit-learn, model uncertainty quantification
+      - label: Programming & Numerical Methods
+        details: Python (NumPy, SciPy, pandas, xarray, matplotlib), MATLAB, Git/GitHub, high-performance computing (Jupyter, Compute Canada), Bash scripting
+      - label: Signal Processing & Analysis
+        details: Time-frequency analysis (CWT), spectral methods, sensor data processing, multi-modal data integration
+      - label: Software Engineering & Deployment
+        details: LLM/RAG application development, full-stack web development (React/TypeScript, Django, TailwindCSS), MongoDB, containerization (Docker, Podman), Linux VM deployment, Git/GitHub PR workflows
+      - label: Domain Expertise
+        details: Climate modeling and atmospheric physics, Computational physics, molecular modeling, electromechanical systems, hybrid physics-ML methods, data-driven modeling
+
+design:
+  theme: engineeringresumes
+  page:
+    show_top_note: false
+  # All other options below are the engineeringresumes defaults.
+  # Uncomment and edit to customize. Full reference:
+  # https://docs.rendercv.com/user_guide/structure_of_the_yaml_input_file/
+  # page:
+  #   size: us-letter
+  #   top_margin: 0.7in
+  #   bottom_margin: 0.7in
+  #   left_margin: 0.7in
+  #   right_margin: 0.7in
+  #   show_footer: false
+  # colors:
+  #   body: rgb(0, 0, 0)
+  #   name: rgb(0, 0, 0)
+  #   connections: rgb(0, 0, 0)
+  #   section_titles: rgb(0, 0, 0)
+  #   links: rgb(0, 0, 0)
+  # typography:
+  #   line_spacing: 0.6em
+  #   alignment: justified
+  #   date_and_location_column_alignment: right
+  #   font_family:
+  #     body: XCharter
+  #   font_size:
+  #     body: 10pt
+  #     name: 25pt
+  #     section_titles: 1.2em
+  # links:
+  #   underline: true
+  #   show_external_link_icon: false
+  # header:
+  #   alignment: center
+  #   space_below_name: 0.7cm
+  #   space_below_connections: 0.7cm
+  #   connections:
+  #     phone_number_format: national
+  #     hyperlink: true
+  #     show_icons: false
+  #     display_urls_instead_of_usernames: true
+  #     separator: '|'
+  # section_titles:
+  #   type: with_full_line
+  #   line_thickness: 0.5pt
+  #   space_above: 0.5cm
+  #   space_below: 0.3cm
+  # sections:
+  #   allow_page_break: true
+  #   space_between_regular_entries: 0.42cm
+  #   space_between_text_based_entries: 0.15cm
+  #   show_time_spans_in: []
+  # entries:
+  #   date_and_location_width: 4.15cm
+  #   allow_page_break: false
+  #   highlights:
+  #     bullet: ●
+  #     space_between_items: 0.08cm
+locale:
+  language: english
+settings:
+  current_date: today
+  render_command:
+    output_folder: rendercv_output
+    dont_generate_html: true
+  bold_keywords: []
+  pdf_title: Isaac Edem Adoboe - CV
