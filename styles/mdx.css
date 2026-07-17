@@ -74,7 +74,7 @@ code[data-theme*=" "] span {
 .prose > p:first-of-type::first-letter {
   @apply float-left text-6xl sm:text-8xl font-bold leading-none mr-2 mt-1;
   @apply bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent;
-  font-family: var(--font-zodiak), Georgia, serif;
+  font-family: Georgia, serif;
   line-height: 0.8;
 }
 
@@ -93,7 +93,7 @@ code[data-theme*=" "] span {
 .prose blockquote::before {
   content: '"';
   @apply absolute -left-2 -top-2 text-6xl text-teal-500/20 dark:text-teal-400/20;
-  font-family: var(--font-zodiak), Georgia, serif;
+  font-family: Georgia, serif;
   line-height: 1;
 }
 

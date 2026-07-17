@@ -2,31 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-display font-normal tracking-wide;
-  }
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-/* Bebas Neue ships a single weight; defeat font-bold utilities on headings
-   so browsers don't synthesize a fake bold. */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400 !important;
 }
 
 .dark {

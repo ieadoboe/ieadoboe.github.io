@@ -15,10 +15,6 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      fontFamily: {
-        display: ["var(--font-bebas)", "Impact", "sans-serif"],
-        body: ["var(--font-zodiak)", "Georgia", "serif"],
-      },
       typography: {
         DEFAULT: {
           css: {

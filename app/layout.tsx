@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import "@/app/globals.css";
 import Navbar from "@/app/components/site-header";
 import Footer from "@/app/components/site-footer";
@@ -7,26 +6,6 @@ import { siteConfig } from "@/config/site";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import StructuredData from "@/app/components/structured-data";
 import { ThemeProvider } from "@/app/components/theme-provider";
-
-// Fontshare pairing: Bebas Neue for headings, Zodiak for body text
-const bebasNeue = localFont({
-  src: "../assets/fonts/BebasNeue-Regular.woff2",
-  weight: "400",
-  style: "normal",
-  display: "swap",
-  variable: "--font-bebas",
-});
-
-const zodiak = localFont({
-  src: [
-    { path: "../assets/fonts/Zodiak-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../assets/fonts/Zodiak-Italic.woff2", weight: "400", style: "italic" },
-    { path: "../assets/fonts/Zodiak-Bold.woff2", weight: "700", style: "normal" },
-    { path: "../assets/fonts/Zodiak-BoldItalic.woff2", weight: "700", style: "italic" },
-  ],
-  display: "swap",
-  variable: "--font-zodiak",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -103,10 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`scroll-behavior-smooth scroll-pt-[4.5rem] ${bebasNeue.variable} ${zodiak.variable}`}
-    >
+    <html lang="en" className="scroll-behavior-smooth scroll-pt-[4.5rem]">
       <head>
         <meta name="apple-mobile-web-app-title" content="IsaacA." />
         {/* <meta name="theme-color" content="#14B8A6" /> */}
@@ -134,7 +110,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-body antialiased`}
+        className={`flex h-full bg-zinc-0 dark:bg-zinc-900 font-sans antialiased`}
         suppressHydrationWarning={true}
       >
         <ThemeProvider>
