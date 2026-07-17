@@ -7,8 +7,6 @@ import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { Icons } from "./site-icons";
 import { motion } from "framer-motion";
-import { NewsletterProvider } from "./newsletter-popup";
-import JoinNewsletter from "./newsletter-join";
 import MobileMenu from "./mobile-menu"; // Import the new component
 import ThemeToggle from "./theme-toggle"; // Import the ThemeToggle component
 
@@ -258,12 +256,17 @@ const Navbar = () => {
                 </ul>
               </div>
 
-              {/* Newsletter (Desktop) */}
+              {/* Resume (Desktop) */}
               <div className="hidden lg:flex items-center space-x-3">
                 <ThemeToggle />
-                <NewsletterProvider>
-                  <JoinNewsletter />
-                </NewsletterProvider>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition"
+                >
+                  Resume
+                </a>
               </div>
 
               {/* Hamburger Menu Button */}

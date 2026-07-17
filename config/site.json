@@ -1,12 +1,13 @@
 {
-  "name": "Isaac Adoboe - Computational Scientist",
-  "url": "https://ieadoboe.github.io",
-  "description": "Computational scientist building physics-informed machine learning systems. 🌍",
   "author": "Isaac Edem Adoboe",
+  "description": "Computational scientist building physics-informed machine learning systems. 🌍",
   "links": {
-    "twitter": "https://twitter.com/ieadoboe",
+    "email": "mailto:ikeadoboe1@gmail.com",
     "github": "https://github.com/ieadoboe",
-    "vsco": "https://vsco.co/meetbeezy",
-    "linkedin": "https://www.linkedin.com/in/isaacedemadoboe"
-  }
+    "linkedin": "https://www.linkedin.com/in/isaacedemadoboe",
+    "twitter": "https://twitter.com/ieadoboe",
+    "vsco": "https://vsco.co/meetbeezy"
+  },
+  "name": "Isaac Adoboe - Computational Scientist",
+  "url": "https://ieadoboe.github.io"
 }

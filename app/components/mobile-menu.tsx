@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icons } from "./site-icons";
-import { NewsletterProvider } from "./newsletter-popup";
-import JoinNewsletter from "./newsletter-join";
 import logo from "../../public/logo.png";
 
 // Define type for navigation items (can be shared or redefined if preferred)
@@ -203,11 +201,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               </ul>
             </nav>
 
-            {/* Newsletter (Mobile) */}
+            {/* Resume (Mobile) */}
             <div className="p-4 mt-auto border-t border-zinc-200 dark:border-zinc-700">
-              <NewsletterProvider>
-                <JoinNewsletter />
-              </NewsletterProvider>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex font-semibold text-sm rounded-full px-4 py-2 bg-teal-500 text-white hover:bg-teal-600 transition"
+              >
+                Resume
+              </a>
             </div>
           </motion.div>
         </>

@@ -5,7 +5,7 @@ import PrimaryButton from "@/app/components/primary-button";
 import SecondaryButton from "@/app/components/secondary-button";
 // import AccentButton from "@/app/components/accent-button";
 import LatestPostItem from "@/app/components/latest-post-item";
-import NewsletterForm from "@/app/components/newsletter-form";
+import ContactCard from "@/app/components/contact-card";
 import WorkExperience from "@/app/components/work-experience";
 import EducationHistory from "@/app/components/education-history";
 import { Icons } from "@/app/components/site-icons";
@@ -168,7 +168,7 @@ export default function Home() {
                     >
                       {/* Animate each component within the right column */}
                       <motion.div variants={fadeInUp}>
-                        <NewsletterForm />
+                        <ContactCard />
                       </motion.div>
                       <motion.div variants={fadeInUp}>
                         <EducationHistory />

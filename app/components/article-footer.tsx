@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NewsletterForm from "./newsletter-form";
+import ContactCard from "./contact-card";
 import RelatedPosts from "./related-posts";
 
 interface ArticleFooterProps {
@@ -85,22 +85,12 @@ export default function ArticleFooter({
         contentType={contentType}
       />
 
-      {/* Newsletter Signup */}
-      <section className="mt-12 sm:mt-16">
-        <div className="rounded-2xl py-8 sm:py-10">
-          <div className=" text-left mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-zinc-800 dark:text-zinc-100 mb-3">
-              Don&apos;t miss the next post
-            </h3>
-            <p className="text-base text-zinc-600 dark:text-zinc-300">
-              Subscribe to get notified when I publish new articles. No spam,
-              unsubscribe anytime.
-            </p>
-          </div>
-          <div className="mx-auto">
-            <NewsletterForm />
-          </div>
-        </div>
+      {/* Contact CTA */}
+      <section className="mt-12 sm:mt-16 mb-12">
+        <ContactCard
+          title="Enjoyed this post?"
+          description="I'd love to hear your thoughts. Reach out by email or connect with me on LinkedIn."
+        />
       </section>
 
       {/* Back to Blog/Notes Navigation */}
