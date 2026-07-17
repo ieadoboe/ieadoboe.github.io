@@ -1,6 +1,16 @@
 # Reimagined Umbrella - My Personal Website
 
-Welcome to my personal website project, built with [Next.js](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), and [Velite](https://velite.js.org/). This site serves as a portfolio to showcase my projects, blog posts, and articles, all while leveraging modern web development tools.
+Welcome to my personal website project, built with [Next.js](https://nextjs.org), [TailwindCSS](https://tailwindcss.com/), and [Sanity](https://www.sanity.io/) as the headless CMS. This site serves as a portfolio to showcase my projects, blog posts, and articles, all while leveraging modern web development tools.
+
+## Content Management (Sanity)
+
+All content (blog posts, notes, projects, work experience, education, and page copy) lives in Sanity project `bt9eskrx`, dataset `production`.
+
+- **Edit content**: https://ieadoboe.sanity.studio/ (post and note bodies are Markdown with GFM, KaTeX math, and fenced code blocks)
+- **Content flow**: `scripts/pull-content.mjs` runs before every dev/build (`predev`/`prebuild` hooks and a CI step). It fetches published documents, compiles Markdown bodies with the same remark/rehype pipeline as before, and writes `.velite/*.json`, `data/siteContent.json`, and `config/site.json`. The site itself stays fully static.
+- **Local dev**: `npm run dev` (pulls latest content first; re-run `npm run pull-content` to refresh mid-session)
+- **Publishing**: pushing to `main` rebuilds and deploys. To make Studio publishes rebuild the site automatically, add a Sanity webhook (Manage > API > Webhooks) that POSTs to the GitHub API `repository_dispatch` endpoint with event type `sanity-rebuild` (requires a GitHub personal access token with `repo` scope in the webhook's Authorization header).
+- The one-time migration from the old MDX files is preserved in `scripts/migrate-to-sanity.mjs`; the old `content/` directory is an inert archive.
 
 ## Getting Started
 

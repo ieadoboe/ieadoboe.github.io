@@ -12,6 +12,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Triggered by the Sanity webhook when content is published
+  repository_dispatch:
+    types: [sanity-rebuild]
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -73,10 +77,9 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Pull content from Sanity
+        run: node scripts/pull-content.mjs
       - name: Build with Next.js
-        env:
-            BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-            BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
